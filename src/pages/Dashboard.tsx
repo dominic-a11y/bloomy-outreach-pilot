@@ -74,7 +74,7 @@ export default function Dashboard() {
         {topCards.map((card) => (
           <Card key={card.title} className="bg-gradient-card border-border shadow-card hover:shadow-glow transition-all">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-foreground/80">
+              <CardTitle className="text-sm font-medium text-white/80">
                 {card.title}
               </CardTitle>
               <card.icon className={`h-5 w-5 ${card.color}`} />
@@ -84,7 +84,7 @@ export default function Dashboard() {
               <div className="flex items-center gap-1 text-xs">
                 <TrendingUp className="h-3 w-3 text-green-400" />
                 <span className="text-green-400">{card.change}</span>
-                <span className="text-foreground/60">from last month</span>
+                <span className="text-white/60">from last month</span>
               </div>
             </CardContent>
           </Card>
@@ -169,7 +169,7 @@ export default function Dashboard() {
                 </div>
                 <div className="flex-1">
                   <p className="text-sm font-medium text-white">{activity.message}</p>
-                  <p className="text-xs text-foreground/60">{activity.time}</p>
+                  <p className="text-xs text-white/60">{activity.time}</p>
                 </div>
                 <Badge variant="outline" className="text-xs">
                   {activity.type}
@@ -189,7 +189,7 @@ export default function Dashboard() {
           <CardContent className="space-y-4">
             <div className="text-center">
               <div className="text-3xl font-bold text-white">24</div>
-              <p className="text-sm text-foreground/80">Accounts online</p>
+              <p className="text-sm text-white/80">Accounts online</p>
             </div>
             <Separator />
             <div className="space-y-2">
