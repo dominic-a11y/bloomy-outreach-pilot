@@ -5,98 +5,70 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  Grid3X3,
-  List,
-  Plus,
-  Search,
-  Filter,
-  MoreHorizontal,
-  Users,
-  Clock,
-  TrendingUp,
-  Play,
-  Pause,
-  Eye,
-  Edit
-} from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Grid3X3, List, Plus, Search, Filter, MoreHorizontal, Users, Clock, TrendingUp, Play, Pause, Eye, Edit } from "lucide-react";
 
 // Sample campaign data
-const campaigns = [
-  {
-    id: 1,
-    name: "SaaS Founders Q4",
-    status: "active",
-    targetListSize: 2847,
-    accountsAttached: 8,
-    sendWindow: "9:00 AM - 5:00 PM EST",
-    warmupStatus: "complete",
-    todayProgress: { sent: 124, target: 150 },
-    replyRate: 18.5,
-    booked: 12
+const campaigns = [{
+  id: 1,
+  name: "SaaS Founders Q4",
+  status: "active",
+  targetListSize: 2847,
+  accountsAttached: 8,
+  sendWindow: "9:00 AM - 5:00 PM EST",
+  warmupStatus: "complete",
+  todayProgress: {
+    sent: 124,
+    target: 150
   },
-  {
-    id: 2,
-    name: "E-commerce CEOs",
-    status: "paused",
-    targetListSize: 1523,
-    accountsAttached: 5,
-    sendWindow: "10:00 AM - 6:00 PM PST",
-    warmupStatus: "warming",
-    todayProgress: { sent: 0, target: 80 },
-    replyRate: 22.1,
-    booked: 8
+  replyRate: 18.5,
+  booked: 12
+}, {
+  id: 2,
+  name: "E-commerce CEOs",
+  status: "paused",
+  targetListSize: 1523,
+  accountsAttached: 5,
+  sendWindow: "10:00 AM - 6:00 PM PST",
+  warmupStatus: "warming",
+  todayProgress: {
+    sent: 0,
+    target: 80
   },
-  {
-    id: 3,
-    name: "Tech Startup Leads",
-    status: "draft",
-    targetListSize: 945,
-    accountsAttached: 3,
-    sendWindow: "8:00 AM - 4:00 PM EST",
-    warmupStatus: "pending",
-    todayProgress: { sent: 0, target: 60 },
-    replyRate: 0,
-    booked: 0
-  }
-];
-
+  replyRate: 22.1,
+  booked: 8
+}, {
+  id: 3,
+  name: "Tech Startup Leads",
+  status: "draft",
+  targetListSize: 945,
+  accountsAttached: 3,
+  sendWindow: "8:00 AM - 4:00 PM EST",
+  warmupStatus: "pending",
+  todayProgress: {
+    sent: 0,
+    target: 60
+  },
+  replyRate: 0,
+  booked: 0
+}];
 const statusColors = {
   active: "status-healthy",
   paused: "status-warning",
   draft: "status-muted",
   completed: "status-blocked"
 };
-
 const warmupColors = {
   complete: "status-healthy",
   warming: "status-warming",
   pending: "status-checkpoint"
 };
-
 export default function Campaigns() {
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredCampaigns = campaigns.filter(campaign =>
-    campaign.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  return (
-    <div className="p-6 space-y-6">
+  const filteredCampaigns = campaigns.filter(campaign => campaign.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  return <div className="p-6 space-y-6">
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
@@ -114,12 +86,7 @@ export default function Campaigns() {
         <div className="flex gap-4 items-center flex-1">
           <div className="relative flex-1 max-w-md">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Search campaigns..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 bg-muted/50 border-border"
-            />
+            <Input placeholder="Search campaigns..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="pl-10 bg-muted/50 border-border" />
           </div>
           
           <Select>
@@ -137,32 +104,22 @@ export default function Campaigns() {
         </div>
 
         <div className="flex gap-2">
-          <Button
-            variant={viewMode === "grid" ? "default" : "outline"}
-            size="sm"
-            onClick={() => setViewMode("grid")}
-          >
+          <Button variant={viewMode === "grid" ? "default" : "outline"} size="sm" onClick={() => setViewMode("grid")}>
             <Grid3X3 className="h-4 w-4" />
           </Button>
-          <Button
-            variant={viewMode === "table" ? "default" : "outline"}
-            size="sm"
-            onClick={() => setViewMode("table")}
-          >
+          <Button variant={viewMode === "table" ? "default" : "outline"} size="sm" onClick={() => setViewMode("table")}>
             <List className="h-4 w-4" />
           </Button>
         </div>
       </div>
 
       {/* Campaign Grid View */}
-      {viewMode === "grid" && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCampaigns.map((campaign) => (
-            <Card key={campaign.id} className="bg-gradient-card border-border shadow-card hover:shadow-glow transition-all group">
+      {viewMode === "grid" && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredCampaigns.map(campaign => <Card key={campaign.id} className="bg-gradient-card border-border shadow-card hover:shadow-glow transition-all group">
               <CardHeader className="pb-3">
                 <div className="flex justify-between items-start">
                   <div>
-                    <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                    <CardTitle className="text-lg transition-colors text-slate-50">
                       {campaign.name}
                     </CardTitle>
                     <div className="flex gap-2 mt-2">
@@ -190,17 +147,13 @@ export default function Campaigns() {
                         Edit Campaign
                       </DropdownMenuItem>
                       <DropdownMenuItem>
-                        {campaign.status === "active" ? (
-                          <>
+                        {campaign.status === "active" ? <>
                             <Pause className="h-4 w-4 mr-2" />
                             Pause Campaign
-                          </>
-                        ) : (
-                          <>
+                          </> : <>
                             <Play className="h-4 w-4 mr-2" />
                             Start Campaign
-                          </>
-                        )}
+                          </>}
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -228,10 +181,7 @@ export default function Campaigns() {
                       {campaign.todayProgress.sent}/{campaign.todayProgress.target}
                     </span>
                   </div>
-                  <Progress 
-                    value={(campaign.todayProgress.sent / campaign.todayProgress.target) * 100} 
-                    className="h-2"
-                  />
+                  <Progress value={campaign.todayProgress.sent / campaign.todayProgress.target * 100} className="h-2" />
                 </div>
 
                 <div className="flex justify-between items-center text-sm">
@@ -252,14 +202,11 @@ export default function Campaigns() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
-          ))}
-        </div>
-      )}
+            </Card>)}
+        </div>}
 
       {/* Campaign Table View */}
-      {viewMode === "table" && (
-        <Card className="bg-gradient-card border-border shadow-card">
+      {viewMode === "table" && <Card className="bg-gradient-card border-border shadow-card">
           <CardContent className="p-0">
             <div className="overflow-x-auto">
               <table className="w-full">
@@ -275,8 +222,7 @@ export default function Campaigns() {
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredCampaigns.map((campaign) => (
-                    <tr key={campaign.id} className="border-b border-border hover:bg-muted/50 transition-colors">
+                  {filteredCampaigns.map(campaign => <tr key={campaign.id} className="border-b border-border hover:bg-muted/50 transition-colors">
                       <td className="p-4">
                         <div>
                           <div className="font-medium">{campaign.name}</div>
@@ -308,10 +254,7 @@ export default function Campaigns() {
                           <div className="text-xs mb-1">
                             {campaign.todayProgress.sent}/{campaign.todayProgress.target}
                           </div>
-                          <Progress 
-                            value={(campaign.todayProgress.sent / campaign.todayProgress.target) * 100} 
-                            className="h-1"
-                          />
+                          <Progress value={campaign.todayProgress.sent / campaign.todayProgress.target * 100} className="h-1" />
                         </div>
                       </td>
                       <td className="p-4">
@@ -337,29 +280,22 @@ export default function Campaigns() {
                               Edit Campaign
                             </DropdownMenuItem>
                             <DropdownMenuItem>
-                              {campaign.status === "active" ? (
-                                <>
+                              {campaign.status === "active" ? <>
                                   <Pause className="h-4 w-4 mr-2" />
                                   Pause Campaign
-                                </>
-                              ) : (
-                                <>
+                                </> : <>
                                   <Play className="h-4 w-4 mr-2" />
                                   Start Campaign
-                                </>
-                              )}
+                                </>}
                             </DropdownMenuItem>
                           </DropdownMenuContent>
                         </DropdownMenu>
                       </td>
-                    </tr>
-                  ))}
+                    </tr>)}
                 </tbody>
               </table>
             </div>
           </CardContent>
-        </Card>
-      )}
-    </div>
-  );
+        </Card>}
+    </div>;
 }
