@@ -137,8 +137,8 @@ export default function Accounts() {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-white">Accounts</h1>
-          <p className="text-gray-300">Manage your Instagram accounts and monitor their health.</p>
+          <h1 className="text-3xl font-bold">Accounts</h1>
+          <p className="text-muted-foreground">Manage your Instagram accounts and monitor their health.</p>
         </div>
         <Button className="gap-2 bg-primary hover:bg-primary/90 shadow-glow">
           <Plus className="h-4 w-4" />
@@ -227,8 +227,8 @@ export default function Accounts() {
                         </AvatarFallback>
                       </Avatar>
                       <div>
-                        <div className="font-medium text-white">{account.handle}</div>
-                        <div className="text-xs text-gray-400">
+                        <div className="font-medium">{account.handle}</div>
+                        <div className="text-xs text-muted-foreground">
                           {account.followers.toLocaleString()} followers
                         </div>
                       </div>
@@ -246,11 +246,11 @@ export default function Accounts() {
                     </div>
                   </TableCell>
                   <TableCell>
-                    <div className="text-sm font-medium text-white">{account.dailyLimit}</div>
+                    <div className="text-sm font-medium">{account.dailyLimit}</div>
                   </TableCell>
                   <TableCell>
                     <div className="flex items-center gap-2">
-                      <div className="text-sm font-medium text-white">{account.todaySent}</div>
+                      <div className="text-sm font-medium">{account.todaySent}</div>
                       <div className="w-16 bg-muted rounded-full h-1">
                         <div 
                           className="bg-primary h-1 rounded-full" 
@@ -262,12 +262,12 @@ export default function Accounts() {
                   <TableCell>
                     <div className="flex items-center gap-1">
                       <Inbox className="h-3 w-3 text-muted-foreground" />
-                      <span className="text-sm font-medium text-white">{account.inboxUnread}</span>
+                      <span className="text-sm font-medium">{account.inboxUnread}</span>
                     </div>
                   </TableCell>
                   <TableCell>
-                    <div className="flex items-center gap-1 text-sm text-white">
-                      <Clock className="h-3 w-3 text-gray-400" />
+                    <div className="flex items-center gap-1 text-sm">
+                      <Clock className="h-3 w-3 text-muted-foreground" />
                       {account.nextAction}
                     </div>
                   </TableCell>
@@ -296,43 +296,43 @@ export default function Accounts() {
                         
                         <div className="mt-6 space-y-6">
                           <div>
-                            <h4 className="font-medium mb-3 text-white">Profile Overview</h4>
+                            <h4 className="font-medium mb-3">Profile Overview</h4>
                             <div className="space-y-2">
                               <div className="flex justify-between">
                                 <span className="text-muted-foreground">Followers</span>
-                                <span className="font-medium text-white">{account.followers.toLocaleString()}</span>
+                                <span className="font-medium">{account.followers.toLocaleString()}</span>
                               </div>
                               <div className="flex justify-between">
                                 <span className="text-muted-foreground">Following</span>
-                                <span className="font-medium text-white">{account.following.toLocaleString()}</span>
+                                <span className="font-medium">{account.following.toLocaleString()}</span>
                               </div>
                               <div className="flex justify-between">
                                 <span className="text-muted-foreground">Proxy</span>
-                                <span className="font-medium text-white">{account.proxyLabel}</span>
+                                <span className="font-medium">{account.proxyLabel}</span>
                               </div>
                             </div>
                           </div>
 
                           <div>
-                            <h4 className="font-medium mb-3 text-white">Today's Activity</h4>
+                            <h4 className="font-medium mb-3">Today's Activity</h4>
                             <div className="space-y-2">
                               <div className="flex justify-between">
                                 <span className="text-muted-foreground">Messages Sent</span>
-                                <span className="font-medium text-white">{account.todaySent}/{account.dailyLimit}</span>
+                                <span className="font-medium">{account.todaySent}/{account.dailyLimit}</span>
                               </div>
                               <div className="flex justify-between">
                                 <span className="text-muted-foreground">Unread Messages</span>
-                                <span className="font-medium text-white">{account.inboxUnread}</span>
+                                <span className="font-medium">{account.inboxUnread}</span>
                               </div>
                               <div className="flex justify-between">
                                 <span className="text-muted-foreground">Next Action</span>
-                                <span className="font-medium text-white">{account.nextAction}</span>
+                                <span className="font-medium">{account.nextAction}</span>
                               </div>
                             </div>
                           </div>
 
                           <div>
-                            <h4 className="font-medium mb-3 text-white">Actions</h4>
+                            <h4 className="font-medium mb-3">Actions</h4>
                             <div className="space-y-2">
                               <Button className="w-full justify-start gap-2" variant="outline">
                                 <Send className="h-4 w-4" />

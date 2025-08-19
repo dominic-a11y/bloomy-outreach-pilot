@@ -72,8 +72,8 @@ export default function Campaigns() {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-white">Campaigns</h1>
-          <p className="text-gray-300">Manage your outreach campaigns and track performance.</p>
+          <h1 className="text-3xl font-bold">Campaigns</h1>
+          <p className="text-muted-foreground">Manage your outreach campaigns and track performance.</p>
         </div>
         <Button className="gap-2 bg-primary hover:bg-primary/90 shadow-glow">
           <Plus className="h-4 w-4" />
@@ -119,7 +119,7 @@ export default function Campaigns() {
               <CardHeader className="pb-3">
                 <div className="flex justify-between items-start">
                   <div>
-                    <CardTitle className="text-lg transition-colors text-white">
+                    <CardTitle className="text-lg transition-colors text-slate-50">
                       {campaign.name}
                     </CardTitle>
                     <div className="flex gap-2 mt-2">
@@ -162,22 +162,22 @@ export default function Campaigns() {
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <div className="text-gray-400">Target List</div>
-                    <div className="font-medium flex items-center gap-1 text-white">
+                    <div className="text-muted-foreground">Target List</div>
+                    <div className="font-medium flex items-center gap-1">
                       <Users className="h-3 w-3" />
                       {campaign.targetListSize.toLocaleString()}
                     </div>
                   </div>
                   <div>
-                    <div className="text-gray-400">Accounts</div>
-                    <div className="font-medium text-white">{campaign.accountsAttached}</div>
+                    <div className="text-muted-foreground">Accounts</div>
+                    <div className="font-medium">{campaign.accountsAttached}</div>
                   </div>
                 </div>
 
                 <div>
                   <div className="flex justify-between text-sm mb-2">
-                    <span className="text-gray-400">Today's Progress</span>
-                    <span className="font-medium text-white">
+                    <span className="text-muted-foreground">Today's Progress</span>
+                    <span className="font-medium">
                       {campaign.todayProgress.sent}/{campaign.todayProgress.target}
                     </span>
                   </div>
@@ -186,11 +186,11 @@ export default function Campaigns() {
 
                 <div className="flex justify-between items-center text-sm">
                   <div>
-                    <div className="text-gray-400">Reply Rate</div>
+                    <div className="text-muted-foreground">Reply Rate</div>
                     <div className="font-medium text-green-400">{campaign.replyRate}%</div>
                   </div>
                   <div>
-                    <div className="text-gray-400">Booked</div>
+                    <div className="text-muted-foreground">Booked</div>
                     <div className="font-medium text-primary">{campaign.booked}</div>
                   </div>
                 </div>
@@ -225,8 +225,8 @@ export default function Campaigns() {
                   {filteredCampaigns.map(campaign => <tr key={campaign.id} className="border-b border-border hover:bg-muted/50 transition-colors">
                       <td className="p-4">
                         <div>
-                          <div className="font-medium text-white">{campaign.name}</div>
-                          <div className="text-sm text-gray-400 flex items-center gap-1">
+                          <div className="font-medium">{campaign.name}</div>
+                          <div className="text-sm text-muted-foreground flex items-center gap-1">
                             <Clock className="h-3 w-3" />
                             {campaign.sendWindow}
                           </div>
@@ -248,10 +248,10 @@ export default function Campaigns() {
                           {campaign.targetListSize.toLocaleString()}
                         </div>
                       </td>
-                      <td className="p-4 text-white">{campaign.accountsAttached}</td>
+                      <td className="p-4">{campaign.accountsAttached}</td>
                       <td className="p-4">
                         <div className="w-20">
-                          <div className="text-xs mb-1 text-white">
+                          <div className="text-xs mb-1">
                             {campaign.todayProgress.sent}/{campaign.todayProgress.target}
                           </div>
                           <Progress value={campaign.todayProgress.sent / campaign.todayProgress.target * 100} className="h-1" />

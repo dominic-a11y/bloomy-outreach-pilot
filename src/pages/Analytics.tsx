@@ -15,8 +15,8 @@ export default function Analytics() {
     <div className="p-6 space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-white">Analytics</h1>
-          <p className="text-gray-300">Track performance and optimize your outreach campaigns.</p>
+          <h1 className="text-3xl font-bold">Analytics</h1>
+          <p className="text-muted-foreground">Track performance and optimize your outreach campaigns.</p>
         </div>
         <Button className="gap-2" variant="outline">
           <Download className="h-4 w-4" />
@@ -26,7 +26,7 @@ export default function Analytics() {
 
       <Card className="bg-gradient-card border-border shadow-card">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-white">
+          <CardTitle className="flex items-center gap-2">
             <BarChart3 className="h-5 w-5 text-primary" />
             Reply Rate Over Time
           </CardTitle>

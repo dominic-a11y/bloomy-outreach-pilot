@@ -8,8 +8,8 @@ export default function Content() {
     <div className="p-6 space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-white">Content Library</h1>
-          <p className="text-gray-300">Manage your templates, media files, and message content.</p>
+          <h1 className="text-3xl font-bold">Content Library</h1>
+          <p className="text-muted-foreground">Manage your templates, media files, and message content.</p>
         </div>
         <Button className="gap-2 bg-primary hover:bg-primary/90 shadow-glow">
           <Plus className="h-4 w-4" />
@@ -26,13 +26,13 @@ export default function Content() {
         {[1,2,3,4,5,6].map((i) => (
           <Card key={i} className="bg-gradient-card border-border shadow-card hover:shadow-glow transition-all">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-base text-white">
+              <CardTitle className="flex items-center gap-2 text-base">
                 <FolderOpen className="h-4 w-4 text-primary" />
                 Template {i}
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-400">Sample message template for outreach campaigns...</p>
+              <p className="text-sm text-muted-foreground">Sample message template for outreach campaigns...</p>
             </CardContent>
           </Card>
         ))}
