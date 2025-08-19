@@ -80,7 +80,7 @@ export default function Dashboard() {
               <card.icon className={`h-5 w-5 ${card.color}`} />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-card-foreground">{card.value}</div>
+              <div className="text-2xl font-bold text-white">{card.value}</div>
               <div className="flex items-center gap-1 text-xs">
                 <TrendingUp className="h-3 w-3 text-green-400" />
                 <span className="text-green-400">{card.change}</span>
@@ -188,7 +188,7 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary">24</div>
+              <div className="text-3xl font-bold text-white">24</div>
               <p className="text-sm text-muted-foreground">Accounts online</p>
             </div>
             <Separator />
