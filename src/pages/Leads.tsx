@@ -113,8 +113,8 @@ export default function Leads() {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold">Leads</h1>
-          <p className="text-muted-foreground">Manage your prospects and track their journey through your funnel.</p>
+          <h1 className="text-3xl font-bold text-white">Leads</h1>
+          <p className="text-gray-300">Manage your prospects and track their journey through your funnel.</p>
         </div>
         <div className="flex gap-2">
           <Button variant="outline" className="gap-2">
@@ -211,9 +211,9 @@ export default function Leads() {
                         </AvatarFallback>
                       </Avatar>
                       <div>
-                        <div className="font-medium">{lead.name}</div>
-                        <div className="text-sm text-muted-foreground">{lead.handle}</div>
-                        <div className="text-xs text-muted-foreground">{lead.company}</div>
+                        <div className="font-medium text-white">{lead.name}</div>
+                        <div className="text-sm text-gray-400">{lead.handle}</div>
+                        <div className="text-xs text-gray-400">{lead.company}</div>
                       </div>
                     </div>
                   </TableCell>
@@ -228,7 +228,7 @@ export default function Leads() {
                     </Badge>
                   </TableCell>
                   <TableCell>
-                    <div className="text-sm">{lead.lastContact}</div>
+                    <div className="text-sm text-white">{lead.lastContact}</div>
                   </TableCell>
                   <TableCell>
                     <div className="flex items-center gap-2">
@@ -244,14 +244,14 @@ export default function Leads() {
                           />
                         ))}
                       </div>
-                      <span className="text-xs text-muted-foreground">{lead.score}</span>
+                      <span className="text-xs text-gray-400">{lead.score}</span>
                     </div>
                   </TableCell>
                   <TableCell>
-                    <div className="text-sm">{lead.owner}</div>
+                    <div className="text-sm text-white">{lead.owner}</div>
                   </TableCell>
                   <TableCell>
-                    <div className="text-sm font-medium">${lead.dealValue.toLocaleString()}</div>
+                    <div className="text-sm font-medium text-white">${lead.dealValue.toLocaleString()}</div>
                   </TableCell>
                   <TableCell>
                     <Sheet>
