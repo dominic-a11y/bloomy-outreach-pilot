@@ -74,7 +74,7 @@ export default function Dashboard() {
         {topCards.map((card) => (
           <Card key={card.title} className="bg-gradient-card border-border shadow-card hover:shadow-glow transition-all">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">
+              <CardTitle className="text-sm font-medium text-gray-300">
                 {card.title}
               </CardTitle>
               <card.icon className={`h-5 w-5 ${card.color}`} />
@@ -95,7 +95,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card className="bg-gradient-card border-border shadow-card">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-white">
               <Activity className="h-5 w-5 text-primary" />
               Instagram DMs by Day
             </CardTitle>
@@ -127,7 +127,7 @@ export default function Dashboard() {
 
         <Card className="bg-gradient-card border-border shadow-card">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-white">
               <MessageSquare className="h-5 w-5 text-primary" />
               Conversations by Day
             </CardTitle>
@@ -156,7 +156,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-2 bg-gradient-card border-border shadow-card">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-white">
               <Activity className="h-5 w-5 text-primary" />
               Recent Activity
             </CardTitle>
@@ -168,8 +168,8 @@ export default function Dashboard() {
                   <activity.icon className="h-4 w-4 text-primary" />
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm font-medium">{activity.message}</p>
-                  <p className="text-xs text-muted-foreground">{activity.time}</p>
+                  <p className="text-sm font-medium text-white">{activity.message}</p>
+                  <p className="text-xs text-gray-400">{activity.time}</p>
                 </div>
                 <Badge variant="outline" className="text-xs">
                   {activity.type}
@@ -181,7 +181,7 @@ export default function Dashboard() {
 
         <Card className="bg-gradient-card border-border shadow-card">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-white">
               <Users className="h-5 w-5 text-primary" />
               Active Accounts
             </CardTitle>
@@ -194,19 +194,19 @@ export default function Dashboard() {
             <Separator />
             <div className="space-y-2">
               <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Healthy</span>
+                <span className="text-gray-300">Healthy</span>
                 <span className="text-green-400 font-medium">18</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Warming</span>
+                <span className="text-gray-300">Warming</span>
                 <span className="text-yellow-400 font-medium">4</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Limited</span>
+                <span className="text-gray-300">Limited</span>
                 <span className="text-orange-400 font-medium">2</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Blocked</span>
+                <span className="text-gray-300">Blocked</span>
                 <span className="text-red-400 font-medium">0</span>
               </div>
             </div>
