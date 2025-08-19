@@ -27,7 +27,7 @@ import {
 } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import bloomyLogo from "@/assets/bloomy-logo.png";
+import bloomyLogo from "/lovable-uploads/6811ecb8-08ed-4c9d-82e8-4d5633eb3a1f.png";
 
 const navigationItems = [
   { title: "Dashboard", url: "/", icon: LayoutDashboard },

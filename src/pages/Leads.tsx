@@ -114,7 +114,7 @@ export default function Leads() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-white">Leads</h1>
-          <p className="text-gray-300">Manage your prospects and track their journey through your funnel.</p>
+          <p className="text-foreground/80">Manage your prospects and track their journey through your funnel.</p>
         </div>
         <div className="flex gap-2">
           <Button variant="outline" className="gap-2">
@@ -132,7 +132,7 @@ export default function Leads() {
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
         <div className="flex gap-4 items-center flex-1">
           <div className="relative flex-1 max-w-md">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-foreground/60" />
             <Input
               placeholder="Search leads..."
               value={searchTerm}
@@ -212,8 +212,8 @@ export default function Leads() {
                       </Avatar>
                       <div>
                         <div className="font-medium text-white">{lead.name}</div>
-                        <div className="text-sm text-gray-400">{lead.handle}</div>
-                        <div className="text-xs text-gray-400">{lead.company}</div>
+                        <div className="text-sm text-foreground/60">{lead.handle}</div>
+                        <div className="text-xs text-foreground/60">{lead.company}</div>
                       </div>
                     </div>
                   </TableCell>
@@ -244,7 +244,7 @@ export default function Leads() {
                           />
                         ))}
                       </div>
-                      <span className="text-xs text-gray-400">{lead.score}</span>
+                      <span className="text-xs text-foreground/60">{lead.score}</span>
                     </div>
                   </TableCell>
                   <TableCell>

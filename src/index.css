@@ -30,15 +30,15 @@
   }
 
   .dark {
-    /* Bloomy dark theme */
-    --background: 240 10% 3.9%;
+    /* Bloomy purple dark theme */
+    --background: 263 70% 8%;
     --foreground: 0 0% 98%;
     
-    --card: 240 10% 7%;
-    --card-foreground: 0 0% 95%;
+    --card: 263 70% 12%;
+    --card-foreground: 0 0% 98%;
     
-    --popover: 240 10% 7%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 263 70% 12%;
+    --popover-foreground: 0 0% 98%;
     
     /* Purple brand primary */
     --primary: 263 70% 50%;
@@ -46,12 +46,12 @@
     --primary-glow: 263 70% 60%;
     
     /* Dark secondary */
-    --secondary: 240 8% 12%;
-    --secondary-foreground: 0 0% 90%;
+    --secondary: 263 70% 16%;
+    --secondary-foreground: 0 0% 98%;
     
     /* Muted grays */
-    --muted: 240 8% 15%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 263 70% 20%;
+    --muted-foreground: 0 0% 75%;
     
     /* Purple accent */
     --accent: 263 70% 50%;
@@ -66,24 +66,24 @@
     --destructive-foreground: 0 0% 98%;
     
     /* Borders and inputs */
-    --border: 240 8% 20%;
-    --input: 240 8% 20%;
+    --border: 263 70% 25%;
+    --input: 263 70% 20%;
     --ring: 263 70% 50%;
     
     /* Sidebar */
-    --sidebar-background: 240 10% 3.9%;
-    --sidebar-foreground: 0 0% 95%;
+    --sidebar-background: 263 70% 8%;
+    --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 263 70% 50%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 8% 12%;
-    --sidebar-accent-foreground: 0 0% 90%;
-    --sidebar-border: 240 8% 20%;
+    --sidebar-accent: 263 70% 16%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 263 70% 25%;
     --sidebar-ring: 263 70% 50%;
     
     /* Custom gradients */
     --gradient-primary: linear-gradient(135deg, hsl(263 70% 50%), hsl(263 70% 60%));
-    --gradient-card: linear-gradient(145deg, hsl(240 10% 7%), hsl(240 8% 12%));
-    --gradient-hero: linear-gradient(135deg, hsl(240 10% 3.9%) 0%, hsl(263 70% 8%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(263 70% 12%), hsl(263 70% 16%));
+    --gradient-hero: linear-gradient(135deg, hsl(263 70% 8%) 0%, hsl(263 70% 12%) 100%);
     
     /* Shadows */
     --shadow-elegant: 0 10px 30px -10px hsl(263 70% 20% / 0.3);

@@ -16,7 +16,7 @@ export default function Analytics() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-white">Analytics</h1>
-          <p className="text-gray-300">Track performance and optimize your outreach campaigns.</p>
+          <p className="text-foreground/80">Track performance and optimize your outreach campaigns.</p>
         </div>
         <Button className="gap-2" variant="outline">
           <Download className="h-4 w-4" />

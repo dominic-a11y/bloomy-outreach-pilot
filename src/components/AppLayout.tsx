@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Badge } from "@/components/ui/badge";
+import bloomyLogo from "/lovable-uploads/6811ecb8-08ed-4c9d-82e8-4d5633eb3a1f.png";
 
 interface AppLayoutProps {
   children: ReactNode;
@@ -48,6 +49,7 @@ export function AppLayout({ children }: AppLayoutProps) {
             <div className="h-full px-6 flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <SidebarTrigger className="h-8 w-8" />
+                <img src={bloomyLogo} alt="Bloomy" className="h-6 w-auto" />
                 
                 <div className="hidden md:block relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -73,10 +75,10 @@ export function AppLayout({ children }: AppLayoutProps) {
                       <span className="hidden md:inline">John Doe</span>
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-56 bg-popover border-border">
-                    <DropdownMenuItem>Profile</DropdownMenuItem>
-                    <DropdownMenuItem>Settings</DropdownMenuItem>
-                    <DropdownMenuItem>Team</DropdownMenuItem>
+                  <DropdownMenuContent align="end" className="w-56 bg-popover border-border text-popover-foreground">
+                    <DropdownMenuItem className="text-popover-foreground">Profile</DropdownMenuItem>
+                    <DropdownMenuItem className="text-popover-foreground">Settings</DropdownMenuItem>
+                    <DropdownMenuItem className="text-popover-foreground">Team</DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem className="text-destructive">Sign out</DropdownMenuItem>
                   </DropdownMenuContent>

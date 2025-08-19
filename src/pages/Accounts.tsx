@@ -138,7 +138,7 @@ export default function Accounts() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-white">Accounts</h1>
-          <p className="text-gray-300">Manage your Instagram accounts and monitor their health.</p>
+          <p className="text-foreground/80">Manage your Instagram accounts and monitor their health.</p>
         </div>
         <Button className="gap-2 bg-primary hover:bg-primary/90 shadow-glow">
           <Plus className="h-4 w-4" />
@@ -150,7 +150,7 @@ export default function Accounts() {
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
         <div className="flex gap-4 items-center flex-1">
           <div className="relative flex-1 max-w-md">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-foreground/60" />
             <Input
               placeholder="Search accounts..."
               value={searchTerm}
@@ -228,7 +228,7 @@ export default function Accounts() {
                       </Avatar>
                       <div>
                         <div className="font-medium text-white">{account.handle}</div>
-                        <div className="text-xs text-gray-400">
+                        <div className="text-xs text-foreground/60">
                           {account.followers.toLocaleString()} followers
                         </div>
                       </div>
@@ -241,7 +241,7 @@ export default function Accounts() {
                   </TableCell>
                   <TableCell>
                     <div className="flex items-center gap-1 text-sm">
-                      <Globe className="h-3 w-3 text-muted-foreground" />
+                      <Globe className="h-3 w-3 text-foreground/60" />
                       {account.proxyLabel}
                     </div>
                   </TableCell>
@@ -261,13 +261,13 @@ export default function Accounts() {
                   </TableCell>
                   <TableCell>
                     <div className="flex items-center gap-1">
-                      <Inbox className="h-3 w-3 text-muted-foreground" />
+                      <Inbox className="h-3 w-3 text-foreground/60" />
                       <span className="text-sm font-medium text-white">{account.inboxUnread}</span>
                     </div>
                   </TableCell>
                   <TableCell>
                     <div className="flex items-center gap-1 text-sm text-white">
-                      <Clock className="h-3 w-3 text-gray-400" />
+                      <Clock className="h-3 w-3 text-foreground/60" />
                       {account.nextAction}
                     </div>
                   </TableCell>
@@ -299,15 +299,15 @@ export default function Accounts() {
                             <h4 className="font-medium mb-3 text-white">Profile Overview</h4>
                             <div className="space-y-2">
                               <div className="flex justify-between">
-                                <span className="text-muted-foreground">Followers</span>
+                                <span className="text-foreground/60">Followers</span>
                                 <span className="font-medium text-white">{account.followers.toLocaleString()}</span>
                               </div>
                               <div className="flex justify-between">
-                                <span className="text-muted-foreground">Following</span>
+                                <span className="text-foreground/60">Following</span>
                                 <span className="font-medium text-white">{account.following.toLocaleString()}</span>
                               </div>
                               <div className="flex justify-between">
-                                <span className="text-muted-foreground">Proxy</span>
+                                <span className="text-foreground/60">Proxy</span>
                                 <span className="font-medium text-white">{account.proxyLabel}</span>
                               </div>
                             </div>
@@ -317,15 +317,15 @@ export default function Accounts() {
                             <h4 className="font-medium mb-3 text-white">Today's Activity</h4>
                             <div className="space-y-2">
                               <div className="flex justify-between">
-                                <span className="text-muted-foreground">Messages Sent</span>
+                                <span className="text-foreground/60">Messages Sent</span>
                                 <span className="font-medium text-white">{account.todaySent}/{account.dailyLimit}</span>
                               </div>
                               <div className="flex justify-between">
-                                <span className="text-muted-foreground">Unread Messages</span>
+                                <span className="text-foreground/60">Unread Messages</span>
                                 <span className="font-medium text-white">{account.inboxUnread}</span>
                               </div>
                               <div className="flex justify-between">
-                                <span className="text-muted-foreground">Next Action</span>
+                                <span className="text-foreground/60">Next Action</span>
                                 <span className="font-medium text-white">{account.nextAction}</span>
                               </div>
                             </div>

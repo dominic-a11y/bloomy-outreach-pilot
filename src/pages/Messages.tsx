@@ -107,7 +107,7 @@ export default function Messages() {
             <Separator className="my-4" />
             
             <div className="space-y-2">
-              <div className="text-sm font-medium text-muted-foreground px-2">Saved Filters</div>
+              <div className="text-sm font-medium text-foreground/80 px-2">Saved Filters</div>
               <Button variant="ghost" size="sm" className="w-full justify-start">
                 <Star className="h-3 w-3 mr-2" />
                 High Priority
@@ -125,7 +125,7 @@ export default function Messages() {
           <CardHeader className="pb-3">
             <div className="flex gap-2">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-foreground/60" />
                 <Input placeholder="Search conversations..." className="pl-10 bg-muted/50 border-border" />
               </div>
               <Button variant="outline" size="sm">
@@ -148,14 +148,14 @@ export default function Messages() {
                         <div className="font-medium text-sm truncate text-white">
                           {conversation.contact}
                         </div>
-                        <div className="text-xs text-muted-foreground">
+                        <div className="text-xs text-foreground/60">
                           {conversation.timestamp}
                         </div>
                       </div>
-                      <div className="text-xs text-gray-400 mb-1">
+                      <div className="text-xs text-foreground/60 mb-1">
                         {conversation.handle}
                       </div>
-                      <div className="text-sm text-gray-300 truncate mb-2">
+                      <div className="text-sm text-foreground/80 truncate mb-2">
                         {conversation.lastMessage}
                       </div>
                       <div className="flex items-center gap-2">
@@ -187,7 +187,7 @@ export default function Messages() {
                   </Avatar>
                   <div>
                     <div className="font-medium text-white">{selectedConversation?.contact}</div>
-                    <div className="text-sm text-gray-400">
+                    <div className="text-sm text-foreground/60">
                       {selectedConversation?.handle} • Online 5 min ago
                     </div>
                   </div>

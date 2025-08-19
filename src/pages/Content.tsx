@@ -9,7 +9,7 @@ export default function Content() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-white">Content Library</h1>
-          <p className="text-gray-300">Manage your templates, media files, and message content.</p>
+          <p className="text-foreground/80">Manage your templates, media files, and message content.</p>
         </div>
         <Button className="gap-2 bg-primary hover:bg-primary/90 shadow-glow">
           <Plus className="h-4 w-4" />
@@ -18,7 +18,7 @@ export default function Content() {
       </div>
 
       <div className="relative max-w-md">
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-foreground/60" />
         <Input placeholder="Search content..." className="pl-10 bg-muted/50 border-border" />
       </div>
 
@@ -32,7 +32,7 @@ export default function Content() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-400">Sample message template for outreach campaigns...</p>
+              <p className="text-sm text-foreground/60">Sample message template for outreach campaigns...</p>
             </CardContent>
           </Card>
         ))}

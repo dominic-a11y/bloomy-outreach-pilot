@@ -8,7 +8,7 @@ export default function Settings() {
     <div className="p-6 space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-white">Settings</h1>
-        <p className="text-gray-300">Configure your organization, users, and integrations.</p>
+        <p className="text-foreground/80">Configure your organization, users, and integrations.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -43,11 +43,11 @@ export default function Settings() {
             <div className="space-y-3">
               <div className="flex justify-between items-center p-2 border rounded">
                 <span className="text-white">john@bloomy.com</span>
-                <span className="text-sm text-muted-foreground">Owner</span>
+                <span className="text-sm text-foreground/60">Owner</span>
               </div>
               <div className="flex justify-between items-center p-2 border rounded">
                 <span className="text-white">jane@bloomy.com</span>
-                <span className="text-sm text-muted-foreground">Manager</span>
+                <span className="text-sm text-foreground/60">Manager</span>
               </div>
             </div>
             <Button className="mt-4 w-full">Invite Member</Button>
