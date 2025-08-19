@@ -116,7 +116,7 @@ export default function Messages() {
         {/* Left Sidebar - Folders */}
         <Card className="w-64 bg-gradient-card border-border shadow-card">
           <CardHeader className="pb-3">
-            <CardTitle className="text-lg">Messages</CardTitle>
+            <CardTitle className="text-lg text-white">Messages</CardTitle>
           </CardHeader>
           <CardContent className="space-y-1">
             {folders.map((folder) => (
@@ -184,17 +184,17 @@ export default function Messages() {
                     </Avatar>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between mb-1">
-                        <div className="font-medium text-sm truncate">
+                        <div className="font-medium text-sm truncate text-white">
                           {conversation.contact}
                         </div>
                         <div className="text-xs text-muted-foreground">
                           {conversation.timestamp}
                         </div>
                       </div>
-                      <div className="text-xs text-muted-foreground mb-1">
+                      <div className="text-xs text-gray-400 mb-1">
                         {conversation.handle}
                       </div>
-                      <div className="text-sm text-muted-foreground truncate mb-2">
+                      <div className="text-sm text-gray-300 truncate mb-2">
                         {conversation.lastMessage}
                       </div>
                       <div className="flex items-center gap-2">
@@ -230,8 +230,8 @@ export default function Messages() {
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <div className="font-medium">{selectedConversation?.contact}</div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="font-medium text-white">{selectedConversation?.contact}</div>
+                    <div className="text-sm text-gray-400">
                       {selectedConversation?.handle} • Online 5 min ago
                     </div>
                   </div>
@@ -283,7 +283,7 @@ export default function Messages() {
                           : "bg-muted"
                       }`}
                     >
-                      <div className="text-sm">{message.content}</div>
+                      <div className="text-sm text-white">{message.content}</div>
                       <div className={`text-xs mt-1 ${
                         message.type === "sent" ? "text-primary-foreground/70" : "text-muted-foreground"
                       }`}>
@@ -314,7 +314,7 @@ export default function Messages() {
               <div className="mb-4 p-3 bg-primary/10 rounded-lg border border-primary/20">
                 <div className="flex items-center gap-2 mb-2">
                   <Bot className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-medium">AI Suggestions</span>
+                  <span className="text-sm font-medium text-white">AI Suggestions</span>
                 </div>
                 <div className="space-y-2">
                   <Button variant="outline" size="sm" className="text-xs h-auto p-2 justify-start">
