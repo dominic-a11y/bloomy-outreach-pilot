@@ -615,9 +615,9 @@ export default function Messages() {
             <CardContent className="p-6 flex flex-col h-full">
               <div className="flex-1 space-y-4 overflow-y-auto">
                 {currentMessages.map(message => <div key={message.id} className={`flex ${message.type === "sent" ? "justify-end" : "justify-start"}`}>
-                    <div className={`max-w-[80%] rounded-lg p-3 ${message.type === "sent" ? "bg-primary text-primary-foreground" : "bg-muted"}`}>
-                      <div className="text-sm text-white bg-slate-50">{message.content}</div>
-                      <div className={`text-xs mt-1 ${message.type === "sent" ? "text-primary-foreground/70" : "text-white/60"}`}>
+                    <div className={`max-w-[80%] rounded-lg p-3 ${message.type === "sent" ? "bg-primary text-white" : "bg-muted text-foreground"}`}>
+                      <div className="text-sm">{message.content}</div>
+                      <div className={`text-xs mt-1 opacity-70`}>
                         {message.timestamp}
                       </div>
                     </div>
