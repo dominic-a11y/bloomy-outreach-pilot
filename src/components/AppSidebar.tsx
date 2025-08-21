@@ -57,9 +57,8 @@ export function AppSidebar() {
   };
   return <Sidebar className="border-r border-border bg-card">
       <SidebarHeader className="p-4 border-b border-border">
-        <div className="flex items-center gap-3">
-          <img src={bloomyLogo} alt="Bloomy" className={`transition-all ${collapsed ? "h-20 w-20" : "h-20 w-auto"}`} />
-          {!collapsed}
+        <div className="flex justify-center items-center">
+          <img src={bloomyLogo} alt="Bloomy" className={`transition-all ${collapsed ? "h-32 w-32" : "h-32 w-auto"}`} />
         </div>
       </SidebarHeader>
 
