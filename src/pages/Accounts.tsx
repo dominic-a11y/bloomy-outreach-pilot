@@ -274,7 +274,7 @@ export default function Accounts() {
                   <TableCell>
                     <Sheet>
                       <SheetTrigger asChild>
-                        <Button variant="ghost" size="sm">
+                        <Button variant="ghost" size="sm" className="text-white">
                           <Eye className="h-4 w-4" />
                         </Button>
                       </SheetTrigger>
