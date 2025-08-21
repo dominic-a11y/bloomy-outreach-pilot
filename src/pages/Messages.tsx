@@ -484,8 +484,8 @@ export default function Messages() {
             <CardTitle className="text-lg text-white">Messages</CardTitle>
           </CardHeader>
           <CardContent className="space-y-1">
-            {folders.map(folder => <Button key={folder.name} variant={folder.active ? "default" : "ghost"} className="w-full justify-between" size="sm">
-                <span>{folder.name}</span>
+            {folders.map(folder => <Button key={folder.name} variant={folder.active ? "default" : "ghost"} className="w-full justify-between text-white" size="sm">
+                <span className="text-white">{folder.name}</span>
                 <Badge variant="outline" className="text-xs">
                   {folder.count}
                 </Badge>
