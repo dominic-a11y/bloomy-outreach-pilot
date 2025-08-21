@@ -539,7 +539,7 @@ export default function Messages() {
                           {conversation.timestamp}
                         </div>
                       </div>
-                      <div className="text-xs text-foreground/60 mb-1">
+                      <div className="text-xs text-white mb-1">
                         {conversation.handle}
                       </div>
                       <div className="text-sm text-foreground/80 truncate mb-2">
