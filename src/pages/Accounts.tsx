@@ -267,7 +267,7 @@ export default function Accounts() {
                   </TableCell>
                   <TableCell>
                     <div className="flex items-center gap-1 text-sm text-white">
-                      <Clock className="h-3 w-3 text-foreground/60" />
+                      <Clock className="h-3 w-3 text-white" />
                       {account.nextAction}
                     </div>
                   </TableCell>
