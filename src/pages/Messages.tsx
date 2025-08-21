@@ -10,57 +10,448 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Inbox, Search, Filter, Send, Paperclip, Smile, Clock, Star, Archive, MoreHorizontal, Bot, User, MessageSquare, Eye } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-// Sample conversations data
-const conversations = [{
-  id: 1,
-  contact: "Sarah Johnson",
-  handle: "@sarah_johnson",
-  lastMessage: "Thanks for reaching out! I'm definitely interested...",
-  timestamp: "2 min ago",
-  unread: true,
-  campaign: "SaaS Founders Q4",
-  priority: "high",
-  avatar: "/api/placeholder/40/40"
-}, {
-  id: 2,
-  contact: "Mike Chen",
-  handle: "@mike_chen_dev",
-  lastMessage: "Can you send me more details about pricing?",
-  timestamp: "1 hour ago",
-  unread: true,
-  campaign: "Tech Startup Leads",
-  priority: "medium",
-  avatar: "/api/placeholder/40/40"
-}, {
-  id: 3,
-  contact: "Emily Rodriguez",
-  handle: "@emily_marketing",
-  lastMessage: "Not interested at this time, thanks.",
-  timestamp: "3 hours ago",
-  unread: false,
-  campaign: "E-commerce CEOs",
-  priority: "low",
-  avatar: "/api/placeholder/40/40"
-}];
-const messages = [{
-  id: 1,
-  type: "received",
-  content: "Thanks for reaching out! I'm definitely interested in learning more about your platform. Could you send me some details about pricing and features?",
-  timestamp: "2:34 PM",
-  sender: "Sarah Johnson"
-}, {
-  id: 2,
-  type: "sent",
-  content: "Hi Sarah! Thanks for your interest. I'd love to show you how Bloomy can help automate your Instagram outreach and boost your conversion rates. Would you be available for a quick 15-minute demo this week?",
-  timestamp: "2:30 PM",
-  sender: "You"
-}, {
-  id: 3,
-  type: "received",
-  content: "Hey! I noticed you're working on scaling your SaaS business. I've been helping companies like yours automate their outreach with great results.",
-  timestamp: "Yesterday 4:15 PM",
-  sender: "Sarah Johnson"
-}];
+// Demo conversations data - Realistic outreach scenarios
+const conversations = [
+  {
+    id: 1,
+    contact: "Sarah Chen",
+    role: "CEO",
+    company: "TechFlow SaaS",
+    handle: "@sarahchen_techflow",
+    lastMessage: "Perfect, here's my Calendly: calendly.com/sarah-chen/15min",
+    timestamp: "2 min ago",
+    unread: true,
+    campaign: "SaaS Founders Q4",
+    priority: "high",
+    outcome: "booked_call",
+    avatar: "/api/placeholder/40/40"
+  },
+  {
+    id: 2,
+    contact: "Marcus Johnson",
+    role: "Marketing Director",
+    company: "Urban Lifestyle",
+    handle: "@marcus_urban",
+    lastMessage: "Already working with an agency, but thanks for reaching out",
+    timestamp: "1 hour ago",
+    unread: false,
+    campaign: "E-commerce Brands",
+    priority: "low",
+    outcome: "objection",
+    avatar: "/api/placeholder/40/40"
+  },
+  {
+    id: 3,
+    contact: "Priya Patel",
+    role: "Founder",
+    company: "MindfuI Coach",
+    handle: "@priya_mindful",
+    lastMessage: "Sounds interesting! Can you send me some case studies first?",
+    timestamp: "3 hours ago",
+    unread: true,
+    campaign: "Coaching Business",
+    priority: "medium",
+    outcome: "interested",
+    avatar: "/api/placeholder/40/40"
+  },
+  {
+    id: 4,
+    contact: "Ahmed Al-Rashid",
+    role: "Agency Owner",
+    company: "Digital Growth Co",
+    handle: "@ahmed_dgc",
+    lastMessage: "Currently at capacity, maybe revisit in Q2?",
+    timestamp: "5 hours ago",
+    unread: false,
+    campaign: "Marketing Agencies",
+    priority: "medium",
+    outcome: "delay",
+    avatar: "/api/placeholder/40/40"
+  },
+  {
+    id: 5,
+    contact: "Lisa Wang",
+    role: "E-commerce Director",
+    company: "StyleForward",
+    handle: "@lisa_styleforward",
+    lastMessage: "Too expensive for us right now, sorry",
+    timestamp: "1 day ago",
+    unread: false,
+    campaign: "Fashion Brands",
+    priority: "low",
+    outcome: "price_objection",
+    avatar: "/api/placeholder/40/40"
+  },
+  {
+    id: 6,
+    contact: "Carlos Rodriguez",
+    role: "Startup Founder",
+    company: "FoodieApp",
+    handle: "@carlos_foodie",
+    lastMessage: "Let's schedule for next Tuesday if you have time",
+    timestamp: "1 day ago",
+    unread: true,
+    campaign: "Food Tech Startups",
+    priority: "high",
+    outcome: "booked_call",
+    avatar: "/api/placeholder/40/40"
+  },
+  {
+    id: 7,
+    contact: "Jennifer Kim",
+    role: "Growth Marketing Lead",
+    company: "FinanceFlow",
+    handle: "@jen_financeflow",
+    lastMessage: "Not the right fit for us atm",
+    timestamp: "2 days ago",
+    unread: false,
+    campaign: "FinTech Companies",
+    priority: "low",
+    outcome: "not_fit",
+    avatar: "/api/placeholder/40/40"
+  },
+  {
+    id: 8,
+    contact: "David Thompson",
+    role: "CEO",
+    company: "BuildTech Solutions",
+    handle: "@david_buildtech",
+    lastMessage: "This looks promising. What's your success rate?",
+    timestamp: "2 days ago",
+    unread: true,
+    campaign: "B2B Services",
+    priority: "medium",
+    outcome: "interested",
+    avatar: "/api/placeholder/40/40"
+  },
+  {
+    id: 9,
+    contact: "Ana Sofia Gutierrez",
+    role: "Brand Manager",
+    company: "Eco Essentials",
+    handle: "@ana_ecoessentials",
+    lastMessage: "Definitely interested! When can we chat?",
+    timestamp: "3 days ago",
+    unread: true,
+    campaign: "Sustainable Brands",
+    priority: "high",
+    outcome: "booked_call",
+    avatar: "/api/placeholder/40/40"
+  },
+  {
+    id: 10,
+    contact: "Raj Singh",
+    role: "Co-founder",
+    company: "CloudSync Pro",
+    handle: "@raj_cloudsync",
+    lastMessage: "We handle our own marketing internally",
+    timestamp: "3 days ago",
+    unread: false,
+    campaign: "SaaS Founders Q4",
+    priority: "low",
+    outcome: "internal_team",
+    avatar: "/api/placeholder/40/40"
+  },
+  {
+    id: 11,
+    contact: "Emma Nielsen",
+    role: "Creative Director",
+    company: "Nordic Design Studio",
+    handle: "@emma_nordic",
+    lastMessage: "Looks great but we're bootstrapped rn. Maybe later?",
+    timestamp: "4 days ago",
+    unread: false,
+    campaign: "Creative Agencies",
+    priority: "medium",
+    outcome: "budget_constraints",
+    avatar: "/api/placeholder/40/40"
+  },
+  {
+    id: 12,
+    contact: "Tyler Brooks",
+    role: "Performance Marketing Manager",
+    company: "FitGear Pro",
+    handle: "@tyler_fitgear",
+    lastMessage: "Can you walk me through the ROI projections?",
+    timestamp: "5 days ago",
+    unread: true,
+    campaign: "Fitness Brands",
+    priority: "medium",
+    outcome: "needs_info",
+    avatar: "/api/placeholder/40/40"
+  }
+];
+
+// Conversation message threads mapped by conversation ID
+const conversationMessages = {
+  1: [ // Sarah Chen - SaaS CEO (Booked Call)
+    {
+      id: 1,
+      type: "sent",
+      content: "Hi Sarah! Noticed TechFlow is scaling fast on LinkedIn. We've been helping SaaS teams cut CAC by 30% with structured paid social campaigns. Would you be open to a 10-min chat this week?",
+      timestamp: "Yesterday 3:15 PM",
+      sender: "You"
+    },
+    {
+      id: 2,
+      type: "received",
+      content: "Thanks for reaching out! We do run some ads but honestly our ROAS has been pretty inconsistent. What kind of results have you seen with other SaaS companies?",
+      timestamp: "Yesterday 4:22 PM",
+      sender: "Sarah Chen"
+    },
+    {
+      id: 3,
+      type: "sent",
+      content: "Great question! Just last month we helped CloudStrike reduce their ad spend by $40k while increasing qualified leads by 60%. The key was restructuring their funnel and targeting. Want me to send over the case study?",
+      timestamp: "Yesterday 4:45 PM",
+      sender: "You"
+    },
+    {
+      id: 4,
+      type: "received",
+      content: "Yes please! And honestly a quick call would be great too. I'm always looking for ways to optimize our growth channels.",
+      timestamp: "Today 9:30 AM",
+      sender: "Sarah Chen"
+    },
+    {
+      id: 5,
+      type: "sent",
+      content: "Awesome! I'll send the case study right after this. For the call, I have slots Friday afternoon or Monday morning. Which works better for you?",
+      timestamp: "Today 10:15 AM",
+      sender: "You"
+    },
+    {
+      id: 6,
+      type: "received",
+      content: "Perfect, here's my Calendly: calendly.com/sarah-chen/15min",
+      timestamp: "Today 2:34 PM",
+      sender: "Sarah Chen"
+    }
+  ],
+  2: [ // Marcus Johnson - Marketing Director (Objection)
+    {
+      id: 1,
+      type: "sent",
+      content: "Hey Marcus! Love what Urban Lifestyle is doing with sustainable fashion. Saw your recent post about scaling challenges - we specialize in helping lifestyle brands optimize their paid social to reduce customer acquisition costs. Quick question: what's your biggest bottleneck in customer acquisition right now?",
+      timestamp: "2 days ago 11:30 AM",
+      sender: "You"
+    },
+    {
+      id: 2,
+      type: "received",
+      content: "Thanks for the message! Our main challenge is definitely cost efficiency. We're spending quite a bit on Meta ads but the CPAs keep climbing.",
+      timestamp: "2 days ago 2:15 PM",
+      sender: "Marcus Johnson"
+    },
+    {
+      id: 3,
+      type: "sent",
+      content: "Totally understand - that's exactly what we solve. We recently helped a similar fashion brand cut their CPA by 45% while scaling to 7-figures. Would love to show you the strategy - do you have 15 minutes this week?",
+      timestamp: "2 days ago 3:30 PM",
+      sender: "You"
+    },
+    {
+      id: 4,
+      type: "received",
+      content: "I appreciate the offer, but we're actually working with an agency already. They've been with us for 8 months now.",
+      timestamp: "Yesterday 10:45 AM",
+      sender: "Marcus Johnson"
+    },
+    {
+      id: 5,
+      type: "sent",
+      content: "No worries at all! If you ever want a second opinion or audit of your current setup, happy to provide some insights. Sometimes a fresh perspective can unlock new growth opportunities.",
+      timestamp: "Yesterday 11:30 AM",
+      sender: "You"
+    },
+    {
+      id: 6,
+      type: "received",
+      content: "Already working with an agency, but thanks for reaching out",
+      timestamp: "1 hour ago",
+      sender: "Marcus Johnson"
+    }
+  ],
+  3: [ // Priya Patel - Coach (Interested)
+    {
+      id: 1,
+      type: "sent",
+      content: "Hi Priya! Been following your mindfulness content - really powerful stuff 🙏 I help coaches like you automate client acquisition through targeted social campaigns. Many of our coaching clients see 3-5x more discovery calls within 60 days. Would love to share how we do it!",
+      timestamp: "4 days ago 9:15 AM",
+      sender: "You"
+    },
+    {
+      id: 2,
+      type: "received",
+      content: "Thank you! That sounds exactly like what I need. I've been trying to scale beyond word-of-mouth but haven't had much luck with online advertising. What kind of coaching businesses do you usually work with?",
+      timestamp: "4 days ago 1:20 PM",
+      sender: "Priya Patel"
+    },
+    {
+      id: 3,
+      type: "sent",
+      content: "We work with all types - life coaches, business coaches, health coaches. The approach is similar: we create content that positions you as the expert and drives warm leads to book calls. One mindfulness coach we worked with went from 2 calls/week to 15+ calls/week.",
+      timestamp: "4 days ago 2:45 PM",
+      sender: "You"
+    },
+    {
+      id: 4,
+      type: "received",
+      content: "That's incredible! I'm definitely interested in learning more. Do you have any case studies or examples you could share?",
+      timestamp: "3 days ago 4:30 PM",
+      sender: "Priya Patel"
+    },
+    {
+      id: 5,
+      type: "sent",
+      content: "Absolutely! I'll send over a detailed case study of another mindfulness coach who scaled from $8k to $25k/month in 90 days. Plus some examples of the content strategy we used. Should I email it to you?",
+      timestamp: "3 days ago 5:15 PM",
+      sender: "You"
+    },
+    {
+      id: 6,
+      type: "received",
+      content: "Sounds interesting! Can you send me some case studies first?",
+      timestamp: "3 hours ago",
+      sender: "Priya Patel"
+    }
+  ],
+  4: [ // Ahmed Al-Rashid - Agency Owner (Delay)
+    {
+      id: 1,
+      type: "sent",
+      content: "Hey Ahmed! Saw Digital Growth Co is absolutely crushing it with client results. We help agencies like yours add an extra revenue stream with white-label social media management. Are you currently at capacity or looking to expand services?",
+      timestamp: "1 week ago 2:30 PM",
+      sender: "You"
+    },
+    {
+      id: 2,
+      type: "received",
+      content: "Thanks for reaching out! We're definitely at capacity right now. Our team is swamped with current clients. What exactly does the white-label offering include?",
+      timestamp: "6 days ago 4:45 PM",
+      sender: "Ahmed Al-Rashid"
+    },
+    {
+      id: 3,
+      type: "sent",
+      content: "Perfect timing actually! Our white-label program handles the entire social media execution while you maintain client relationships. We've helped agencies increase revenue by 40-60% without hiring additional staff. Many start small with 2-3 clients.",
+      timestamp: "6 days ago 5:20 PM",
+      sender: "You"
+    },
+    {
+      id: 4,
+      type: "received",
+      content: "Interesting concept. We might have bandwidth issues until Q2 though. How does the pricing work?",
+      timestamp: "5 days ago 11:15 AM",
+      sender: "Ahmed Al-Rashid"
+    },
+    {
+      id: 5,
+      type: "sent",
+      content: "Totally understand the timing! Our pricing is per-client, so it scales with your capacity. Would it make sense to revisit this conversation in March? I can send you some case studies to review when you have more bandwidth.",
+      timestamp: "5 days ago 12:30 PM",
+      sender: "You"
+    },
+    {
+      id: 6,
+      type: "received",
+      content: "Currently at capacity, maybe revisit in Q2?",
+      timestamp: "5 hours ago",
+      sender: "Ahmed Al-Rashid"
+    }
+  ],
+  6: [ // Carlos Rodriguez - Startup Founder (Booked Call)
+    {
+      id: 1,
+      type: "sent",
+      content: "Hey Carlos! FoodieApp looks amazing - love the local restaurant discovery feature. Noticed you're growing fast, we help food tech startups scale user acquisition through targeted social campaigns. Mind if I ask what your biggest growth challenge is right now?",
+      timestamp: "3 days ago 10:00 AM",
+      sender: "You"
+    },
+    {
+      id: 2,
+      type: "received",
+      content: "Hey! Thanks for checking out the app 😊 Our biggest challenge is definitely user acquisition cost. We're getting users but the LTV:CAC ratio isn't where we need it to be for our next funding round.",
+      timestamp: "3 days ago 2:30 PM",
+      sender: "Carlos Rodriguez"
+    },
+    {
+      id: 3,
+      type: "sent",
+      content: "That's exactly what we specialize in! We recently helped another food delivery app improve their LTV:CAC from 2.1 to 4.8 in just 90 days. The secret was restructuring their targeting and creative strategy. Would you be interested in seeing how we did it?",
+      timestamp: "3 days ago 3:15 PM",
+      sender: "You"
+    },
+    {
+      id: 4,
+      type: "received",
+      content: "Wow, that's a huge improvement! Yes, I'd definitely be interested. We're always looking for ways to optimize our growth metrics before Series A.",
+      timestamp: "2 days ago 9:45 AM",
+      sender: "Carlos Rodriguez"
+    },
+    {
+      id: 5,
+      type: "sent",
+      content: "Perfect! I'd love to walk you through the exact strategy and see if it would work for FoodieApp. Do you have 20 minutes this week for a quick screen share? I can show you the case study and we can discuss your specific challenges.",
+      timestamp: "2 days ago 11:00 AM",
+      sender: "You"
+    },
+    {
+      id: 6,
+      type: "received",
+      content: "Let's schedule for next Tuesday if you have time",
+      timestamp: "1 day ago",
+      sender: "Carlos Rodriguez"
+    }
+  ],
+  9: [ // Ana Sofia Gutierrez - Brand Manager (Booked Call)
+    {
+      id: 1,
+      type: "sent",
+      content: "Hi Ana! Eco Essentials' sustainability mission is incredible - really resonates with what consumers want today. We help sustainable brands like yours scale through authentic social media campaigns that align with your values. Are you currently running any social advertising?",
+      timestamp: "5 days ago 1:20 PM",
+      sender: "You"
+    },
+    {
+      id: 2,
+      type: "received",
+      content: "Thank you! We're passionate about our mission. We do some organic social but haven't had much success with paid ads. Most agencies don't really understand the sustainable products space. What's your experience with eco-conscious brands?",
+      timestamp: "5 days ago 4:30 PM",
+      sender: "Ana Sofia Gutierrez"
+    },
+    {
+      id: 3,
+      type: "sent",
+      content: "You're absolutely right - most agencies treat sustainable brands like any other product. We specialize in purpose-driven marketing and have helped 12+ eco brands this year. One client (similar to Eco Essentials) increased revenue 300% while maintaining authentic messaging.",
+      timestamp: "4 days ago 9:45 AM",
+      sender: "You"
+    },
+    {
+      id: 4,
+      type: "received",
+      content: "That sounds exactly like what we need! We want to grow but not compromise our values or messaging. Can you tell me more about your approach?",
+      timestamp: "4 days ago 2:15 PM",
+      sender: "Ana Sofia Gutierrez"
+    },
+    {
+      id: 5,
+      type: "sent",
+      content: "Absolutely! Our approach focuses on storytelling that highlights environmental impact while driving conversions. We create content that educates and inspires action. Would you like to hop on a quick call so I can show you some campaign examples?",
+      timestamp: "4 days ago 3:00 PM",
+      sender: "You"
+    },
+    {
+      id: 6,
+      type: "received",
+      content: "Definitely interested! When can we chat?",
+      timestamp: "3 days ago",
+      sender: "Ana Sofia Gutierrez"
+    }
+  ]
+};
+
+// Default to Sarah Chen's conversation
+const messages = conversationMessages[1] || [];
 const folders = [{
   name: "All",
   count: 247,
@@ -89,6 +480,9 @@ const folders = [{
 export default function Messages() {
   const [selectedConversation, setSelectedConversation] = useState(conversations[0]);
   const [messageText, setMessageText] = useState("");
+  
+  // Get messages for selected conversation
+  const currentMessages = conversationMessages[selectedConversation?.id] || [];
   return <div className="p-6">
       <div className="h-[calc(100vh-8rem)] flex gap-6">
         {/* Left Sidebar - Folders */}
@@ -107,7 +501,7 @@ export default function Messages() {
             <Separator className="my-4" />
             
             <div className="space-y-2">
-              <div className="text-sm font-medium text-foreground/80 px-2">Saved Filters</div>
+              <div className="text-sm font-medium text-white/80 px-2">Saved Filters</div>
               <Button variant="ghost" size="sm" className="w-full justify-start">
                 <Star className="h-3 w-3 mr-2" />
                 High Priority
@@ -227,10 +621,10 @@ export default function Messages() {
           <Card className="flex-1 bg-gradient-card border-border shadow-card mb-4">
             <CardContent className="p-6 flex flex-col h-full">
               <div className="flex-1 space-y-4 overflow-y-auto">
-                {messages.map(message => <div key={message.id} className={`flex ${message.type === "sent" ? "justify-end" : "justify-start"}`}>
+                {currentMessages.map(message => <div key={message.id} className={`flex ${message.type === "sent" ? "justify-end" : "justify-start"}`}>
                     <div className={`max-w-[80%] rounded-lg p-3 ${message.type === "sent" ? "bg-primary text-primary-foreground" : "bg-muted"}`}>
-                      <div className="text-sm text-white bg-slate-950">{message.content}</div>
-                      <div className={`text-xs mt-1 ${message.type === "sent" ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
+                      <div className="text-sm text-white">{message.content}</div>
+                      <div className={`text-xs mt-1 ${message.type === "sent" ? "text-primary-foreground/70" : "text-white/60"}`}>
                         {message.timestamp}
                       </div>
                     </div>
