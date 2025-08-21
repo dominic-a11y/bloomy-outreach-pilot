@@ -240,7 +240,7 @@ export default function Accounts() {
                     </Badge>
                   </TableCell>
                   <TableCell>
-                    <div className="flex items-center gap-1 text-sm">
+                    <div className="flex items-center gap-1 text-sm text-white">
                       <Globe className="h-3 w-3 text-foreground/60" />
                       {account.proxyLabel}
                     </div>
