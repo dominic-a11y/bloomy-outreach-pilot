@@ -59,7 +59,7 @@ export function AppSidebar() {
           <img 
             src={bloomyLogo} 
             alt="Bloomy" 
-            className={`transition-all ${collapsed ? "h-8 w-8" : "h-8 w-auto"}`}
+            className={`transition-all ${collapsed ? "h-20 w-20" : "h-20 w-auto"}`}
           />
           {!collapsed && (
             <div className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
