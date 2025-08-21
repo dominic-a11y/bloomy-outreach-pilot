@@ -94,7 +94,7 @@ export default function Analytics() {
               </div>
               <div className="text-center p-3 rounded-lg bg-secondary/10 border border-secondary/20">
                 <div className="text-2xl font-bold text-white">{topOpener.totalReplies}</div>
-                <div className="text-xs text-foreground/70">Total Replies</div>
+                <div className="text-xs text-white">Total Replies</div>
               </div>
             </div>
             
