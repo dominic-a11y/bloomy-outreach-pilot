@@ -92,7 +92,7 @@ export default function ICPFinder() {
           <h1 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
             ICP Finder
           </h1>
-          <p className="text-muted-foreground mt-2">
+          <p className="text-white mt-2">
             Use AI to find your ideal customer profile with natural language
           </p>
         </div>
