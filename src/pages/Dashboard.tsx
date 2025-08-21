@@ -110,7 +110,7 @@ export default function Dashboard() {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <h1 className="text-3xl font-bold text-white">Dashboard</h1>
           <p className="text-foreground/80">Welcome back! Here's what's happening with your outreach.</p>
         </div>
         <div className="flex gap-2">
