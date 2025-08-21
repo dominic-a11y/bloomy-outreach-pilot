@@ -76,7 +76,7 @@ export function AppLayout({
           </header>
 
           {/* Main Content */}
-          <main className="flex-1 overflow-auto bg-slate-950">
+          <main className="flex-1 overflow-auto bg-black">
             {children}
           </main>
         </div>
