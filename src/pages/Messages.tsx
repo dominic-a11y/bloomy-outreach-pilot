@@ -499,7 +499,7 @@ export default function Messages() {
                 <Star className="h-3 w-3 mr-2" />
                 High Priority
               </Button>
-              <Button variant="ghost" size="sm" className="w-full justify-start">
+              <Button variant="ghost" size="sm" className="w-full justify-start text-white">
                 <MessageSquare className="h-3 w-3 mr-2" />
                 Needs Follow-up
               </Button>
