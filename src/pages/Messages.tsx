@@ -546,7 +546,7 @@ export default function Messages() {
                         {conversation.lastMessage}
                       </div>
                       <div className="flex items-center gap-2">
-                        <Badge variant="outline" className="text-xs">
+                        <Badge variant="outline" className="text-xs text-white">
                           {conversation.campaign}
                         </Badge>
                         {conversation.unread && <div className="h-2 w-2 bg-primary rounded-full" />}
