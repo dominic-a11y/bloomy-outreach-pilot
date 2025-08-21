@@ -40,7 +40,7 @@ export function AppLayout({
             <div className="h-full px-6 flex items-center justify-between bg-slate-950">
               <div className="flex items-center gap-4">
                 <SidebarTrigger className="h-8 w-8" />
-                <img src={bloomyLogo} alt="Bloomy" className="h-12 w-auto" />
+                <img src={bloomyLogo} alt="Bloomy" className="h-32 w-auto" />
                 
                 <div className="hidden md:block relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
