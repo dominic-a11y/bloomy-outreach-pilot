@@ -2,57 +2,111 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import {
-  Send,
-  TrendingUp,
-  Phone,
-  DollarSign,
-  Users,
-  MessageSquare,
-  Calendar,
-  Shield,
-  Plus,
-  Upload,
-  Brain,
-  Activity
-} from "lucide-react";
+import { Send, TrendingUp, Phone, DollarSign, Users, MessageSquare, Calendar, Shield, Plus, Upload, Brain, Activity } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from "recharts";
 
 // Sample data
-const topCards = [
-  { title: "Messages Sent", value: "12,847", change: "+12%", icon: Send, color: "text-blue-400" },
-  { title: "Reply Rate", value: "24.5%", change: "+5.2%", icon: TrendingUp, color: "text-green-400" },
-  { title: "Booked Calls", value: "156", change: "+18%", icon: Phone, color: "text-purple-400" },
-  { title: "Revenue", value: "$48,290", change: "+22%", icon: DollarSign, color: "text-yellow-400" }
-];
-
-const recentActivity = [
-  { type: "lead", message: "New lead from Instagram campaign", time: "2 min ago", icon: Users },
-  { type: "message", message: "Reply received from @sarah_johnson", time: "5 min ago", icon: MessageSquare },
-  { type: "call", message: "Call booked for tomorrow 2:00 PM", time: "12 min ago", icon: Calendar },
-  { type: "block", message: "Account @marketing_pro detected as limited", time: "18 min ago", icon: Shield }
-];
-
-const quickActions = [
-  { title: "Create Campaign", icon: Plus, variant: "default" as const },
-  { title: "Add Account", icon: Users, variant: "outline" as const },
-  { title: "Import Leads", icon: Upload, variant: "outline" as const },
-  { title: "Open AI Studio", icon: Brain, variant: "outline" as const }
-];
-
-const chartData = [
-  { name: "Mon", messages: 1200, conversations: 45, calls: 8 },
-  { name: "Tue", messages: 1800, conversations: 67, calls: 12 },
-  { name: "Wed", messages: 1400, conversations: 52, calls: 9 },
-  { name: "Thu", messages: 2200, conversations: 89, calls: 18 },
-  { name: "Fri", messages: 1900, conversations: 71, calls: 14 },
-  { name: "Sat", messages: 800, conversations: 28, calls: 5 },
-  { name: "Sun", messages: 600, conversations: 19, calls: 3 }
-];
-
+const topCards = [{
+  title: "Messages Sent",
+  value: "12,847",
+  change: "+12%",
+  icon: Send,
+  color: "text-blue-400"
+}, {
+  title: "Reply Rate",
+  value: "24.5%",
+  change: "+5.2%",
+  icon: TrendingUp,
+  color: "text-green-400"
+}, {
+  title: "Booked Calls",
+  value: "156",
+  change: "+18%",
+  icon: Phone,
+  color: "text-purple-400"
+}, {
+  title: "Revenue",
+  value: "$48,290",
+  change: "+22%",
+  icon: DollarSign,
+  color: "text-yellow-400"
+}];
+const recentActivity = [{
+  type: "lead",
+  message: "New lead from Instagram campaign",
+  time: "2 min ago",
+  icon: Users
+}, {
+  type: "message",
+  message: "Reply received from @sarah_johnson",
+  time: "5 min ago",
+  icon: MessageSquare
+}, {
+  type: "call",
+  message: "Call booked for tomorrow 2:00 PM",
+  time: "12 min ago",
+  icon: Calendar
+}, {
+  type: "block",
+  message: "Account @marketing_pro detected as limited",
+  time: "18 min ago",
+  icon: Shield
+}];
+const quickActions = [{
+  title: "Create Campaign",
+  icon: Plus,
+  variant: "default" as const
+}, {
+  title: "Add Account",
+  icon: Users,
+  variant: "outline" as const
+}, {
+  title: "Import Leads",
+  icon: Upload,
+  variant: "outline" as const
+}, {
+  title: "Open AI Studio",
+  icon: Brain,
+  variant: "outline" as const
+}];
+const chartData = [{
+  name: "Mon",
+  messages: 1200,
+  conversations: 45,
+  calls: 8
+}, {
+  name: "Tue",
+  messages: 1800,
+  conversations: 67,
+  calls: 12
+}, {
+  name: "Wed",
+  messages: 1400,
+  conversations: 52,
+  calls: 9
+}, {
+  name: "Thu",
+  messages: 2200,
+  conversations: 89,
+  calls: 18
+}, {
+  name: "Fri",
+  messages: 1900,
+  conversations: 71,
+  calls: 14
+}, {
+  name: "Sat",
+  messages: 800,
+  conversations: 28,
+  calls: 5
+}, {
+  name: "Sun",
+  messages: 600,
+  conversations: 19,
+  calls: 3
+}];
 export default function Dashboard() {
-  return (
-    <div className="p-6 space-y-6">
+  return <div className="p-6 space-y-6">
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
@@ -60,19 +114,16 @@ export default function Dashboard() {
           <p className="text-foreground/80">Welcome back! Here's what's happening with your outreach.</p>
         </div>
         <div className="flex gap-2">
-          {quickActions.map((action) => (
-            <Button key={action.title} variant={action.variant} className="gap-2">
+          {quickActions.map(action => <Button key={action.title} variant={action.variant} className="gap-2">
               <action.icon className="h-4 w-4" />
               {action.title}
-            </Button>
-          ))}
+            </Button>)}
         </div>
       </div>
 
       {/* Top Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {topCards.map((card) => (
-          <Card key={card.title} className="bg-gradient-card border-border shadow-card hover:shadow-glow transition-all">
+        {topCards.map(card => <Card key={card.title} className="bg-gradient-card border-border shadow-card hover:shadow-glow transition-all">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-white/80">
                 {card.title}
@@ -87,8 +138,7 @@ export default function Dashboard() {
                 <span className="text-white/60">from last month</span>
               </div>
             </CardContent>
-          </Card>
-        ))}
+          </Card>)}
       </div>
 
       {/* Charts Section */}
@@ -106,20 +156,14 @@ export default function Dashboard() {
                 <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                 <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" />
                 <YAxis stroke="hsl(var(--muted-foreground))" />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: "hsl(var(--card))", 
-                    border: "1px solid hsl(var(--border))",
-                    borderRadius: "8px"
-                  }} 
-                />
-                <Line 
-                  type="monotone" 
-                  dataKey="messages" 
-                  stroke="hsl(var(--primary))" 
-                  strokeWidth={2} 
-                  dot={{ fill: "hsl(var(--primary))" }}
-                />
+                <Tooltip contentStyle={{
+                backgroundColor: "hsl(var(--card))",
+                border: "1px solid hsl(var(--border))",
+                borderRadius: "8px"
+              }} />
+                <Line type="monotone" dataKey="messages" stroke="hsl(var(--primary))" strokeWidth={2} dot={{
+                fill: "hsl(var(--primary))"
+              }} />
               </LineChart>
             </ResponsiveContainer>
           </CardContent>
@@ -138,13 +182,11 @@ export default function Dashboard() {
                 <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                 <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" />
                 <YAxis stroke="hsl(var(--muted-foreground))" />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: "hsl(var(--card))", 
-                    border: "1px solid hsl(var(--border))",
-                    borderRadius: "8px"
-                  }} 
-                />
+                <Tooltip contentStyle={{
+                backgroundColor: "hsl(var(--card))",
+                border: "1px solid hsl(var(--border))",
+                borderRadius: "8px"
+              }} />
                 <Bar dataKey="conversations" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -162,8 +204,7 @@ export default function Dashboard() {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            {recentActivity.map((activity, index) => (
-              <div key={index} className="flex items-center gap-4 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
+            {recentActivity.map((activity, index) => <div key={index} className="flex items-center gap-4 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
                 <div className="p-2 rounded-full bg-primary/20">
                   <activity.icon className="h-4 w-4 text-primary" />
                 </div>
@@ -174,8 +215,7 @@ export default function Dashboard() {
                 <Badge variant="outline" className="text-xs">
                   {activity.type}
                 </Badge>
-              </div>
-            ))}
+              </div>)}
           </CardContent>
         </Card>
 
@@ -213,6 +253,5 @@ export default function Dashboard() {
           </CardContent>
         </Card>
       </div>
-    </div>
-  );
+    </div>;
 }

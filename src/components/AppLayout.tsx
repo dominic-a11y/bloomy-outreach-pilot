@@ -4,21 +4,15 @@ import { AppSidebar } from "./AppSidebar";
 import { Button } from "@/components/ui/button";
 import { Bell, User, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Badge } from "@/components/ui/badge";
 import bloomyLogo from "/lovable-uploads/6811ecb8-08ed-4c9d-82e8-4d5633eb3a1f.png";
-
 interface AppLayoutProps {
   children: ReactNode;
 }
-
-export function AppLayout({ children }: AppLayoutProps) {
+export function AppLayout({
+  children
+}: AppLayoutProps) {
   // Add keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -33,30 +27,24 @@ export function AppLayout({ children }: AppLayoutProps) {
         }
       }
     };
-
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
-
-  return (
-    <SidebarProvider defaultOpen={true}>
+  return <SidebarProvider defaultOpen={true}>
       <div className="min-h-screen flex w-full bg-background">
         <AppSidebar />
         
         <div className="flex-1 flex flex-col">
           {/* Top Navigation */}
           <header className="h-16 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-40">
-            <div className="h-full px-6 flex items-center justify-between">
+            <div className="h-full px-6 flex items-center justify-between bg-slate-950">
               <div className="flex items-center gap-4">
                 <SidebarTrigger className="h-8 w-8" />
                 <img src={bloomyLogo} alt="Bloomy" className="h-6 w-auto" />
                 
                 <div className="hidden md:block relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    placeholder="Search campaigns, leads, messages... (⌘K)"
-                    className="w-96 pl-10 bg-muted/50 border-border"
-                  />
+                  <Input placeholder="Search campaigns, leads, messages... (⌘K)" className="w-96 pl-10 bg-muted/50 border-border" />
                 </div>
               </div>
 
@@ -88,11 +76,10 @@ export function AppLayout({ children }: AppLayoutProps) {
           </header>
 
           {/* Main Content */}
-          <main className="flex-1 overflow-auto">
+          <main className="flex-1 overflow-auto bg-slate-950">
             {children}
           </main>
         </div>
       </div>
-    </SidebarProvider>
-  );
+    </SidebarProvider>;
 }
