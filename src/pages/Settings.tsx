@@ -2,10 +2,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Settings as SettingsIcon, Users, Shield, Zap } from "lucide-react";
-
 export default function Settings() {
-  return (
-    <div className="p-6 space-y-6">
+  return <div className="p-6 space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-white">Settings</h1>
         <p className="text-white">Configure your organization, users, and integrations.</p>
@@ -46,7 +44,8 @@ export default function Settings() {
                 <span className="text-sm text-foreground/60">Owner</span>
               </div>
               <div className="flex justify-between items-center p-2 border rounded">
-                <span className="text-white">jane@bloomy.com</span>
+                <span className="text-white">
+              </span>
                 <span className="text-sm text-foreground/60">Manager</span>
               </div>
             </div>
@@ -54,6 +53,5 @@ export default function Settings() {
           </CardContent>
         </Card>
       </div>
-    </div>
-  );
+    </div>;
 }
