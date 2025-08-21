@@ -34,6 +34,7 @@ const navigationItems = [
   { title: "Campaigns", url: "/campaigns", icon: Megaphone },
   { title: "Accounts", url: "/accounts", icon: Users },
   { title: "Leads", url: "/leads", icon: UserCheck },
+  { title: "ICP Finder", url: "/icp-finder", icon: Search },
   { title: "Messages", url: "/messages", icon: MessageSquare },
   { title: "AI Studio", url: "/ai-studio", icon: Brain },
   { title: "Analytics", url: "/analytics", icon: BarChart3 },

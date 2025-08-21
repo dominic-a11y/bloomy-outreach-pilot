@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Campaigns from "./pages/Campaigns";
 import Accounts from "./pages/Accounts";
 import Leads from "./pages/Leads";
+import ICPFinder from "./pages/ICPFinder";
 import Messages from "./pages/Messages";
 import AIStudio from "./pages/AIStudio";
 import Analytics from "./pages/Analytics";
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/campaigns" element={<Campaigns />} />
             <Route path="/accounts" element={<Accounts />} />
             <Route path="/leads" element={<Leads />} />
+            <Route path="/icp-finder" element={<ICPFinder />} />
             <Route path="/messages" element={<Messages />} />
             <Route path="/ai-studio" element={<AIStudio />} />
             <Route path="/analytics" element={<Analytics />} />
