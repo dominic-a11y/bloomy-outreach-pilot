@@ -535,7 +535,7 @@ export default function Messages() {
                         <div className="font-medium text-sm truncate text-white">
                           {conversation.contact}
                         </div>
-                        <div className="text-xs text-foreground/60">
+                        <div className="text-xs text-white">
                           {conversation.timestamp}
                         </div>
                       </div>
