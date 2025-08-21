@@ -169,7 +169,7 @@ export default function Campaigns() {
                     </div>
                   </div>
                   <div>
-                    <div className="text-foreground/60">Accounts</div>
+                    <div className="text-foreground/60">kAccounts</div>
                     <div className="font-medium text-white">{campaign.accountsAttached}</div>
                   </div>
                 </div>
