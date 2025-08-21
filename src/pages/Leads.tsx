@@ -180,7 +180,7 @@ export default function Leads() {
                       <div>
                         <div className="font-medium text-white">{lead.name}</div>
                         <div className="text-sm text-foreground/60">{lead.handle}</div>
-                        <div className="text-xs text-foreground/60">{lead.company}</div>
+                        <div className="text-xs text-white">{lead.company}</div>
                       </div>
                     </div>
                   </TableCell>
