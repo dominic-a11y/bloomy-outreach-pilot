@@ -614,24 +614,36 @@ export default function Messages() {
           <Card className="flex-1 bg-gradient-card border-border shadow-card mb-4">
             <CardContent className="p-6 flex flex-col h-full">
               <div className="flex-1 space-y-4 overflow-y-auto">
-                {currentMessages.map(message => <div key={message.id} className={`flex ${message.type === "sent" ? "justify-end" : "justify-start"}`}>
-                    <div className={`max-w-[80%] rounded-lg p-3 ${message.type === "sent" ? "bg-primary text-white" : "bg-muted text-foreground"}`}>
-                      <div className={`text-sm ${message.type === "sent" ? "text-white" : "text-foreground"}`}>{message.content}</div>
-                      <div className={`text-xs mt-1 ${message.type === "sent" ? "text-white/70" : "text-foreground/70"}`}>
+                {currentMessages.map(message => 
+                  <div key={message.id} className={`flex ${message.type === "sent" ? "justify-end" : "justify-start"}`}>
+                    <div className={`max-w-[80%] rounded-lg p-3 ${
+                      message.type === "sent" 
+                        ? "bg-primary text-white" 
+                        : "bg-white text-black border border-border"
+                    }`}>
+                      <div className={`text-sm ${
+                        message.type === "sent" ? "text-white" : "text-black"
+                      }`}>
+                        {message.content}
+                      </div>
+                      <div className={`text-xs mt-1 ${
+                        message.type === "sent" ? "text-white/70" : "text-black/60"
+                      }`}>
                         {message.timestamp}
                       </div>
                     </div>
-                  </div>)}
+                  </div>
+                )}
                 
                 {/* Typing Indicator */}
                 <div className="flex justify-start">
-                  <div className="bg-muted rounded-lg p-3 max-w-20">
+                  <div className="bg-white border border-border rounded-lg p-3 max-w-20">
                     <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{
+                      <div className="w-2 h-2 bg-black/60 rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-black/60 rounded-full animate-bounce" style={{
                       animationDelay: "0.1s"
                     }}></div>
-                      <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{
+                      <div className="w-2 h-2 bg-black/60 rounded-full animate-bounce" style={{
                       animationDelay: "0.2s"
                     }}></div>
                     </div>
