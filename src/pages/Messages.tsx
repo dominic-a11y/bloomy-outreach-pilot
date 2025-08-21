@@ -542,7 +542,7 @@ export default function Messages() {
                       <div className="text-xs text-white mb-1">
                         {conversation.handle}
                       </div>
-                      <div className="text-sm text-foreground/80 truncate mb-2">
+                      <div className="text-sm text-white truncate mb-2">
                         {conversation.lastMessage}
                       </div>
                       <div className="flex items-center gap-2">
