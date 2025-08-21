@@ -87,7 +87,7 @@ export default function Leads() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-white">Leads</h1>
-          <p className="text-foreground/80">Manage your prospects and track their journey through your funnel.</p>
+          <p className="text-white">Manage your prospects and track their journey through your funnel.</p>
         </div>
         <div className="flex gap-2">
           <Button variant="outline" className="gap-2">
