@@ -226,6 +226,13 @@ const conversationMessages = {
       content: "Perfect, here's my Calendly: calendly.com/sarah-chen/15min",
       timestamp: "Today 2:34 PM",
       sender: "Sarah Chen"
+    },
+    {
+      id: 7,
+      type: "sent",
+      content: "Awesome! Just booked a slot for Friday at 2pm. Looking forward to chatting!",
+      timestamp: "Today 2:36 PM",
+      sender: "You"
     }
   ],
   2: [ // Marcus Johnson - Marketing Director (Objection)
@@ -270,6 +277,13 @@ const conversationMessages = {
       content: "Already working with an agency, but thanks for reaching out",
       timestamp: "1 hour ago",
       sender: "Marcus Johnson"
+    },
+    {
+      id: 7,
+      type: "sent",
+      content: "Totally understand! Feel free to reach out if you ever need a second opinion. Best of luck with your current setup!",
+      timestamp: "1 hour ago",
+      sender: "You"
     }
   ],
   3: [ // Priya Patel - Coach (Interested)
@@ -314,6 +328,13 @@ const conversationMessages = {
       content: "Sounds interesting! Can you send me some case studies first?",
       timestamp: "3 hours ago",
       sender: "Priya Patel"
+    },
+    {
+      id: 7,
+      type: "sent",
+      content: "Absolutely! Just sent you the case study and some additional examples. Let me know what you think and we can schedule a call when you're ready!",
+      timestamp: "2 hours ago",
+      sender: "You"
     }
   ],
   4: [ // Ahmed Al-Rashid - Agency Owner (Delay)
@@ -358,6 +379,13 @@ const conversationMessages = {
       content: "Currently at capacity, maybe revisit in Q2?",
       timestamp: "5 hours ago",
       sender: "Ahmed Al-Rashid"
+    },
+    {
+      id: 7,
+      type: "sent",
+      content: "Perfect! I'll reach out in March. In the meantime, I'll send you those case studies so you can review when you have time. Talk soon!",
+      timestamp: "4 hours ago",
+      sender: "You"
     }
   ],
   6: [ // Carlos Rodriguez - Startup Founder (Booked Call)
@@ -402,6 +430,13 @@ const conversationMessages = {
       content: "Let's schedule for next Tuesday if you have time",
       timestamp: "1 day ago",
       sender: "Carlos Rodriguez"
+    },
+    {
+      id: 7,
+      type: "sent",
+      content: "Perfect! Tuesday works great. I'll send you a calendar invite for 2pm with the Zoom link. Really excited to dive into your growth strategy!",
+      timestamp: "1 day ago",
+      sender: "You"
     }
   ],
   9: [ // Ana Sofia Gutierrez - Brand Manager (Booked Call)
@@ -446,6 +481,13 @@ const conversationMessages = {
       content: "Definitely interested! When can we chat?",
       timestamp: "3 days ago",
       sender: "Ana Sofia Gutierrez"
+    },
+    {
+      id: 7,
+      type: "sent",
+      content: "Fantastic! How about Thursday at 3pm? I'll send you a Zoom link and prepare some specific examples for sustainable brands like yours.",
+      timestamp: "3 days ago",
+      sender: "You"
     }
   ]
 };
@@ -686,7 +728,12 @@ export default function Messages() {
                 </div>
                 
                 <div className="relative">
-                  <Textarea placeholder="Type your message..." value={messageText} onChange={e => setMessageText(e.target.value)} className="min-h-20 pr-20 resize-none" />
+                  <Textarea 
+                    placeholder="Type your message..." 
+                    value={messageText} 
+                    onChange={e => setMessageText(e.target.value)} 
+                    className="min-h-20 pr-20 resize-none bg-muted text-foreground placeholder:text-muted-foreground border-border focus:border-primary" 
+                  />
                   <div className="absolute bottom-3 right-3 flex gap-1">
                     <Button variant="ghost" size="sm">
                       <Paperclip className="h-4 w-4" />
