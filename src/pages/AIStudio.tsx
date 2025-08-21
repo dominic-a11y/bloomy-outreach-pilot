@@ -10,7 +10,7 @@ export default function AIStudio() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-white">AI Studio</h1>
-          <p className="text-foreground/80">Configure AI prompts and test responses for your outreach campaigns.</p>
+          <p className="text-white">Configure AI prompts and test responses for your outreach campaigns.</p>
         </div>
         <Button className="gap-2 bg-primary hover:bg-primary/90 shadow-glow">
           <Save className="h-4 w-4" />
