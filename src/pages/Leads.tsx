@@ -179,7 +179,7 @@ export default function Leads() {
                       </Avatar>
                       <div>
                         <div className="font-medium text-white">{lead.name}</div>
-                        <div className="text-sm text-foreground/60">{lead.handle}</div>
+                        <div className="text-sm text-white">{lead.handle}</div>
                         <div className="text-xs text-white">{lead.company}</div>
                       </div>
                     </div>
