@@ -574,7 +574,7 @@ export default function Messages() {
                   </Avatar>
                   <div>
                     <div className="font-medium text-white">{selectedConversation?.contact}</div>
-                    <div className="text-sm text-foreground/60">
+                    <div className="text-sm text-white">
                       {selectedConversation?.handle} • Online 5 min ago
                     </div>
                   </div>
