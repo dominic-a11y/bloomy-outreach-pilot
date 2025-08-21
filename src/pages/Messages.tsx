@@ -495,7 +495,7 @@ export default function Messages() {
             
             <div className="space-y-2">
               <div className="text-sm font-medium text-white/80 px-2">Saved Filters</div>
-              <Button variant="ghost" size="sm" className="w-full justify-start">
+              <Button variant="ghost" size="sm" className="w-full justify-start text-white">
                 <Star className="h-3 w-3 mr-2" />
                 High Priority
               </Button>
