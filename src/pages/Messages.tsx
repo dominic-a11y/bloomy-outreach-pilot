@@ -616,8 +616,8 @@ export default function Messages() {
               <div className="flex-1 space-y-4 overflow-y-auto">
                 {currentMessages.map(message => <div key={message.id} className={`flex ${message.type === "sent" ? "justify-end" : "justify-start"}`}>
                     <div className={`max-w-[80%] rounded-lg p-3 ${message.type === "sent" ? "bg-primary text-white" : "bg-muted text-foreground"}`}>
-                      <div className="text-sm">{message.content}</div>
-                      <div className={`text-xs mt-1 opacity-70`}>
+                      <div className={`text-sm ${message.type === "sent" ? "text-white" : "text-foreground"}`}>{message.content}</div>
+                      <div className={`text-xs mt-1 ${message.type === "sent" ? "text-white/70" : "text-foreground/70"}`}>
                         {message.timestamp}
                       </div>
                     </div>
