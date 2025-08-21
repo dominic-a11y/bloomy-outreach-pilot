@@ -73,7 +73,7 @@ export default function Campaigns() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-white">Campaigns</h1>
-          <p className="text-foreground/80">Manage your outreach campaigns and track performance.</p>
+          <p className="text-white">Manage your outreach campaigns and track performance.</p>
         </div>
         <Button className="gap-2 bg-primary hover:bg-primary/90 shadow-glow">
           <Plus className="h-4 w-4" />
