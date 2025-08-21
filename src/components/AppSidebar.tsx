@@ -56,7 +56,7 @@ export function AppSidebar() {
     return location.pathname.startsWith(path);
   };
   return <Sidebar className="border-r border-border bg-card">
-      <SidebarHeader className="p-2 border-b border-border">
+      <SidebarHeader className="p-1 border-b border-border">
         <div className="flex justify-center items-center">
           <img src={bloomyLogo} alt="Bloomy" className={`transition-all ${collapsed ? "h-48 w-48" : "h-48 w-auto"}`} />
         </div>
