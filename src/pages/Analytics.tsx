@@ -3,14 +3,23 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BarChart3, Download, Trophy, TrendingUp, Mail } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-
-const chartData = [
-  { name: "Jan", replies: 120, bookings: 45 },
-  { name: "Feb", replies: 180, bookings: 67 },
-  { name: "Mar", replies: 140, bookings: 52 },
-  { name: "Apr", replies: 220, bookings: 89 }
-];
-
+const chartData = [{
+  name: "Jan",
+  replies: 120,
+  bookings: 45
+}, {
+  name: "Feb",
+  replies: 180,
+  bookings: 67
+}, {
+  name: "Mar",
+  replies: 140,
+  bookings: 52
+}, {
+  name: "Apr",
+  replies: 220,
+  bookings: 89
+}];
 const topOpener = {
   template: "Hi [Name], I noticed your recent work on [Company Project]. Your approach to [Specific Detail] caught my attention...",
   replyRate: 67,
@@ -18,10 +27,8 @@ const topOpener = {
   totalReplies: 229,
   improvement: "+23%"
 };
-
 export default function Analytics() {
-  return (
-    <div className="p-6 space-y-6">
+  return <div className="p-6 space-y-6">
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-white">Analytics</h1>
@@ -55,7 +62,7 @@ export default function Analytics() {
         </Card>
 
         <Card className="bg-gradient-to-br from-primary/20 via-background to-background border-primary/20 shadow-glow overflow-hidden relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent bg-violet-950" />
           <CardHeader className="relative">
             <div className="flex items-center justify-between">
               <CardTitle className="flex items-center gap-2 text-white">
@@ -99,6 +106,5 @@ export default function Analytics() {
           </CardContent>
         </Card>
       </div>
-    </div>
-  );
+    </div>;
 }
