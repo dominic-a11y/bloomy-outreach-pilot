@@ -49,7 +49,7 @@ export function AppLayout({
               </div>
 
               <div className="flex items-center gap-4">
-                <Button variant="ghost" size="sm" className="relative">
+                <Button variant="ghost" size="sm" className="relative text-white">
                   <Bell className="h-4 w-4" />
                   <Badge className="absolute -top-1 -right-1 h-5 w-5 p-0 text-xs bg-primary">
                     3
@@ -58,7 +58,7 @@ export function AppLayout({
 
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="sm" className="gap-2">
+                    <Button variant="ghost" size="sm" className="gap-2 text-white">
                       <User className="h-4 w-4" />
                       <span className="hidden md:inline">John Doe</span>
                     </Button>
