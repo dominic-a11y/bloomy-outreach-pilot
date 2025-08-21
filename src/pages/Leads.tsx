@@ -185,7 +185,7 @@ export default function Leads() {
                     </div>
                   </TableCell>
                   <TableCell>
-                    <Badge variant="outline" className="text-xs">
+                    <Badge variant="outline" className="text-xs text-white">
                       {lead.source}
                     </Badge>
                   </TableCell>
