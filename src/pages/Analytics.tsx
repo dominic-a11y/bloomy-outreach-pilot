@@ -99,7 +99,7 @@ export default function Analytics() {
             </div>
             
             <div className="text-center pt-2">
-              <p className="text-xs text-foreground/60">
+              <p className="text-xs text-white">
                 Out of {topOpener.totalSent} messages sent
               </p>
             </div>
