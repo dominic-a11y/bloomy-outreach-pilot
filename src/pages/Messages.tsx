@@ -700,10 +700,10 @@ export default function Messages() {
                   <span className="text-sm font-medium text-white">AI Suggestions</span>
                 </div>
                 <div className="space-y-2">
-                  <Button variant="outline" size="sm" className="text-xs h-auto p-2 justify-start text-black">
+                  <Button variant="outline" size="sm" className="text-xs h-auto p-2 justify-start !text-black hover:!text-black">
                     "I'd be happy to schedule a quick demo to show you the features..."
                   </Button>
-                  <Button variant="outline" size="sm" className="text-xs h-auto p-2 justify-start text-black">
+                  <Button variant="outline" size="sm" className="text-xs h-auto p-2 justify-start !text-black hover:!text-black">
                     "Here's a case study from a similar company that saw great results..."
                   </Button>
                 </div>
