@@ -169,14 +169,14 @@ export default function Campaigns() {
                     </div>
                   </div>
                   <div>
-                    <div className="text-foreground/60">kAccounts</div>
+                    <div className="text-white">Accounts</div>
                     <div className="font-medium text-white">{campaign.accountsAttached}</div>
                   </div>
                 </div>
 
                 <div>
                   <div className="flex justify-between text-sm mb-2">
-                    <span className="text-foreground/60">Today's Progress</span>
+                    <span className="text-white">Today's Progress</span>
                     <span className="font-medium text-white">
                       {campaign.todayProgress.sent}/{campaign.todayProgress.target}
                     </span>
@@ -186,17 +186,17 @@ export default function Campaigns() {
 
                 <div className="flex justify-between items-center text-sm">
                   <div>
-                    <div className="text-foreground/60">Reply Rate</div>
+                    <div className="text-white">Reply Rate</div>
                     <div className="font-medium text-green-400">{campaign.replyRate}%</div>
                   </div>
                   <div>
-                    <div className="text-foreground/60">Booked</div>
+                    <div className="text-white">Booked</div>
                     <div className="font-medium text-primary">{campaign.booked}</div>
                   </div>
                 </div>
 
                 <div className="pt-2 border-t border-border">
-                  <div className="flex items-center gap-1 text-xs text-foreground/60">
+                  <div className="flex items-center gap-1 text-xs text-white">
                     <Clock className="h-3 w-3" />
                     {campaign.sendWindow}
                   </div>
@@ -212,13 +212,13 @@ export default function Campaigns() {
               <table className="w-full">
                 <thead className="border-b border-border">
                   <tr className="text-left">
-                    <th className="p-4 font-medium text-foreground/80">Campaign</th>
-                    <th className="p-4 font-medium text-foreground/80">Status</th>
-                    <th className="p-4 font-medium text-foreground/80">Targets</th>
-                    <th className="p-4 font-medium text-foreground/80">Accounts</th>
-                    <th className="p-4 font-medium text-foreground/80">Progress</th>
-                    <th className="p-4 font-medium text-foreground/80">Reply Rate</th>
-                    <th className="p-4 font-medium text-foreground/80">Actions</th>
+                    <th className="p-4 font-medium text-white">Campaign</th>
+                    <th className="p-4 font-medium text-white">Status</th>
+                    <th className="p-4 font-medium text-white">Targets</th>
+                    <th className="p-4 font-medium text-white">Accounts</th>
+                    <th className="p-4 font-medium text-white">Progress</th>
+                    <th className="p-4 font-medium text-white">Reply Rate</th>
+                    <th className="p-4 font-medium text-white">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -226,7 +226,7 @@ export default function Campaigns() {
                       <td className="p-4">
                         <div>
                           <div className="font-medium text-white">{campaign.name}</div>
-                          <div className="text-sm text-foreground/60 flex items-center gap-1">
+                          <div className="text-sm text-white flex items-center gap-1">
                             <Clock className="h-3 w-3" />
                             {campaign.sendWindow}
                           </div>
@@ -243,8 +243,8 @@ export default function Campaigns() {
                         </div>
                       </td>
                       <td className="p-4">
-                        <div className="flex items-center gap-1">
-                          <Users className="h-4 w-4 text-foreground/60" />
+                        <div className="flex items-center gap-1 text-white">
+                          <Users className="h-4 w-4 text-white" />
                           {campaign.targetListSize.toLocaleString()}
                         </div>
                       </td>
