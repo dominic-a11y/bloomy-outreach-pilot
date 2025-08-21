@@ -9,7 +9,7 @@ export default function Content() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-white">Content Library</h1>
-          <p className="text-foreground/80">Manage your templates, media files, and message content.</p>
+          <p className="text-white">Manage your templates, media files, and message content.</p>
         </div>
         <Button className="gap-2 bg-primary hover:bg-primary/90 shadow-glow">
           <Plus className="h-4 w-4" />
