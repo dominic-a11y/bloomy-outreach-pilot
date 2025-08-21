@@ -32,7 +32,7 @@ export default function Content() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-foreground/60">Sample message template for outreach campaigns...</p>
+              <p className="text-sm text-white">Sample message template for outreach campaigns...</p>
             </CardContent>
           </Card>
         ))}
