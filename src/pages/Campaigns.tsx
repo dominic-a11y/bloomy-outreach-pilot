@@ -162,7 +162,7 @@ export default function Campaigns() {
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <div className="text-foreground/60">Target List</div>
+                    <div className="text-white">Target List</div>
                     <div className="font-medium flex items-center gap-1 text-white">
                       <Users className="h-3 w-3" />
                       {campaign.targetListSize.toLocaleString()}
