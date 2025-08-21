@@ -5,111 +5,84 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import {
-  Search,
-  Filter,
-  Plus,
-  Eye,
-  Tag,
-  Upload,
-  Archive,
-  UserPlus,
-  MessageSquare,
-  DollarSign,
-  Calendar,
-  Star
-} from "lucide-react";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Search, Filter, Plus, Eye, Tag, Upload, Archive, UserPlus, MessageSquare, DollarSign, Calendar, Star } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 // Sample leads data
-const leads = [
-  {
-    id: 1,
-    name: "Sarah Johnson",
-    handle: "@sarah_johnson",
-    source: "Cold Outreach",
-    stage: "qualified",
-    lastContact: "2 hours ago",
-    score: 85,
-    owner: "John Doe",
-    tags: ["SaaS", "Founder"],
-    avatar: "/api/placeholder/40/40",
-    company: "TechStart Inc",
-    dealValue: 2500
-  },
-  {
-    id: 2,
-    name: "Mike Chen",
-    handle: "@mike_chen_dev",
-    source: "Referral",
-    stage: "interested",
-    lastContact: "1 day ago",
-    score: 72,
-    owner: "Jane Smith",
-    tags: ["Developer", "Startup"],
-    avatar: "/api/placeholder/40/40",
-    company: "DevCorp",
-    dealValue: 1800
-  },
-  {
-    id: 3,
-    name: "Emily Rodriguez",
-    handle: "@emily_marketing",
-    source: "Instagram",
-    stage: "new",
-    lastContact: "3 days ago",
-    score: 65,
-    owner: "Unassigned",
-    tags: ["Marketing", "Agency"],
-    avatar: "/api/placeholder/40/40",
-    company: "MarketPro",
-    dealValue: 3200
-  }
-];
-
+const leads = [{
+  id: 1,
+  name: "Sarah Johnson",
+  handle: "@sarah_johnson",
+  source: "Cold Outreach",
+  stage: "qualified",
+  lastContact: "2 hours ago",
+  score: 85,
+  owner: "John Doe",
+  tags: ["SaaS", "Founder"],
+  avatar: "/api/placeholder/40/40",
+  company: "TechStart Inc",
+  dealValue: 2500
+}, {
+  id: 2,
+  name: "Mike Chen",
+  handle: "@mike_chen_dev",
+  source: "Referral",
+  stage: "interested",
+  lastContact: "1 day ago",
+  score: 72,
+  owner: "Jane Smith",
+  tags: ["Developer", "Startup"],
+  avatar: "/api/placeholder/40/40",
+  company: "DevCorp",
+  dealValue: 1800
+}, {
+  id: 3,
+  name: "Emily Rodriguez",
+  handle: "@emily_marketing",
+  source: "Instagram",
+  stage: "new",
+  lastContact: "3 days ago",
+  score: 65,
+  owner: "Unassigned",
+  tags: ["Marketing", "Agency"],
+  avatar: "/api/placeholder/40/40",
+  company: "MarketPro",
+  dealValue: 3200
+}];
 const stageConfig = {
-  new: { label: "New", className: "bg-blue-500/20 text-blue-400 border-blue-500/30" },
-  contacted: { label: "Contacted", className: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30" },
-  interested: { label: "Interested", className: "bg-green-500/20 text-green-400 border-green-500/30" },
-  qualified: { label: "Qualified", className: "bg-purple-500/20 text-purple-400 border-purple-500/30" },
-  won: { label: "Won", className: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30" },
-  lost: { label: "Lost", className: "bg-red-500/20 text-red-400 border-red-500/30" }
+  new: {
+    label: "New",
+    className: "bg-blue-500/20 text-blue-400 border-blue-500/30"
+  },
+  contacted: {
+    label: "Contacted",
+    className: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30"
+  },
+  interested: {
+    label: "Interested",
+    className: "bg-green-500/20 text-green-400 border-green-500/30"
+  },
+  qualified: {
+    label: "Qualified",
+    className: "bg-purple-500/20 text-purple-400 border-purple-500/30"
+  },
+  won: {
+    label: "Won",
+    className: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
+  },
+  lost: {
+    label: "Lost",
+    className: "bg-red-500/20 text-red-400 border-red-500/30"
+  }
 };
-
 export default function Leads() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedLead, setSelectedLead] = useState<typeof leads[0] | null>(null);
-
-  const filteredLeads = leads.filter(lead =>
-    lead.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    lead.handle.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  return (
-    <div className="p-6 space-y-6">
+  const filteredLeads = leads.filter(lead => lead.name.toLowerCase().includes(searchTerm.toLowerCase()) || lead.handle.toLowerCase().includes(searchTerm.toLowerCase()));
+  return <div className="p-6 space-y-6">
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
@@ -133,12 +106,7 @@ export default function Leads() {
         <div className="flex gap-4 items-center flex-1">
           <div className="relative flex-1 max-w-md">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-foreground/60" />
-            <Input
-              placeholder="Search leads..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 bg-muted/50 border-border"
-            />
+            <Input placeholder="Search leads..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="pl-10 bg-muted/50 border-border" />
           </div>
           
           <Select>
@@ -200,8 +168,7 @@ export default function Leads() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filteredLeads.map((lead) => (
-                <TableRow key={lead.id} className="border-b border-border hover:bg-muted/50">
+              {filteredLeads.map(lead => <TableRow key={lead.id} className="border-b border-border hover:bg-muted/50">
                   <TableCell>
                     <div className="flex items-center gap-3">
                       <Avatar className="h-8 w-8">
@@ -233,16 +200,7 @@ export default function Leads() {
                   <TableCell>
                     <div className="flex items-center gap-2">
                       <div className="flex">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`h-3 w-3 ${
-                              i < Math.floor(lead.score / 20)
-                                ? "text-yellow-400 fill-current"
-                                : "text-muted-foreground"
-                            }`}
-                          />
-                        ))}
+                        {[...Array(5)].map((_, i) => <Star key={i} className={`h-3 w-3 ${i < Math.floor(lead.score / 20) ? "text-yellow-400 fill-current" : "text-muted-foreground"}`} />)}
                       </div>
                       <span className="text-xs text-foreground/60">{lead.score}</span>
                     </div>
@@ -256,11 +214,7 @@ export default function Leads() {
                   <TableCell>
                     <Sheet>
                       <SheetTrigger asChild>
-                        <Button 
-                          variant="ghost" 
-                          size="sm"
-                          onClick={() => setSelectedLead(lead)}
-                        >
+                        <Button variant="ghost" size="sm" onClick={() => setSelectedLead(lead)}>
                           <Eye className="h-4 w-4" />
                         </Button>
                       </SheetTrigger>
@@ -347,11 +301,9 @@ export default function Leads() {
                             <div>
                               <h4 className="font-medium mb-3">Tags</h4>
                               <div className="flex flex-wrap gap-2">
-                                {lead.tags.map((tag) => (
-                                  <Badge key={tag} variant="secondary" className="text-xs">
+                                {lead.tags.map(tag => <Badge key={tag} variant="secondary" className="text-xs">
                                     {tag}
-                                  </Badge>
-                                ))}
+                                  </Badge>)}
                               </div>
                             </div>
                           </TabsContent>
@@ -359,10 +311,7 @@ export default function Leads() {
                           <TabsContent value="notes" className="space-y-4">
                             <div>
                               <h4 className="font-medium mb-3">Add Note</h4>
-                              <Textarea 
-                                placeholder="Add a note about this lead..."
-                                className="min-h-20"
-                              />
+                              <Textarea placeholder="Add a note about this lead..." className="min-h-20" />
                               <Button size="sm" className="mt-2">Add Note</Button>
                             </div>
                             <div>
@@ -421,12 +370,10 @@ export default function Leads() {
                       </SheetContent>
                     </Sheet>
                   </TableCell>
-                </TableRow>
-              ))}
+                </TableRow>)}
             </TableBody>
           </Table>
         </CardContent>
       </Card>
-    </div>
-  );
+    </div>;
 }
