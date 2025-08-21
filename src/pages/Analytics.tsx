@@ -90,7 +90,7 @@ export default function Analytics() {
             <div className="grid grid-cols-2 gap-4">
               <div className="text-center p-3 rounded-lg bg-primary/10 border border-primary/20">
                 <div className="text-2xl font-bold text-white">{topOpener.replyRate}%</div>
-                <div className="text-xs text-foreground/70">Reply Rate</div>
+                <div className="text-xs text-white">Reply Rate</div>
               </div>
               <div className="text-center p-3 rounded-lg bg-secondary/10 border border-secondary/20">
                 <div className="text-2xl font-bold text-white">{topOpener.totalReplies}</div>
