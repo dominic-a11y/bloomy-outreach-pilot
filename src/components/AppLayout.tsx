@@ -39,7 +39,7 @@ export function AppLayout({
           <header className="h-16 border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-40">
             <div className="h-full px-6 flex items-center justify-between bg-black">
               <div className="flex items-center gap-4">
-                <SidebarTrigger className="h-8 w-8" />
+                <SidebarTrigger className="h-8 w-8 text-white" />
                 <img src={bloomyLogo} alt="Bloomy" className="h-40 w-auto" />
                 
                 <div className="hidden md:block relative">
