@@ -228,7 +228,7 @@ export default function Accounts() {
                       </Avatar>
                       <div>
                         <div className="font-medium text-white">{account.handle}</div>
-                        <div className="text-xs text-foreground/60">
+                        <div className="text-xs text-white">
                           {account.followers.toLocaleString()} followers
                         </div>
                       </div>
