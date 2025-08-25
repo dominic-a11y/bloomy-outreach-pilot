@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
-import { Plus, Search, Filter, Users, TrendingUp, Shield, Grid3X3, List } from 'lucide-react';
+import { Plus, Search, Filter, Users, TrendingUp, MessageSquare, Grid3X3, List } from 'lucide-react';
 import { useWarmup } from '@/contexts/WarmupContext';
 import { AccountRow } from '@/components/warmup/AccountRow';
 import { BulkActionsBar } from '@/components/warmup/BulkActionsBar';
@@ -134,16 +134,17 @@ export default function WarmupHome() {
         <Card className="bg-gradient-card border-border shadow-card">
           <CardHeader className="pb-3">
             <CardTitle className="text-lg flex items-center gap-2 text-white">
-              <Shield className="h-5 w-5 text-primary" />
-              Safety Status
+              <MessageSquare className="h-5 w-5 text-primary" />
+              DMs Today
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <SafetyChip status={{ level: overallSafety, message: 'Overall system status' }} size="lg" />
+            <div className="text-3xl font-bold text-white">
+              {Object.values(dailyProgress).reduce((sum, progress) => sum + (progress.dmOpens + progress.dmReplies), 0)}
+            </div>
             <div className="flex gap-2 mt-3 text-xs">
-              <span className="text-green-400">{safeCount} Safe</span>
-              <span className="text-yellow-400">{cautionCount} Caution</span>
-              <span className="text-red-400">{riskCount} Risk</span>
+              <span className="text-blue-400">{Object.values(dailyProgress).reduce((sum, progress) => sum + progress.dmOpens, 0)} Opens</span>
+              <span className="text-green-400">{Object.values(dailyProgress).reduce((sum, progress) => sum + progress.dmReplies, 0)} Replies</span>
             </div>
           </CardContent>
         </Card>
