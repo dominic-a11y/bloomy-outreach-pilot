@@ -332,7 +332,7 @@ export default function OpenerEditor() {
                     <Badge
                       key={tag}
                       variant={formData.tags.includes(tag) ? 'default' : 'outline'}
-                      className="cursor-pointer"
+                      className={`cursor-pointer text-white ${formData.tags.includes(tag) ? 'bg-primary border-primary' : 'border-white hover:bg-white hover:text-black'}`}
                       onClick={() => {
                         const newTags = formData.tags.includes(tag)
                           ? formData.tags.filter(t => t !== tag)
