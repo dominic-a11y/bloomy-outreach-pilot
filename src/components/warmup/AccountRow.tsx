@@ -78,13 +78,6 @@ export const AccountRow: React.FC<AccountRowProps> = ({
                 )}
               </div>
               
-              <div className="flex items-center gap-2 mt-1">
-                {account.tags.map(tag => (
-                  <Badge key={tag} variant="secondary" className="text-xs">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
             </div>
             
             <div className="text-right">
