@@ -107,7 +107,7 @@ export default function WarmupHome() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <Card className="bg-gradient-card border-border shadow-card">
           <CardHeader className="pb-3">
-            <CardTitle className="text-lg flex items-center gap-2">
+            <CardTitle className="text-lg flex items-center gap-2 text-white">
               <Users className="h-5 w-5 text-primary" />
               Total Actions Today
             </CardTitle>
