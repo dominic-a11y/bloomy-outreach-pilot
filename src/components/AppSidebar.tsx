@@ -9,8 +9,8 @@ const navigationItems = [{
   url: "/",
   icon: LayoutDashboard
 }, {
-  title: "Campaigns",
-  url: "/campaigns",
+    title: "Warmup",
+    url: "/warmup",
   icon: Megaphone
 }, {
   title: "Accounts",
