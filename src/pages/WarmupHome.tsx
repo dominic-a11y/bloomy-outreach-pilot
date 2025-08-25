@@ -133,7 +133,7 @@ export default function WarmupHome() {
 
         <Card className="bg-gradient-card border-border shadow-card">
           <CardHeader className="pb-3">
-            <CardTitle className="text-lg flex items-center gap-2">
+            <CardTitle className="text-lg flex items-center gap-2 text-white">
               <Shield className="h-5 w-5 text-primary" />
               Safety Status
             </CardTitle>
