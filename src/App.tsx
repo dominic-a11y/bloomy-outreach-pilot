@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { WarmupProvider } from "@/contexts/WarmupContext";
+import { OpenersProvider } from "@/contexts/OpenersContext";
 import { AppLayout } from "./components/AppLayout";
 import Dashboard from "./pages/Dashboard";
 import WarmupHome from "./pages/WarmupHome";
@@ -15,7 +16,8 @@ import Leads from "./pages/Leads";
 import Messages from "./pages/Messages";
 import AIStudio from "./pages/AIStudio";
 import Analytics from "./pages/Analytics";
-import Content from "./pages/Content";
+import OpenersHome from "./pages/OpenersHome";
+import OpenerEditor from "./pages/OpenerEditor";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
@@ -24,6 +26,7 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <WarmupProvider>
+      <OpenersProvider>
       <TooltipProvider>
         <Toaster />
         <Sonner />
@@ -40,13 +43,16 @@ const App = () => (
               <Route path="/messages" element={<Messages />} />
               <Route path="/ai-studio" element={<AIStudio />} />
               <Route path="/analytics" element={<Analytics />} />
-              <Route path="/content" element={<Content />} />
+              <Route path="/openers" element={<OpenersHome />} />
+              <Route path="/openers/new" element={<OpenerEditor />} />
+              <Route path="/openers/edit/:openerId" element={<OpenerEditor />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AppLayout>
         </BrowserRouter>
       </TooltipProvider>
+      </OpenersProvider>
     </WarmupProvider>
   </QueryClientProvider>
 );

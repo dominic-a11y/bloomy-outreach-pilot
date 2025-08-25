@@ -33,8 +33,8 @@ const navigationItems = [{
   url: "/analytics",
   icon: BarChart3
 }, {
-  title: "Content",
-  url: "/content",
+  title: "Openers",
+  url: "/openers",
   icon: FolderOpen
 }, {
   title: "Settings",
