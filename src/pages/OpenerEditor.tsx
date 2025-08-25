@@ -294,35 +294,18 @@ export default function OpenerEditor() {
                 />
               </div>
               
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium text-white">Language</label>
-                  <Select value={formData.language} onValueChange={(value) => setFormData({ ...formData, language: value })}>
-                    <SelectTrigger className="mt-1 bg-muted/50 border-border">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="en">English</SelectItem>
-                      <SelectItem value="es">Spanish</SelectItem>
-                      <SelectItem value="fr">French</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                <div>
-                  <label className="text-sm font-medium text-white">Tone</label>
-                  <Select value={formData.tone} onValueChange={(value: any) => setFormData({ ...formData, tone: value })}>
-                    <SelectTrigger className="mt-1 bg-muted/50 border-border">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="calm">Calm</SelectItem>
-                      <SelectItem value="confident">Confident</SelectItem>
-                      <SelectItem value="playful">Playful</SelectItem>
-                      <SelectItem value="formal">Formal</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+              <div>
+                <label className="text-sm font-medium text-white">Language</label>
+                <Select value={formData.language} onValueChange={(value) => setFormData({ ...formData, language: value })}>
+                  <SelectTrigger className="mt-1 bg-muted/50 border-border">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="en">English</SelectItem>
+                    <SelectItem value="es">Spanish</SelectItem>
+                    <SelectItem value="fr">French</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
               
               <div>
@@ -525,68 +508,7 @@ export default function OpenerEditor() {
             </CardContent>
           </Card>
 
-          {/* Performance Expectations */}
-          <Card className="bg-gradient-card border-border shadow-card">
-            <CardHeader>
-              <CardTitle className="text-lg text-white">Performance Expectations</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <div className="text-sm text-muted-foreground">Spam Risk</div>
-                  <div className={`text-lg font-bold ${
-                    currentVariant.riskScore > 6 ? 'text-red-400' :
-                    currentVariant.riskScore > 3 ? 'text-yellow-400' :
-                    'text-green-400'
-                  }`}>
-                    {currentVariant.riskScore > 6 ? 'High' : currentVariant.riskScore > 3 ? 'Medium' : 'Low'}
-                  </div>
-                </div>
-                
-                <div>
-                  <div className="text-sm text-muted-foreground">Clarity Score</div>
-                  <div className="text-lg font-bold text-blue-400">
-                    {Math.max(1, 10 - Math.floor(currentVariant.body.split(' ').length / 10))}0%
-                  </div>
-                </div>
-                
-                <div>
-                  <div className="text-sm text-muted-foreground">CTA Present</div>
-                  <div className={`text-lg font-bold ${
-                    /\?|!|click|reply|check|see/.test(currentVariant.body.toLowerCase()) ? 'text-green-400' : 'text-red-400'
-                  }`}>
-                    {/\?|!|click|reply|check|see/.test(currentVariant.body.toLowerCase()) ? 'Yes' : 'No'}
-                  </div>
-                </div>
-                
-                <div>
-                  <div className="text-sm text-muted-foreground">Variables</div>
-                  <div className="text-lg font-bold text-white">
-                    {currentVariant.variables.length}
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
 
-          {/* Sample Data for Preview */}
-          <Card className="bg-gradient-card border-border shadow-card">
-            <CardHeader>
-              <CardTitle className="text-lg text-white">Preview Data</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {Object.entries(previewData).map(([key, value]) => (
-                <div key={key} className="flex items-center gap-3">
-                  <span className="text-sm font-mono text-muted-foreground w-20">{key}:</span>
-                  <Input
-                    value={value}
-                    onChange={(e) => setPreviewData({ ...previewData, [key]: e.target.value })}
-                    className="flex-1 h-8 bg-muted/50 border-border text-white"
-                  />
-                </div>
-              ))}
-            </CardContent>
-          </Card>
         </div>
       </div>
 
