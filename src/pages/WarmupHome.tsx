@@ -150,7 +150,7 @@ export default function WarmupHome() {
 
         <Card className="bg-gradient-card border-border shadow-card">
           <CardHeader className="pb-3">
-            <CardTitle className="text-lg">Active Accounts</CardTitle>
+            <CardTitle className="text-lg text-white">Active Accounts</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-3xl font-bold text-white">
