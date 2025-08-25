@@ -520,9 +520,16 @@ export default function Messages() {
               </Button>
             </div>
           </CardHeader>
-          <CardContent className="p-0">
-            <div className="space-y-0">
-              {conversations.map(conversation => <div key={conversation.id} className={`p-4 border-b border-border cursor-pointer hover:bg-muted/50 transition-colors ${selectedConversation?.id === conversation.id ? "bg-primary/10 border-r-2 border-r-primary" : ""}`} onClick={() => setSelectedConversation(conversation)}>
+          <CardContent className="p-0 flex flex-col h-[calc(100vh-12rem)]">
+            <div className="flex-1 overflow-y-auto">
+              {conversations.map(conversation => 
+                <div 
+                  key={conversation.id} 
+                  className={`p-4 border-b border-border cursor-pointer hover:bg-muted/50 transition-colors ${
+                    selectedConversation?.id === conversation.id ? "bg-primary/10 border-r-2 border-r-primary" : ""
+                  }`} 
+                  onClick={() => setSelectedConversation(conversation)}
+                >
                   <div className="flex items-start gap-3">
                     <Avatar className="h-10 w-10">
                       <AvatarImage src={conversation.avatar} />
@@ -554,7 +561,8 @@ export default function Messages() {
                       </div>
                     </div>
                   </div>
-                </div>)}
+                </div>
+              )}
             </div>
           </CardContent>
         </Card>
@@ -611,9 +619,9 @@ export default function Messages() {
           </Card>
 
           {/* Messages */}
-          <Card className="flex-1 bg-gradient-card border-border shadow-card mb-4">
-            <CardContent className="p-6 flex flex-col h-full">
-              <div className="flex-1 space-y-4 overflow-y-auto">
+          <Card className="flex-1 bg-gradient-card border-border shadow-card mb-4 flex flex-col min-h-0">
+            <CardContent className="p-6 flex flex-col h-full min-h-0">
+              <div className="flex-1 overflow-y-auto pr-2 space-y-4 max-h-[calc(100vh-32rem)]">
                 {currentMessages.map(message => 
                   <div key={message.id} className={`flex ${message.type === "sent" ? "justify-end" : "justify-start"}`}>
                     <div className={`max-w-[80%] rounded-lg p-3 ${
