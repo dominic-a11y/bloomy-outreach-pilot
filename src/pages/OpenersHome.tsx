@@ -315,20 +315,6 @@ export default function OpenersHome() {
                   </div>
                 </div>
 
-                {opener.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-1">
-                    {opener.tags.slice(0, 3).map(tag => (
-                      <Badge key={tag} variant="outline" className="text-xs">
-                        {tag.replace('_', ' ')}
-                      </Badge>
-                    ))}
-                    {opener.tags.length > 3 && (
-                      <Badge variant="outline" className="text-xs">
-                        +{opener.tags.length - 3} more
-                      </Badge>
-                    )}
-                  </div>
-                )}
               </CardContent>
             </Card>
           );
