@@ -247,12 +247,10 @@ export default function OpenerEditor() {
             {opener && (
               <div className="flex items-center gap-2 mt-1">
                 <Badge className={`text-xs ${
-                  opener.status === 'approved' ? 'bg-green-500/20 text-green-400' :
-                  opener.status === 'in_review' ? 'bg-yellow-500/20 text-yellow-400' :
-                  opener.status === 'rejected' ? 'bg-red-500/20 text-red-400' :
+                  opener.status === 'active' ? 'bg-green-500/20 text-green-400' :
                   'bg-gray-500/20 text-gray-400'
                 }`}>
-                  {opener.status.replace('_', ' ')}
+                  {opener.status}
                 </Badge>
                 {safeMode && (
                   <Badge variant="outline" className="text-xs">
@@ -612,39 +610,16 @@ export default function OpenerEditor() {
                 disabled={!canSave || (hasHighRisk && safeMode)}
               >
                 <Save className="h-4 w-4 mr-2" />
-                Save Draft
+                Save
               </Button>
               
-              {opener?.status === 'draft' && (
-                <Button 
-                  onClick={() => opener && submitForReview(opener.id)}
-                  disabled={!canSave || (hasHighRisk && safeMode)}
-                >
-                  <Send className="h-4 w-4 mr-2" />
-                  Submit for Review
-                </Button>
-              )}
-              
-              {canApprove && opener?.status === 'in_review' && (
-                <>
-                  <Button 
-                    variant="outline"
-                    onClick={() => opener && rejectOpener(opener.id, 'Needs revision')}
-                    className="text-red-400 border-red-400 hover:bg-red-400/10"
-                  >
-                    <XCircle className="h-4 w-4 mr-2" />
-                    Reject
-                  </Button>
-                  
-                  <Button 
-                    onClick={() => opener && approveOpener(opener.id)}
-                    className="bg-green-600 hover:bg-green-700"
-                  >
-                    <CheckCircle className="h-4 w-4 mr-2" />
-                    Approve
-                  </Button>
-                </>
-              )}
+              <Button 
+                onClick={() => opener && updateOpener(opener.id, { status: 'active' })}
+                disabled={!canSave || (hasHighRisk && safeMode)}
+              >
+                <CheckCircle className="h-4 w-4 mr-2" />
+                Activate
+              </Button>
             </div>
           </div>
         </CardContent>

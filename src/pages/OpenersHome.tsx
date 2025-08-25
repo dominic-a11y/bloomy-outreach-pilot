@@ -35,9 +35,7 @@ export default function OpenersHome() {
 
   // Calculate summary metrics
   const totalOpeners = openers.length;
-  const approvedCount = openers.filter(o => o.status === 'approved').length;
-  const inReviewCount = openers.filter(o => o.status === 'in_review').length;
-  const rejectedCount = openers.filter(o => o.status === 'rejected').length;
+  const activeCount = openers.filter(o => o.status === 'active').length;
 
   // Filter openers
   const filteredOpeners = openers.filter(opener => {
@@ -52,12 +50,8 @@ export default function OpenersHome() {
 
   const getStatusConfig = (status: string) => {
     switch (status) {
-      case 'approved':
+      case 'active':
         return { color: 'bg-green-500/20 text-green-400 border-green-500/30', icon: CheckCircle };
-      case 'in_review':
-        return { color: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30', icon: Clock };
-      case 'rejected':
-        return { color: 'bg-red-500/20 text-red-400 border-red-500/30', icon: XCircle };
       default:
         return { color: 'bg-gray-500/20 text-gray-400 border-gray-500/30', icon: Clock };
     }
@@ -90,30 +84,9 @@ export default function OpenersHome() {
         </Button>
       </div>
 
-      {/* Campaign Selector */}
-      <Card className="bg-gradient-card border-border shadow-card">
-        <CardContent className="p-4">
-          <div className="flex items-center gap-4">
-            <div className="flex-1">
-              <label className="text-sm font-medium text-white mb-2 block">Campaign Context</label>
-              <Select defaultValue="all">
-                <SelectTrigger className="bg-muted/50 border-border">
-                  <SelectValue placeholder="Select campaign to filter openers" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Campaigns</SelectItem>
-                  <SelectItem value="fitness-q1">Fitness Influencers Q1</SelectItem>
-                  <SelectItem value="tech-startups">Tech Startups</SelectItem>
-                  <SelectItem value="ecommerce">E-commerce Brands</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
 
       {/* Summary Tiles */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card className="bg-gradient-card border-border shadow-card">
           <CardHeader className="pb-3">
             <CardTitle className="text-lg flex items-center gap-2 text-white">
@@ -123,7 +96,7 @@ export default function OpenersHome() {
           </CardHeader>
           <CardContent>
             <div className="text-3xl font-bold text-white">{totalOpeners}</div>
-            <p className="text-sm text-muted-foreground">Active openers</p>
+            <p className="text-sm text-muted-foreground">All openers</p>
           </CardContent>
         </Card>
 
@@ -131,38 +104,12 @@ export default function OpenersHome() {
           <CardHeader className="pb-3">
             <CardTitle className="text-lg flex items-center gap-2 text-white">
               <CheckCircle className="h-5 w-5 text-green-400" />
-              Approved
+              Active
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold text-white">{approvedCount}</div>
+            <div className="text-3xl font-bold text-white">{activeCount}</div>
             <p className="text-sm text-muted-foreground">Ready to use</p>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-gradient-card border-border shadow-card">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-lg flex items-center gap-2 text-white">
-              <Clock className="h-5 w-5 text-yellow-400" />
-              In Review
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold text-white">{inReviewCount}</div>
-            <p className="text-sm text-muted-foreground">Awaiting approval</p>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-gradient-card border-border shadow-card">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-lg flex items-center gap-2 text-white">
-              <XCircle className="h-5 w-5 text-red-400" />
-              Rejected
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold text-white">{rejectedCount}</div>
-            <p className="text-sm text-muted-foreground">Need revision</p>
           </CardContent>
         </Card>
       </div>
@@ -186,9 +133,7 @@ export default function OpenersHome() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All Status</SelectItem>
-              <SelectItem value="approved">Approved</SelectItem>
-              <SelectItem value="in_review">In Review</SelectItem>
-              <SelectItem value="rejected">Rejected</SelectItem>
+              <SelectItem value="active">Active</SelectItem>
               <SelectItem value="draft">Draft</SelectItem>
             </SelectContent>
           </Select>
@@ -306,14 +251,9 @@ export default function OpenersHome() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between pt-2 border-t border-border">
-                  <div className="text-xs text-muted-foreground">
-                    Used in {opener.campaignUsageCount} campaigns
-                  </div>
                   <div className="text-xs text-muted-foreground">
                     Updated {opener.updatedAt.toLocaleDateString()}
                   </div>
-                </div>
 
               </CardContent>
             </Card>

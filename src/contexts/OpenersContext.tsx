@@ -45,7 +45,7 @@ const mockOpeners: Opener[] = [
   {
     id: '1',
     name: 'Fitness Brand Cold Intro',
-    status: 'approved',
+    status: 'active',
     language: 'en',
     tone: 'confident',
     tags: ['cold_reachout', 'fitness', 'compliance_safe'],
@@ -83,7 +83,7 @@ const mockOpeners: Opener[] = [
   {
     id: '2',
     name: 'Tech Startup Re-engagement',
-    status: 'in_review',
+    status: 'draft',
     language: 'en',
     tone: 'playful',
     tags: ['re_engagement', 'tech', 'startup'],
@@ -218,49 +218,15 @@ export const OpenersProvider: React.FC<{ children: React.ReactNode }> = ({ child
   };
 
   const submitForReview = async (openerId: string) => {
-    await updateOpener(openerId, { status: 'in_review' });
+    // No longer needed - simplified workflow
   };
 
   const approveOpener = async (openerId: string, notes = '') => {
-    await updateOpener(openerId, { status: 'approved' });
-    
-    if (notes) {
-      const review: Review = {
-        id: Date.now().toString(),
-        openerId,
-        reviewerId: currentUser.id,
-        reviewerName: currentUser.name,
-        decision: 'approved',
-        notes,
-        decidedAt: new Date()
-      };
-      
-      setOpeners(prev => prev.map(opener => 
-        opener.id === openerId 
-          ? { ...opener, reviews: [...opener.reviews, review] }
-          : opener
-      ));
-    }
+    await updateOpener(openerId, { status: 'active' });
   };
 
   const rejectOpener = async (openerId: string, notes: string) => {
-    await updateOpener(openerId, { status: 'rejected' });
-    
-    const review: Review = {
-      id: Date.now().toString(),
-      openerId,
-      reviewerId: currentUser.id,
-      reviewerName: currentUser.name,
-      decision: 'rejected',
-      notes,
-      decidedAt: new Date()
-    };
-    
-    setOpeners(prev => prev.map(opener => 
-      opener.id === openerId 
-        ? { ...opener, reviews: [...opener.reviews, review] }
-        : opener
-    ));
+    // No longer needed - simplified workflow
   };
 
   const createABTest = async (testData: Omit<ABTest, 'id'>) => {

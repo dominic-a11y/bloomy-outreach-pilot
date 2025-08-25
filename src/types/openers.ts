@@ -1,7 +1,7 @@
 export interface Opener {
   id: string;
   name: string;
-  status: 'draft' | 'in_review' | 'approved' | 'rejected';
+  status: 'draft' | 'active';
   language: string;
   tone: 'calm' | 'confident' | 'playful' | 'formal';
   tags: string[];
