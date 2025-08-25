@@ -142,10 +142,6 @@ export default function WarmupHome() {
             <div className="text-3xl font-bold text-white">
               {Object.values(dailyProgress).reduce((sum, progress) => sum + (progress.dmOpens + progress.dmReplies), 0)}
             </div>
-            <div className="flex gap-2 mt-3 text-xs">
-              <span className="text-blue-400">{Object.values(dailyProgress).reduce((sum, progress) => sum + progress.dmOpens, 0)} Opens</span>
-              <span className="text-green-400">{Object.values(dailyProgress).reduce((sum, progress) => sum + progress.dmReplies, 0)} Replies</span>
-            </div>
           </CardContent>
         </Card>
 
