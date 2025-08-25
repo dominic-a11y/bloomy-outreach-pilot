@@ -21,10 +21,6 @@ const navigationItems = [{
   url: "/leads",
   icon: UserCheck
 }, {
-  title: "ICP Finder",
-  url: "/icp-finder",
-  icon: Search
-}, {
   title: "Messages",
   url: "/messages",
   icon: MessageSquare
