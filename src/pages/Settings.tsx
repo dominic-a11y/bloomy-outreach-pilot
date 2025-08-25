@@ -47,7 +47,7 @@ export default function Settings() {
               />
             </div>
             <div>
-              <label className="text-sm font-medium text-white">Claude API Key</label>
+              <label className="text-sm font-medium text-white">App ID</label>
               <Input 
                 type="password" 
                 placeholder="sk-ant-..." 
