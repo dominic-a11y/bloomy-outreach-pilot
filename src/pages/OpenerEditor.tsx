@@ -235,7 +235,7 @@ export default function OpenerEditor() {
             variant="ghost"
             size="sm"
             onClick={() => navigate('/openers')}
-            className="gap-1"
+            className="gap-1 text-white hover:text-white"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Openers
