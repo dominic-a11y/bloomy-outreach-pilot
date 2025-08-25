@@ -96,9 +96,9 @@ export default function WarmupHome() {
             <Filter className="h-4 w-4" />
             Templates
           </Button>
-          <Button className="gap-2 bg-primary hover:bg-primary/90 shadow-glow">
-            <Plus className="h-4 w-4" />
-            Create Warmup Profile
+        <Button className="gap-2 bg-primary hover:bg-primary/90 shadow-glow">
+          <Plus className="h-4 w-4" />
+          Add Warmup Profile
           </Button>
         </div>
       </div>
