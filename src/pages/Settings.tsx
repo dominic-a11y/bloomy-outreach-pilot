@@ -3,13 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Settings as SettingsIcon, Key, Shield, Zap } from "lucide-react";
 export default function Settings() {
-  return <div className="p-6 space-y-6">
+  return <div className="p-4 md:p-6 space-y-4 md:space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-white">Settings</h1>
-        <p className="text-white">Configure your organization, users, and integrations.</p>
+        <h1 className="text-2xl md:text-3xl font-bold text-white">Settings</h1>
+        <p className="text-sm md:text-base text-white">Configure your organization, users, and integrations.</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         <Card className="bg-gradient-card border-border shadow-card">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-white">
