@@ -106,23 +106,23 @@ const chartData = [{
   calls: 3
 }];
 export default function Dashboard() {
-  return <div className="p-6 space-y-6">
+  return <div className="p-4 md:p-6 space-y-4 md:space-y-6">
       {/* Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col space-y-4 md:flex-row md:justify-between md:items-center md:space-y-0">
         <div>
-          <h1 className="text-3xl font-bold text-white">Dashboard</h1>
-          <p className="text-white">Welcome back! Here's what's happening with your outreach.</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-white">Dashboard</h1>
+          <p className="text-sm md:text-base text-white">Welcome back! Here's what's happening with your outreach.</p>
         </div>
-        <div className="flex gap-2">
-          {quickActions.map(action => <Button key={action.title} variant={action.variant} className="gap-2">
+        <div className="flex flex-wrap gap-2">
+          {quickActions.map(action => <Button key={action.title} variant={action.variant} className="gap-2 text-xs md:text-sm px-3 py-2">
               <action.icon className="h-4 w-4" />
-              {action.title}
+              <span className="hidden sm:inline">{action.title}</span>
             </Button>)}
         </div>
       </div>
 
       {/* Top Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         {topCards.map(card => <Card key={card.title} className="bg-gradient-card border-border shadow-card hover:shadow-glow transition-all">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-white/80">
