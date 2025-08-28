@@ -80,31 +80,31 @@ export default function WarmupHome() {
   ];
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-4 md:space-y-6">
       {/* Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col space-y-4 md:flex-row md:justify-between md:items-center md:space-y-0">
         <div>
-          <h1 className="text-3xl font-bold text-white">Warmup</h1>
-          <p className="text-muted-foreground">Manage Instagram account warmup automation with safe pacing.</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-white">Warmup</h1>
+          <p className="text-muted-foreground text-sm md:text-base">Manage Instagram account warmup automation with safe pacing.</p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-3 flex-wrap">
           <Button
             variant="outline"
             onClick={() => navigate('/warmup/templates')}
             className="gap-2"
           >
             <Filter className="h-4 w-4" />
-            Templates
+            <span className="hidden sm:inline">Templates</span>
           </Button>
         <Button className="gap-2 bg-primary hover:bg-primary/90 shadow-glow">
           <Plus className="h-4 w-4" />
-          Add Warmup Profile
+          <span className="hidden sm:inline">Add Warmup Profile</span>
           </Button>
         </div>
       </div>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         <Card className="bg-gradient-card border-border shadow-card">
           <CardHeader className="pb-3">
             <CardTitle className="text-lg flex items-center gap-2 text-white">

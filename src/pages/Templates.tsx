@@ -97,30 +97,30 @@ export default function Templates() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-4 md:space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
+      <div className="flex flex-col space-y-4 lg:flex-row lg:items-center lg:justify-between lg:space-y-0">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4">
           <Button
             variant="ghost"
             size="sm"
             onClick={() => navigate('/warmup')}
-            className="gap-1"
+            className="gap-1 self-start"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Warmup
+            <span className="hidden sm:inline">Back to Warmup</span>
           </Button>
           <div>
-            <h1 className="text-3xl font-bold text-white">Warmup Templates</h1>
-            <p className="text-muted-foreground">Create and manage reusable warmup configurations.</p>
+            <h1 className="text-2xl md:text-3xl font-bold text-white">Warmup Templates</h1>
+            <p className="text-muted-foreground text-sm md:text-base">Create and manage reusable warmup configurations.</p>
           </div>
         </div>
         
         <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
           <DialogTrigger asChild>
-            <Button className="gap-2 bg-primary hover:bg-primary/90 shadow-glow">
+            <Button className="gap-2 bg-primary hover:bg-primary/90 shadow-glow self-start lg:self-auto">
               <Plus className="h-4 w-4" />
-              Create Template
+              <span className="hidden sm:inline">Create Template</span>
             </Button>
           </DialogTrigger>
           <DialogContent>
@@ -163,7 +163,7 @@ export default function Templates() {
       </div>
 
       {/* Templates Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {filteredTemplates.map(template => {
           const totalTargets = Object.values(template.targets).reduce((sum, val) => sum + val, 0);
           const enabledDays = Object.values(template.schedule).filter(day => day.enabled).length;

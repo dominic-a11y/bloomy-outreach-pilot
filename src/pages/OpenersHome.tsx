@@ -48,21 +48,21 @@ export default function OpenersHome() {
         return 'bg-gray-500/20 text-gray-400';
     }
   };
-  return <div className="p-8 space-y-12">
+  return <div className="p-4 md:p-6 lg:p-8 space-y-6 md:space-y-8 lg:space-y-12">
       {/* Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col space-y-4 md:flex-row md:justify-between md:items-center md:space-y-0">
         <div>
-          <h1 className="text-4xl font-bold text-white mb-2">Openers</h1>
-          <p className="text-muted-foreground text-lg">Create, organize, and track your outreach opener messages.</p>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">Openers</h1>
+          <p className="text-muted-foreground text-sm md:text-base lg:text-lg">Create, organize, and track your outreach opener messages.</p>
         </div>
-        <Button onClick={() => navigate('/openers/new')} className="gap-2 bg-primary hover:bg-primary/90 shadow-glow px-6 py-3 text-base">
-          <Plus className="h-5 w-5" />
-          New Opener
+        <Button onClick={() => navigate('/openers/new')} className="gap-2 bg-primary hover:bg-primary/90 shadow-glow px-4 md:px-6 py-2 md:py-3 text-sm md:text-base self-start md:self-auto">
+          <Plus className="h-4 md:h-5 w-4 md:w-5" />
+          <span className="hidden sm:inline">New Opener</span>
         </Button>
       </div>
 
       {/* Summary Tiles */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
         <Card className="bg-gradient-card border-border shadow-card hover:shadow-glow transition-all">
           <CardHeader className="pb-4">
             <CardTitle className="text-lg flex items-center gap-2 text-white">
@@ -104,15 +104,15 @@ export default function OpenersHome() {
       </div>
 
       {/* Best Performing Openers Section */}
-      <div className="space-y-8">
+      <div className="space-y-6 md:space-y-8">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-3xl font-bold text-white mb-2">Top Performers</h2>
-            <p className="text-muted-foreground text-lg">Your best performing openers this month</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Top Performers</h2>
+            <p className="text-muted-foreground text-sm md:text-base lg:text-lg">Your best performing openers this month</p>
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           <Card className="bg-gradient-card border-border shadow-card hover:shadow-glow transition-all relative overflow-hidden">
             <div className="absolute top-4 right-4">
               <Badge className="bg-primary/20 text-primary border-primary/30 text-xs font-semibold">
@@ -188,12 +188,12 @@ export default function OpenersHome() {
       </div>
 
       {/* All Openers Section */}
-      <div className="space-y-8">
+      <div className="space-y-6 md:space-y-8">
         <div>
-          <h2 className="text-3xl font-bold text-white mb-2">All Openers</h2>
-          <p className="text-muted-foreground text-lg">Manage and organize your opener library</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">All Openers</h2>
+          <p className="text-muted-foreground text-sm md:text-base lg:text-lg">Manage and organize your opener library</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {filteredOpeners.map(opener => {
           const statusConfig = getStatusConfig(opener.status);
           const StatusIcon = statusConfig.icon;

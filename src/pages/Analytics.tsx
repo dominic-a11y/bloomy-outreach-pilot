@@ -28,19 +28,19 @@ const topOpener = {
   improvement: "+23%"
 };
 export default function Analytics() {
-  return <div className="p-6 space-y-6">
-      <div className="flex justify-between items-center">
+  return <div className="p-4 md:p-6 space-y-4 md:space-y-6">
+      <div className="flex flex-col space-y-4 md:flex-row md:justify-between md:items-center md:space-y-0">
         <div>
-          <h1 className="text-3xl font-bold text-white">Analytics</h1>
-          <p className="text-white">Track performance and optimize your outreach campaigns.</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-white">Analytics</h1>
+          <p className="text-sm md:text-base text-white">Track performance and optimize your outreach campaigns.</p>
         </div>
-        <Button className="gap-2" variant="outline">
+        <Button className="gap-2 self-start md:self-auto" variant="outline">
           <Download className="h-4 w-4" />
-          Export Report
+          <span className="hidden sm:inline">Export Report</span>
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 md:gap-6">
         <Card className="xl:col-span-2 bg-gradient-card border-border shadow-card">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-white">

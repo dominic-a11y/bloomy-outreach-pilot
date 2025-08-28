@@ -133,16 +133,16 @@ export default function Accounts() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-4 md:space-y-6">
       {/* Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col space-y-4 md:flex-row md:justify-between md:items-center md:space-y-0">
         <div>
-          <h1 className="text-3xl font-bold text-white">Accounts</h1>
-          <p className="text-white">Manage your Instagram accounts and monitor their health.</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-white">Accounts</h1>
+          <p className="text-sm md:text-base text-white">Manage your Instagram accounts and monitor their health.</p>
         </div>
-        <Button className="gap-2 bg-primary hover:bg-primary/90 shadow-glow">
+        <Button className="gap-2 bg-primary hover:bg-primary/90 shadow-glow self-start md:self-auto">
           <Plus className="h-4 w-4" />
-          Add Account
+          <span className="hidden sm:inline">Add Account</span>
         </Button>
       </div>
 
