@@ -30,7 +30,7 @@ const conversations = [{
   role: "Content Creator", 
   company: "OnlyFans",
   handle: "",
-  lastMessage: "idk what if I don't grow tho",
+  lastMessage: "We've scaled creators from no social media presence to 40–70k/month. Growth is guaranteed because we combine heavy ad spend with organic loops like Reddit, Discord, TikTok, and reposts.",
   timestamp: "15 min ago",
   unread: true,
   campaign: "OnlyFans Creators",
@@ -43,7 +43,7 @@ const conversations = [{
   role: "Content Creator",
   company: "OnlyFans", 
   handle: "",
-  lastMessage: "what do you guys even do?",
+  lastMessage: "Gotcha! In short, we handle everything: chatting, marketing, promo, DMCA/security, content guidance, and boosting your social presence. We have 24/7 expert teams, so all you need to focus on is content.",
   timestamp: "1 hour ago",
   unread: true,
   campaign: "OnlyFans Creators",
@@ -56,7 +56,7 @@ const conversations = [{
   role: "Content Creator",
   company: "OnlyFans",
   handle: "",
-  lastMessage: "what's the catch?",
+  lastMessage: "Most of our success comes from paid marketing. We invest 5k–25k+ per creator every month into TikTok, Reddit, IG, and Twitter ads. That's why we take 50% — but our lowest earner is already at 40k/month.",
   timestamp: "2 hours ago",
   unread: true,
   campaign: "OnlyFans Creators",
@@ -69,7 +69,7 @@ const conversations = [{
   role: "Content Creator",
   company: "OnlyFans",
   handle: "",
-  lastMessage: "idk, I already do good",
+  lastMessage: "Gotcha! I hope you don't mind me asking, how much are you currently making on OnlyFans?",
   timestamp: "3 hours ago",
   unread: false,
   campaign: "OnlyFans Creators",
@@ -82,7 +82,7 @@ const conversations = [{
   role: "Content Creator",
   company: "OnlyFans",
   handle: "",
-  lastMessage: "ok sure sounds good",
+  lastMessage: "Perfect, here's my calendar → https://calendly.com/creatorsinc/demo",
   timestamp: "4 hours ago",
   unread: true,
   campaign: "OnlyFans Creators",
@@ -108,7 +108,7 @@ const conversations = [{
   role: "Content Creator", 
   company: "OnlyFans",
   handle: "",
-  lastMessage: "wow ok but what do u guys actually do?",
+  lastMessage: "Gotcha! In short, we handle everything: chatting, marketing, promo, DMCA/security, content guidance, and boosting your social presence. We have 24/7 expert teams, so all you need to focus on is content.",
   timestamp: "1 day ago",
   unread: true,
   campaign: "OnlyFans Creators",
@@ -121,7 +121,7 @@ const conversations = [{
   role: "Content Creator",
   company: "OnlyFans", 
   handle: "",
-  lastMessage: "yeah that's fine",
+  lastMessage: "Perfect, here's my calendar → https://calendly.com/creatorsinc/demo",
   timestamp: "2 days ago",
   unread: true,
   campaign: "OnlyFans Creators",
@@ -134,7 +134,7 @@ const conversations = [{
   role: "Content Creator",
   company: "OnlyFans",
   handle: "",
-  lastMessage: "how much do u take?",
+  lastMessage: "Most of our success comes from paid marketing. We invest 5k–25k+ per creator every month into TikTok, Reddit, IG, and Twitter ads. That's why we take 50% — but our lowest earner is already at 40k/month.",
   timestamp: "2 days ago",
   unread: false,
   campaign: "OnlyFans Creators",
@@ -160,7 +160,7 @@ const conversations = [{
   role: "Content Creator",
   company: "OnlyFans", 
   handle: "",
-  lastMessage: "call works",
+  lastMessage: "Perfect, here's my calendar → https://calendly.com/creatorsinc/demo",
   timestamp: "4 days ago",
   unread: true,
   campaign: "OnlyFans Creators",
@@ -268,7 +268,7 @@ const conversationMessages = {
     sender: "Creators Inc"
   }, {
     id: 4,
-    type: "received",
+    type: "sent",
     content: "File sent ✅",
     timestamp: "2 days ago 3:00 PM",
     sender: "Creators Inc"
@@ -302,6 +302,12 @@ const conversationMessages = {
     content: "idk what if I don't grow tho",
     timestamp: "15 min ago",
     sender: "Sarah"
+  }, {
+    id: 10,
+    type: "sent",
+    content: "We've scaled creators from no social media presence to 40–70k/month. Growth is guaranteed because we combine heavy ad spend with organic loops like Reddit, Discord, TikTok, and reposts.",
+    timestamp: "15 min ago",
+    sender: "Creators Inc"
   }],
   3: [
   // Kayla - Interested
@@ -341,6 +347,12 @@ const conversationMessages = {
     content: "what do you guys even do?",
     timestamp: "1 hour ago",
     sender: "Kayla"
+  }, {
+    id: 7,
+    type: "sent",
+    content: "Gotcha! In short, we handle everything: chatting, marketing, promo, DMCA/security, content guidance, and boosting your social presence. We have 24/7 expert teams, so all you need to focus on is content.",
+    timestamp: "1 hour ago",
+    sender: "Creators Inc"
   }],
   4: [
   // Mercedes - Objection (Catch)
@@ -380,6 +392,12 @@ const conversationMessages = {
     content: "what's the catch?",
     timestamp: "2 hours ago",
     sender: "Mercedes"
+  }, {
+    id: 7,
+    type: "sent",
+    content: "Most of our success comes from paid marketing. We invest 5k–25k+ per creator every month into TikTok, Reddit, IG, and Twitter ads. That's why we take 50% — but our lowest earner is already at 40k/month.",
+    timestamp: "2 hours ago",
+    sender: "Creators Inc"
   }],
   5: [
   // Taylor - Already do good objection
@@ -413,6 +431,12 @@ const conversationMessages = {
     content: "idk, I already do good",
     timestamp: "3 hours ago",
     sender: "Taylor"
+  }, {
+    id: 6,
+    type: "sent",
+    content: "Gotcha! I hope you don't mind me asking, how much are you currently making on OnlyFans?",
+    timestamp: "3 hours ago",
+    sender: "Creators Inc"
   }],
   6: [
   // Ines - Booked Call
@@ -464,6 +488,12 @@ const conversationMessages = {
     content: "ok sure sounds good",
     timestamp: "4 hours ago",
     sender: "Ines"
+  }, {
+    id: 9,
+    type: "sent",
+    content: "Perfect, here's my calendar → https://calendly.com/creatorsinc/demo",
+    timestamp: "4 hours ago",
+    sender: "Creators Inc"
   }],
   7: [
   // Kiana - Follow up (no reply)
@@ -524,6 +554,12 @@ const conversationMessages = {
     content: "wow ok but what do u guys actually do?",
     timestamp: "1 day ago",
     sender: "Jessica"
+  }, {
+    id: 7,
+    type: "sent",
+    content: "Gotcha! In short, we handle everything: chatting, marketing, promo, DMCA/security, content guidance, and boosting your social presence. We have 24/7 expert teams, so all you need to focus on is content.",
+    timestamp: "1 day ago",
+    sender: "Creators Inc"
   }],
   9: [
   // Ashley - Booked Call
@@ -575,6 +611,12 @@ const conversationMessages = {
     content: "yeah that's fine",
     timestamp: "2 days ago",
     sender: "Ashley"
+  }, {
+    id: 9,
+    type: "sent",
+    content: "Perfect, here's my calendar → https://calendly.com/creatorsinc/demo",
+    timestamp: "2 days ago",
+    sender: "Creators Inc"
   }],
   10: [
   // Mia - Objection (Commission)
@@ -614,6 +656,12 @@ const conversationMessages = {
     content: "how much do u take?",
     timestamp: "2 days ago",
     sender: "Mia"
+  }, {
+    id: 7,
+    type: "sent",
+    content: "Most of our success comes from paid marketing. We invest 5k–25k+ per creator every month into TikTok, Reddit, IG, and Twitter ads. That's why we take 50% — but our lowest earner is already at 40k/month.",
+    timestamp: "2 days ago",
+    sender: "Creators Inc"
   }],
   11: [
   // Sophia - Follow up
@@ -680,11 +728,18 @@ const conversationMessages = {
     content: "call works",
     timestamp: "4 days ago",
     sender: "Emma"
+  }, {
+    id: 9,
+    type: "sent",
+    content: "Perfect, here's my calendar → https://calendly.com/creatorsinc/demo",
+    timestamp: "4 days ago",
+    sender: "Creators Inc"
   }]
 };
 
-// Default to Sarah Chen's conversation
+// Default to Victoria's conversation
 const messages = conversationMessages[1] || [];
+
 const folders = [{
   name: "All",
   count: 247,
@@ -710,13 +765,16 @@ const folders = [{
   count: 189,
   active: false
 }];
+
 export default function Messages() {
   const [selectedConversation, setSelectedConversation] = useState(conversations[0]);
   const [messageText, setMessageText] = useState("");
 
   // Get messages for selected conversation
   const currentMessages = conversationMessages[selectedConversation?.id] || [];
-  return <div className="p-6">
+
+  return (
+    <div className="p-6">
       <div className="h-[calc(100vh-8rem)] flex gap-6">
         {/* Left Sidebar - Folders */}
         <Card className="w-64 bg-gradient-card border-border shadow-card">
@@ -724,12 +782,19 @@ export default function Messages() {
             <CardTitle className="text-lg text-white">Messages</CardTitle>
           </CardHeader>
           <CardContent className="space-y-1">
-            {folders.map(folder => <Button key={folder.name} variant={folder.active ? "default" : "ghost"} className="w-full justify-between text-white" size="sm">
+            {folders.map((folder) => (
+              <Button
+                key={folder.name}
+                variant={folder.active ? "default" : "ghost"}
+                className="w-full justify-between text-white"
+                size="sm"
+              >
                 <span className="text-white">{folder.name}</span>
                 <Badge variant="outline" className="text-xs text-white">
                   {folder.count}
                 </Badge>
-              </Button>)}
+              </Button>
+            ))}
             
             <Separator className="my-4" />
             
@@ -762,7 +827,7 @@ export default function Messages() {
           </CardHeader>
           <CardContent className="p-0 flex flex-col h-[calc(100vh-12rem)]">
             <div className="flex-1 overflow-y-auto">
-              {conversations.map(conversation => 
+              {conversations.map((conversation) => (
                 <div 
                   key={conversation.id} 
                   className={`p-4 border-b border-border cursor-pointer hover:bg-muted/50 transition-colors ${
@@ -802,7 +867,7 @@ export default function Messages() {
                     </div>
                   </div>
                 </div>
-              )}
+              ))}
             </div>
           </CardContent>
         </Card>
@@ -862,7 +927,7 @@ export default function Messages() {
           <Card className="flex-1 bg-gradient-card border-border shadow-card mb-4 flex flex-col min-h-0">
             <CardContent className="p-6 flex flex-col h-full min-h-0">
               <div className="flex-1 overflow-y-auto pr-2 space-y-4 max-h-[calc(100vh-32rem)]">
-                {currentMessages.map(message => 
+                {currentMessages.map((message) => (
                   <div key={message.id} className={`flex ${message.type === "sent" ? "justify-end" : "justify-start"}`}>
                     <div className={`max-w-[80%] rounded-lg p-3 ${
                       message.type === "sent" 
@@ -881,22 +946,7 @@ export default function Messages() {
                       </div>
                     </div>
                   </div>
-                )}
-                
-                {/* Typing Indicator */}
-                <div className="flex justify-start">
-                  <div className="bg-white border border-border rounded-lg p-3 max-w-20">
-                    <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-black/60 rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-black/60 rounded-full animate-bounce" style={{
-                      animationDelay: "0.1s"
-                    }}></div>
-                      <div className="w-2 h-2 bg-black/60 rounded-full animate-bounce" style={{
-                      animationDelay: "0.2s"
-                    }}></div>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </CardContent>
           </Card>
@@ -939,7 +989,12 @@ export default function Messages() {
                 </div>
                 
                 <div className="relative">
-                  <Textarea placeholder="Type your message..." value={messageText} onChange={e => setMessageText(e.target.value)} className="min-h-20 pr-20 resize-none bg-muted text-foreground placeholder:text-muted-foreground border-border focus:border-primary" />
+                  <Textarea 
+                    placeholder="Type your message..." 
+                    value={messageText}
+                    onChange={(e) => setMessageText(e.target.value)}
+                    className="min-h-20 pr-20 resize-none bg-muted text-foreground placeholder:text-muted-foreground border-border focus:border-primary"
+                  />
                   <div className="absolute bottom-3 right-3 flex gap-1">
                     <Button variant="ghost" size="sm">
                       <Paperclip className="h-4 w-4" />
@@ -947,28 +1002,21 @@ export default function Messages() {
                     <Button variant="ghost" size="sm">
                       <Smile className="h-4 w-4" />
                     </Button>
+                    <Button size="sm" className="gap-2">
+                      <Send className="h-4 w-4" />
+                      Send
+                    </Button>
                   </div>
                 </div>
-                
-                <div className="flex justify-between items-center">
-                  <div className="flex gap-2">
-                    <Button variant="outline" size="sm" className="gap-2">
-                      <Clock className="h-4 w-4" />
-                      Send Later
-                    </Button>
-                    <Button variant="outline" size="sm">
-                      Internal Note
-                    </Button>
-                  </div>
-                  <Button className="gap-2 bg-primary hover:bg-primary/90">
-                    <Send className="h-4 w-4" />
-                    Send Message
-                  </Button>
+
+                <div className="flex items-center gap-2 text-xs text-white/60">
+                  <span>Press Enter to send, Shift+Enter for new line</span>
                 </div>
               </div>
             </CardContent>
           </Card>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 }
