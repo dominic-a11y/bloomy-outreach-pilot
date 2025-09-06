@@ -13,10 +13,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 // Demo conversations data - Realistic outreach scenarios
 const conversations = [{
   id: 1,
-  contact: "Sarah Chen",
+  contact: "Sarah",
   role: "CEO",
   company: "TechFlow SaaS",
-  handle: "@sarahchen_techflow",
   lastMessage: "Perfect, here's my Calendly: calendly.com/sarah-chen/15min",
   timestamp: "2 min ago",
   unread: true,
@@ -26,10 +25,9 @@ const conversations = [{
   avatar: "/api/placeholder/40/40"
 }, {
   id: 2,
-  contact: "Marcus Johnson",
+  contact: "Marcus",
   role: "Marketing Director",
   company: "Urban Lifestyle",
-  handle: "@marcus_urban",
   lastMessage: "Already working with an agency, but thanks for reaching out",
   timestamp: "1 hour ago",
   unread: false,
@@ -39,10 +37,9 @@ const conversations = [{
   avatar: "/api/placeholder/40/40"
 }, {
   id: 3,
-  contact: "Priya Patel",
+  contact: "Priya",
   role: "Founder",
   company: "MindfuI Coach",
-  handle: "@priya_mindful",
   lastMessage: "Sounds interesting! Can you send me some case studies first?",
   timestamp: "3 hours ago",
   unread: true,
@@ -52,10 +49,9 @@ const conversations = [{
   avatar: "/api/placeholder/40/40"
 }, {
   id: 4,
-  contact: "Ahmed Al-Rashid",
+  contact: "Ahmed",
   role: "Agency Owner",
   company: "Digital Growth Co",
-  handle: "@ahmed_dgc",
   lastMessage: "Currently at capacity, maybe revisit in Q2?",
   timestamp: "5 hours ago",
   unread: false,
@@ -65,10 +61,9 @@ const conversations = [{
   avatar: "/api/placeholder/40/40"
 }, {
   id: 5,
-  contact: "Lisa Wang",
+  contact: "Lisa",
   role: "E-commerce Director",
   company: "StyleForward",
-  handle: "@lisa_styleforward",
   lastMessage: "Too expensive for us right now, sorry",
   timestamp: "1 day ago",
   unread: false,
@@ -78,10 +73,9 @@ const conversations = [{
   avatar: "/api/placeholder/40/40"
 }, {
   id: 6,
-  contact: "Carlos Rodriguez",
+  contact: "Carlos",
   role: "Startup Founder",
   company: "FoodieApp",
-  handle: "@carlos_foodie",
   lastMessage: "Let's schedule for next Tuesday if you have time",
   timestamp: "1 day ago",
   unread: true,
@@ -91,10 +85,9 @@ const conversations = [{
   avatar: "/api/placeholder/40/40"
 }, {
   id: 7,
-  contact: "Jennifer Kim",
+  contact: "Jennifer",
   role: "Growth Marketing Lead",
   company: "FinanceFlow",
-  handle: "@jen_financeflow",
   lastMessage: "Not the right fit for us atm",
   timestamp: "2 days ago",
   unread: false,
@@ -104,10 +97,9 @@ const conversations = [{
   avatar: "/api/placeholder/40/40"
 }, {
   id: 8,
-  contact: "David Thompson",
+  contact: "David",
   role: "CEO",
   company: "BuildTech Solutions",
-  handle: "@david_buildtech",
   lastMessage: "This looks promising. What's your success rate?",
   timestamp: "2 days ago",
   unread: true,
@@ -117,10 +109,9 @@ const conversations = [{
   avatar: "/api/placeholder/40/40"
 }, {
   id: 9,
-  contact: "Ana Sofia Gutierrez",
+  contact: "Ana",
   role: "Brand Manager",
   company: "Eco Essentials",
-  handle: "@ana_ecoessentials",
   lastMessage: "Definitely interested! When can we chat?",
   timestamp: "3 days ago",
   unread: true,
@@ -130,10 +121,9 @@ const conversations = [{
   avatar: "/api/placeholder/40/40"
 }, {
   id: 10,
-  contact: "Raj Singh",
+  contact: "Raj",
   role: "Co-founder",
   company: "CloudSync Pro",
-  handle: "@raj_cloudsync",
   lastMessage: "We handle our own marketing internally",
   timestamp: "3 days ago",
   unread: false,
@@ -143,10 +133,9 @@ const conversations = [{
   avatar: "/api/placeholder/40/40"
 }, {
   id: 11,
-  contact: "Emma Nielsen",
+  contact: "Emma",
   role: "Creative Director",
   company: "Nordic Design Studio",
-  handle: "@emma_nordic",
   lastMessage: "Looks great but we're bootstrapped rn. Maybe later?",
   timestamp: "4 days ago",
   unread: false,
@@ -156,10 +145,9 @@ const conversations = [{
   avatar: "/api/placeholder/40/40"
 }, {
   id: 12,
-  contact: "Tyler Brooks",
+  contact: "Tyler",
   role: "Performance Marketing Manager",
   company: "FitGear Pro",
-  handle: "@tyler_fitgear",
   lastMessage: "Can you walk me through the ROI projections?",
   timestamp: "5 days ago",
   unread: true,
@@ -546,9 +534,6 @@ export default function Messages() {
                           {conversation.timestamp}
                         </div>
                       </div>
-                      <div className="text-xs text-white mb-1">
-                        {conversation.handle}
-                      </div>
                       <div className="text-sm text-white truncate mb-2">
                         {conversation.lastMessage}
                       </div>
@@ -582,9 +567,9 @@ export default function Messages() {
                   </Avatar>
                   <div>
                     <div className="font-medium text-white">{selectedConversation?.contact}</div>
-                    <div className="text-sm text-white">
-                      {selectedConversation?.handle} • Online 5 min ago
-                    </div>
+                     <div className="text-sm text-white">
+                       Online 5 min ago
+                     </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
