@@ -7,50 +7,60 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 // Sample data
 const topCards = [{
-  title: "Messages Sent",
-  value: "12,847",
+  title: "DMs Sent",
+  value: "9,854",
   change: "+12%",
   icon: Send,
   color: "text-blue-400"
 }, {
   title: "Reply Rate",
-  value: "24.5%",
-  change: "+5.2%",
+  value: "9.39%",
+  change: "+1.2%",
   icon: TrendingUp,
   color: "text-green-400"
 }, {
   title: "Booked Calls",
-  value: "156",
+  value: "43",
   change: "+18%",
   icon: Phone,
   color: "text-purple-400"
 }, {
-  title: "Revenue",
-  value: "$48,290",
+  title: "Creators Onboarded",
+  value: "21",
   change: "+22%",
-  icon: DollarSign,
+  icon: Users,
   color: "text-yellow-400"
 }];
 const recentActivity = [{
-  type: "lead",
-  message: "New lead from Instagram campaign",
+  type: "reply",
+  message: "Reply received from Naomi",
   time: "2 min ago",
-  icon: Users
-}, {
-  type: "message",
-  message: "Reply received from @sarah_johnson",
-  time: "5 min ago",
   icon: MessageSquare
 }, {
-  type: "call",
-  message: "Call booked for tomorrow 2:00 PM",
+  type: "file",
+  message: "File sent ✅ to Chloe",
+  time: "5 min ago",
+  icon: Send
+}, {
+  type: "bump",
+  message: "Bump message sent to Riley",
+  time: "8 min ago",
+  icon: MessageSquare
+}, {
+  type: "lead",
+  message: "New lead from Instagram campaign",
   time: "12 min ago",
+  icon: Users
+}, {
+  type: "call",
+  message: "Call booked with Mercedes for tomorrow 5:00 PM",
+  time: "15 min ago",
   icon: Calendar
 }, {
-  type: "block",
-  message: "Account @marketing_pro detected as limited",
+  type: "reply",
+  message: "Reply received from Paige",
   time: "18 min ago",
-  icon: Shield
+  icon: MessageSquare
 }];
 const quickActions = [{
   title: "Create Campaign",
@@ -71,39 +81,46 @@ const quickActions = [{
 }];
 const chartData = [{
   name: "Mon",
-  messages: 1200,
-  conversations: 45,
-  calls: 8
+  messages: 1650,
+  conversations: 155,
+  calls: 7,
+  creators: 3
 }, {
   name: "Tue",
-  messages: 1800,
-  conversations: 67,
-  calls: 12
+  messages: 1820,
+  conversations: 171,
+  calls: 8,
+  creators: 4
 }, {
   name: "Wed",
-  messages: 1400,
-  conversations: 52,
-  calls: 9
+  messages: 1420,
+  conversations: 133,
+  calls: 5,
+  creators: 2
 }, {
   name: "Thu",
-  messages: 2200,
-  conversations: 89,
-  calls: 18
+  messages: 1980,
+  conversations: 186,
+  calls: 9,
+  creators: 4
 }, {
   name: "Fri",
-  messages: 1900,
-  conversations: 71,
-  calls: 14
+  messages: 1340,
+  conversations: 126,
+  calls: 6,
+  creators: 3
 }, {
   name: "Sat",
-  messages: 800,
-  conversations: 28,
-  calls: 5
+  messages: 940,
+  conversations: 88,
+  calls: 4,
+  creators: 2
 }, {
   name: "Sun",
-  messages: 600,
-  conversations: 19,
-  calls: 3
+  messages: 704,
+  conversations: 66,
+  calls: 4,
+  creators: 3
 }];
 export default function Dashboard() {
   return <div className="p-4 md:p-6 space-y-4 md:space-y-6">
@@ -228,18 +245,18 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">24</div>
+              <div className="text-3xl font-bold text-white">19</div>
               <p className="text-sm text-white/80">Accounts online</p>
             </div>
             <Separator />
             <div className="space-y-2">
               <div className="flex justify-between text-sm">
                 <span className="text-gray-300">Healthy</span>
-                <span className="text-green-400 font-medium">18</span>
+                <span className="text-green-400 font-medium">14</span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-300">Warming</span>
-                <span className="text-yellow-400 font-medium">4</span>
+                <span className="text-yellow-400 font-medium">3</span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-300">Limited</span>
