@@ -15,7 +15,6 @@ import Leads from "./pages/Leads";
 
 import Messages from "./pages/Messages";
 import AIStudio from "./pages/AIStudio";
-import Analytics from "./pages/Analytics";
 import OpenersHome from "./pages/OpenersHome";
 import OpenerEditor from "./pages/OpenerEditor";
 import Settings from "./pages/Settings";
@@ -42,7 +41,6 @@ const App = () => (
               
               <Route path="/messages" element={<Messages />} />
               <Route path="/ai-studio" element={<AIStudio />} />
-              <Route path="/analytics" element={<Analytics />} />
               <Route path="/openers" element={<OpenersHome />} />
               <Route path="/openers/new" element={<OpenerEditor />} />
               <Route path="/openers/edit/:openerId" element={<OpenerEditor />} />
