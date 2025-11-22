@@ -1974,19 +1974,19 @@ export default function Messages() {
               {conversations.map((conversation) => (
                 <div 
                   key={conversation.id} 
-                  className={`p-4 border-b border-border cursor-pointer hover:bg-muted/50 transition-colors ${
+                  className={`p-4 border-b border-border cursor-pointer hover:bg-muted/50 transition-colors min-h-fit ${
                     selectedConversation?.id === conversation.id ? "bg-primary/10 border-r-2 border-r-primary" : ""
                   }`} 
                   onClick={() => setSelectedConversation(conversation)}
                 >
-                  <div className="flex items-start gap-3">
-                    <Avatar className="h-10 w-10">
+                  <div className="flex items-start gap-3 h-auto">
+                    <Avatar className="h-10 w-10 flex-shrink-0">
                       <AvatarImage src={conversation.avatar} />
                       <AvatarFallback>
                         {conversation.contact.split(' ').map(n => n[0]).join('')}
                       </AvatarFallback>
                     </Avatar>
-                    <div className="flex-1 min-w-0">
+                    <div className="flex-1 min-w-0 pb-1">
                       <div className="flex items-center justify-between mb-1">
                         <div className="font-medium text-sm truncate text-white">
                           {conversation.contact}
