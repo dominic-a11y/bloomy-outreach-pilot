@@ -29,10 +29,6 @@ const navigationItems = [{
   url: "/ai-studio",
   icon: Brain
 }, {
-  title: "Analytics",
-  url: "/analytics",
-  icon: BarChart3
-}, {
   title: "Openers",
   url: "/openers",
   icon: FolderOpen

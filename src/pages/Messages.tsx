@@ -847,8 +847,7 @@ const conversationMessages = {
     timestamp: "3 days ago",
     sender: "Creators Inc"
   }],
-  // New extensive conversations following the script
-  5: [
+  27: [
   // Naomi - Booked Call (following example script)
   {
     id: 1,
@@ -965,7 +964,7 @@ const conversationMessages = {
     timestamp: "Today 3:21 PM",
     sender: "Creators Inc"
   }],
-  6: [
+  28: [
   // Chloe - Booked Call (following example script)
   {
     id: 1,
@@ -1082,7 +1081,7 @@ const conversationMessages = {
     timestamp: "Today 2:31 PM",
     sender: "Creators Inc"
   }],
-  7: [
+  29: [
   // Riley - Booked Call (following example script)
   {
     id: 1,
@@ -1187,7 +1186,7 @@ const conversationMessages = {
     timestamp: "Today 3:01 PM",
     sender: "Creators Inc"
   }],
-  8: [
+  30: [
   // Jenna - Pitch Stage
   {
     id: 1,
@@ -1256,7 +1255,7 @@ const conversationMessages = {
     timestamp: "Today 11:35 AM",
     sender: "Creators Inc"
   }],
-  9: [
+  31: [
   // Alina - Revenue Share Objection
   {
     id: 1,
@@ -1307,7 +1306,7 @@ const conversationMessages = {
     timestamp: "Yesterday 2:35 PM",
     sender: "Creators Inc"
   }],
-  10: [
+  32: [
   // Bri - Growth Objection
   {
     id: 1,
@@ -1352,7 +1351,7 @@ const conversationMessages = {
     timestamp: "Today 9:20 AM",
     sender: "Creators Inc"
   }],
-  11: [
+  33: [
   // Mia - Follow Up
   {
     id: 1,
