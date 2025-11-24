@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { LayoutDashboard, Megaphone, Users, UserCheck, MessageSquare, Brain, BarChart3, FolderOpen, Settings, Search, Command } from "lucide-react";
+import { LayoutDashboard, Users, UserCheck, MessageSquare, Brain, BarChart3, FolderOpen, Settings, Search, Command } from "lucide-react";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarHeader, useSidebar } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,10 +8,6 @@ const navigationItems = [{
   title: "Dashboard",
   url: "/",
   icon: LayoutDashboard
-}, {
-    title: "Warmup",
-    url: "/warmup",
-  icon: Megaphone
 }, {
   title: "Accounts",
   url: "/accounts",
