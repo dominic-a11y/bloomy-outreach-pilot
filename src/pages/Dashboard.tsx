@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Send, TrendingUp, Phone, DollarSign, Users, MessageSquare, Calendar, Shield, Plus, Upload, Brain, Activity } from "lucide-react";
+import { Send, TrendingUp, MessageSquare, Calendar, Plus, Upload, Brain, Activity, Users } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from "recharts";
 
 // Sample data
@@ -127,7 +127,7 @@ export default function Dashboard() {
       </div>
 
       {/* Top Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
         {topCards.map(card => <Card key={card.title} className="bg-gradient-card border-border shadow-card hover:shadow-glow transition-all">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-white/80">
