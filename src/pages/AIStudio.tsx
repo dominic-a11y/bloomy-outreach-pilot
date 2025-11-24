@@ -53,7 +53,7 @@ export default function AIStudio() {
             </Button>
             <div className="p-3 bg-muted rounded-lg">
               <div className="text-sm text-foreground/60 mb-1">AI Response:</div>
-              <div className="text-sm text-white">Thanks for your interest! I'd love to show you how our platform can help automate your outreach...</div>
+              <div className="text-sm text-foreground">Thanks for your interest! I'd love to show you how our platform can help automate your outreach...</div>
             </div>
           </CardContent>
         </Card>
