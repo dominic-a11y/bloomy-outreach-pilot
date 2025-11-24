@@ -37,10 +37,7 @@ import {
   UserCheck,
   Trash2,
   Eye,
-  Clock,
-  Send,
-  Inbox,
-  Globe
+  Send
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
@@ -50,11 +47,8 @@ const accounts = [
     id: 1,
     handle: "@bloomy_growth",
     status: "healthy",
-    proxyLabel: "US-East-1",
     dailyLimit: 150,
     todaySent: 87,
-    inboxUnread: 12,
-    nextAction: "2:30 PM",
     avatar: "/api/placeholder/40/40",
     followers: 2847,
     following: 451
@@ -63,11 +57,8 @@ const accounts = [
     id: 2,
     handle: "@outreach_pro",
     status: "warming",
-    proxyLabel: "US-West-2",
     dailyLimit: 100,
     todaySent: 23,
-    inboxUnread: 5,
-    nextAction: "3:45 PM",
     avatar: "/api/placeholder/40/40",
     followers: 1523,
     following: 892
@@ -76,11 +67,8 @@ const accounts = [
     id: 3,
     handle: "@growth_ninja",
     status: "limited",
-    proxyLabel: "EU-Central",
     dailyLimit: 50,
     todaySent: 0,
-    inboxUnread: 23,
-    nextAction: "Paused",
     avatar: "/api/placeholder/40/40",
     followers: 945,
     following: 234
@@ -89,11 +77,8 @@ const accounts = [
     id: 4,
     handle: "@marketing_ace",
     status: "checkpoint",
-    proxyLabel: "US-East-2",
     dailyLimit: 75,
     todaySent: 0,
-    inboxUnread: 7,
-    nextAction: "Verification needed",
     avatar: "/api/placeholder/40/40",
     followers: 3421,
     following: 567
@@ -201,11 +186,8 @@ export default function Accounts() {
                 </TableHead>
                 <TableHead>Account</TableHead>
                 <TableHead>Status</TableHead>
-                <TableHead>Proxy</TableHead>
                 <TableHead>Daily Limit</TableHead>
                 <TableHead>Today Sent</TableHead>
-                <TableHead>Unread</TableHead>
-                <TableHead>Next Action</TableHead>
                 <TableHead className="w-12"></TableHead>
               </TableRow>
             </TableHeader>
@@ -240,12 +222,6 @@ export default function Accounts() {
                     </Badge>
                   </TableCell>
                   <TableCell>
-                    <div className="flex items-center gap-1 text-sm text-white">
-                      <Globe className="h-3 w-3 text-foreground/60" />
-                      {account.proxyLabel}
-                    </div>
-                  </TableCell>
-                  <TableCell>
                     <div className="text-sm font-medium text-white">{account.dailyLimit}</div>
                   </TableCell>
                   <TableCell>
@@ -257,18 +233,6 @@ export default function Accounts() {
                           style={{ width: `${(account.todaySent / account.dailyLimit) * 100}%` }}
                         />
                       </div>
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <div className="flex items-center gap-1">
-                      <Inbox className="h-3 w-3 text-foreground/60" />
-                      <span className="text-sm font-medium text-white">{account.inboxUnread}</span>
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <div className="flex items-center gap-1 text-sm text-white">
-                      <Clock className="h-3 w-3 text-white" />
-                      {account.nextAction}
                     </div>
                   </TableCell>
                   <TableCell>
@@ -306,10 +270,6 @@ export default function Accounts() {
                                 <span className="text-foreground/60">Following</span>
                                 <span className="font-medium text-white">{account.following.toLocaleString()}</span>
                               </div>
-                              <div className="flex justify-between">
-                                <span className="text-foreground/60">Proxy</span>
-                                <span className="font-medium text-white">{account.proxyLabel}</span>
-                              </div>
                             </div>
                           </div>
 
@@ -319,14 +279,6 @@ export default function Accounts() {
                               <div className="flex justify-between">
                                 <span className="text-foreground/60">Messages Sent</span>
                                 <span className="font-medium text-white">{account.todaySent}/{account.dailyLimit}</span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="text-foreground/60">Unread Messages</span>
-                                <span className="font-medium text-white">{account.inboxUnread}</span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="text-foreground/60">Next Action</span>
-                                <span className="font-medium text-white">{account.nextAction}</span>
                               </div>
                             </div>
                           </div>
