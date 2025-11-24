@@ -18,18 +18,6 @@ const topCards = [{
   change: "+1.2%",
   icon: TrendingUp,
   color: "text-green-400"
-}, {
-  title: "Booked Calls",
-  value: "43",
-  change: "+18%",
-  icon: Phone,
-  color: "text-purple-400"
-}, {
-  title: "Creators Onboarded",
-  value: "21",
-  change: "+22%",
-  icon: Users,
-  color: "text-yellow-400"
 }];
 const recentActivity = [{
   type: "reply",
