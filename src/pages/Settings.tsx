@@ -1,15 +1,15 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Settings as SettingsIcon, Key, Shield, Zap } from "lucide-react";
+import { Settings as SettingsIcon, Users, Shield, Zap } from "lucide-react";
 export default function Settings() {
-  return <div className="p-4 md:p-6 space-y-4 md:space-y-6">
+  return <div className="p-6 space-y-6">
       <div>
-        <h1 className="text-2xl md:text-3xl font-bold text-white">Settings</h1>
-        <p className="text-sm md:text-base text-white">Configure your organization, users, and integrations.</p>
+        <h1 className="text-3xl font-bold text-white">Settings</h1>
+        <p className="text-white">Configure your organization, users, and integrations.</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card className="bg-gradient-card border-border shadow-card">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-white">
@@ -33,36 +33,23 @@ export default function Settings() {
         <Card className="bg-gradient-card border-border shadow-card">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-white">
-              <Key className="h-5 w-5 text-primary" />
-              API Keys
+              <Users className="h-5 w-5 text-primary" />
+              Team Members
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <label className="text-sm font-medium text-white">OpenAI API Key</label>
-              <Input 
-                type="password" 
-                placeholder="sk-..." 
-                className="mt-1 bg-muted/50 border-border text-white" 
-              />
+          <CardContent>
+            <div className="space-y-3">
+              <div className="flex justify-between items-center p-2 border rounded">
+                <span className="text-white">john@bloomy.com</span>
+                <span className="text-sm text-foreground/60">Owner</span>
+              </div>
+              <div className="flex justify-between items-center p-2 border rounded">
+                <span className="text-white">
+              </span>
+                <span className="text-sm text-foreground/60">Manager</span>
+              </div>
             </div>
-            <div>
-              <label className="text-sm font-medium text-white">App ID</label>
-              <Input 
-                type="password" 
-                placeholder="sk-ant-..." 
-                className="mt-1 bg-muted/50 border-border text-white" 
-              />
-            </div>
-            <div>
-              <label className="text-sm font-medium text-white">Google API Key</label>
-              <Input 
-                type="password" 
-                placeholder="AIza..." 
-                className="mt-1 bg-muted/50 border-border text-white" 
-              />
-            </div>
-            <Button className="w-full">Save</Button>
+            <Button className="mt-4 w-full">Invite Member</Button>
           </CardContent>
         </Card>
       </div>

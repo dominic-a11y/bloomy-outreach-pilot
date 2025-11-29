@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { LayoutDashboard, Users, UserCheck, MessageSquare, Brain, BarChart3, FolderOpen, Settings, Search, Command } from "lucide-react";
+import { LayoutDashboard, Megaphone, Users, UserCheck, MessageSquare, Brain, BarChart3, FolderOpen, Settings, Search, Command } from "lucide-react";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarHeader, useSidebar } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,6 +9,10 @@ const navigationItems = [{
   url: "/",
   icon: LayoutDashboard
 }, {
+    title: "Warmup",
+    url: "/warmup",
+  icon: Megaphone
+}, {
   title: "Accounts",
   url: "/accounts",
   icon: Users
@@ -16,6 +20,10 @@ const navigationItems = [{
   title: "Leads",
   url: "/leads",
   icon: UserCheck
+}, {
+  title: "ICP Finder",
+  url: "/icp-finder",
+  icon: Search
 }, {
   title: "Messages",
   url: "/messages",
@@ -25,8 +33,12 @@ const navigationItems = [{
   url: "/ai-studio",
   icon: Brain
 }, {
-  title: "Openers",
-  url: "/openers",
+  title: "Analytics",
+  url: "/analytics",
+  icon: BarChart3
+}, {
+  title: "Content",
+  url: "/content",
   icon: FolderOpen
 }, {
   title: "Settings",

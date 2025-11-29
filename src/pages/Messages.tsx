@@ -10,1880 +10,441 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Inbox, Search, Filter, Send, Paperclip, Smile, Clock, Star, Archive, MoreHorizontal, Bot, User, MessageSquare, Eye } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-// Demo conversations data - Creators Inc OnlyFans Management
-const conversations = [
-  // Existing conversations with Calendly links updated
-  {
-    id: 1,
-    contact: "Victoria",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "Perfect, here's my calendar → https://calendly.com/creatorsinc/dem…",
-    timestamp: "2 min ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "high",
-    outcome: "booked_call",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 2,
-    contact: "Sarah",
-    role: "Content Creator", 
-    company: "OnlyFans",
-    lastMessage: "We've scaled creators from no social media presence to 40–70k/month. Growth is guaranteed because we combine heavy ad spend with organic loops like Reddit, Discord, TikTok, and reposts.",
-    timestamp: "15 min ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "medium",
-    outcome: "objection",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 3,
-    contact: "Kayla",
-    role: "Content Creator",
-    company: "OnlyFans", 
-    lastMessage: "Perfect, here's my calendar → https://calendly.com/creatorsinc/de…",
-    timestamp: "1 hour ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "high",
-    outcome: "booked_call",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 4,
-    contact: "Mercedes",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "we'll cover that on the call, it's easier to explain live.",
-    timestamp: "2 hours ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "medium",
-    outcome: "objection",
-    avatar: "/api/placeholder/40/40"
-  },
-  // New conversations following the script
-  {
-    id: 5,
-    contact: "Naomi",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "great, here's my calendar → https://calendly.com/creatorsinc/demo3…",
-    timestamp: "3 hours ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "high",
-    outcome: "booked_call",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 6,
-    contact: "Chloe",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "perfect, here's my calendar → https://calendly.com/creatorsinc/de12…",
-    timestamp: "4 hours ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "high",
-    outcome: "booked_call",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 7,
-    contact: "Riley",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "great, here's my calendar → https://calendly.com/creatorsinc/demo4…",
-    timestamp: "5 hours ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "high",
-    outcome: "booked_call",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 8,
-    contact: "Jenna",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "so wanna hop on a quick call to walk through it?",
-    timestamp: "6 hours ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "medium",
-    outcome: "pitch",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 9,
-    contact: "Alina",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "we'll cover that on the call, way easier to explain live.",
-    timestamp: "8 hours ago",
-    unread: false,
-    campaign: "OnlyFans Creators",
-    priority: "medium",
-    outcome: "objection",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 10,
-    contact: "Bri",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "fair point. we've taken ppl from 0 to 70k/month. growth's not optional, it happens with our mix of heavy ad spend + organic repost loops.",
-    timestamp: "10 hours ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "medium",
-    outcome: "objection",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 11,
-    contact: "Mia",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "still there? a simple yay or nay will do 🤝",
-    timestamp: "12 hours ago",
-    unread: false,
-    campaign: "OnlyFans Creators",
-    priority: "low",
-    outcome: "follow_up",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 12,
-    contact: "Lexi",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "gotcha. we handle literally everything: chatting, marketing, promo, dmca/security, boosting socials, content guidance. we've got 24/7 teams running it.",
-    timestamp: "1 day ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "medium",
-    outcome: "interested",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 13,
-    contact: "Tasha",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "perfect, here's my calendar → https://calendly.com/creatorsinc/de5…",
-    timestamp: "1 day ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "high",
-    outcome: "booked_call",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 14,
-    contact: "Zoe",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "cool, how much are you at rn if you don't mind me asking?",
-    timestamp: "1 day ago",
-    unread: false,
-    campaign: "OnlyFans Creators",
-    priority: "medium",
-    outcome: "objection",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 15,
-    contact: "Paige",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "great, here's my calendar → https://calendly.com/creatorsinc/demo7…",
-    timestamp: "2 days ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "high",
-    outcome: "booked_call",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 16,
-    contact: "Carmen",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "we'll cover that more on the call, easier to explain live.",
-    timestamp: "2 days ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "medium",
-    outcome: "objection",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 17,
-    contact: "Lara",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "just checking in 🫡 cause i don't want u to miss this.",
-    timestamp: "2 days ago",
-    unread: false,
-    campaign: "OnlyFans Creators",
-    priority: "low",
-    outcome: "follow_up",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 18,
-    contact: "Dani",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "understood. but we've scaled ppl with no socials into 6 figures. our systems guarantee growth.",
-    timestamp: "3 days ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "medium",
-    outcome: "objection",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 19,
-    contact: "Mya",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "perfect, here's my calendar → https://calendly.com/creatorsinc/demo8…",
-    timestamp: "3 days ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "high",
-    outcome: "booked_call",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 20,
-    contact: "Taylor",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "we'll cover that on the call, it's way easier to explain live.",
-    timestamp: "3 days ago",
-    unread: false,
-    campaign: "OnlyFans Creators",
-    priority: "medium",
-    outcome: "objection", 
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 21,
-    contact: "Ines",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "Perfect, here's my calendar → https://calendly.com/creatorsinc/de9…",
-    timestamp: "4 hours ago",
-    unread: true,
-    campaign: "OnlyFans Creators",
-    priority: "high",
-    outcome: "booked_call",
-    avatar: "/api/placeholder/40/40"
-  },
-  {
-    id: 22,
-    contact: "Kiana",
-    role: "Content Creator",
-    company: "OnlyFans",
-    lastMessage: "A simple yay or nay will do the work!",
-    timestamp: "1 day ago",
-    unread: false,
-    campaign: "OnlyFans Creators",
-    priority: "low",
-    outcome: "follow_up",
-    avatar: "/api/placeholder/40/40"
-  }
-];
+// Demo conversations data - Realistic outreach scenarios
+const conversations = [{
+  id: 1,
+  contact: "Sarah Chen",
+  role: "CEO",
+  company: "TechFlow SaaS",
+  handle: "@sarahchen_techflow",
+  lastMessage: "Perfect, here's my Calendly: calendly.com/sarah-chen/15min",
+  timestamp: "2 min ago",
+  unread: true,
+  campaign: "SaaS Founders Q4",
+  priority: "high",
+  outcome: "booked_call",
+  avatar: "/api/placeholder/40/40"
+}, {
+  id: 2,
+  contact: "Marcus Johnson",
+  role: "Marketing Director",
+  company: "Urban Lifestyle",
+  handle: "@marcus_urban",
+  lastMessage: "Already working with an agency, but thanks for reaching out",
+  timestamp: "1 hour ago",
+  unread: false,
+  campaign: "E-commerce Brands",
+  priority: "low",
+  outcome: "objection",
+  avatar: "/api/placeholder/40/40"
+}, {
+  id: 3,
+  contact: "Priya Patel",
+  role: "Founder",
+  company: "MindfuI Coach",
+  handle: "@priya_mindful",
+  lastMessage: "Sounds interesting! Can you send me some case studies first?",
+  timestamp: "3 hours ago",
+  unread: true,
+  campaign: "Coaching Business",
+  priority: "medium",
+  outcome: "interested",
+  avatar: "/api/placeholder/40/40"
+}, {
+  id: 4,
+  contact: "Ahmed Al-Rashid",
+  role: "Agency Owner",
+  company: "Digital Growth Co",
+  handle: "@ahmed_dgc",
+  lastMessage: "Currently at capacity, maybe revisit in Q2?",
+  timestamp: "5 hours ago",
+  unread: false,
+  campaign: "Marketing Agencies",
+  priority: "medium",
+  outcome: "delay",
+  avatar: "/api/placeholder/40/40"
+}, {
+  id: 5,
+  contact: "Lisa Wang",
+  role: "E-commerce Director",
+  company: "StyleForward",
+  handle: "@lisa_styleforward",
+  lastMessage: "Too expensive for us right now, sorry",
+  timestamp: "1 day ago",
+  unread: false,
+  campaign: "Fashion Brands",
+  priority: "low",
+  outcome: "price_objection",
+  avatar: "/api/placeholder/40/40"
+}, {
+  id: 6,
+  contact: "Carlos Rodriguez",
+  role: "Startup Founder",
+  company: "FoodieApp",
+  handle: "@carlos_foodie",
+  lastMessage: "Let's schedule for next Tuesday if you have time",
+  timestamp: "1 day ago",
+  unread: true,
+  campaign: "Food Tech Startups",
+  priority: "high",
+  outcome: "booked_call",
+  avatar: "/api/placeholder/40/40"
+}, {
+  id: 7,
+  contact: "Jennifer Kim",
+  role: "Growth Marketing Lead",
+  company: "FinanceFlow",
+  handle: "@jen_financeflow",
+  lastMessage: "Not the right fit for us atm",
+  timestamp: "2 days ago",
+  unread: false,
+  campaign: "FinTech Companies",
+  priority: "low",
+  outcome: "not_fit",
+  avatar: "/api/placeholder/40/40"
+}, {
+  id: 8,
+  contact: "David Thompson",
+  role: "CEO",
+  company: "BuildTech Solutions",
+  handle: "@david_buildtech",
+  lastMessage: "This looks promising. What's your success rate?",
+  timestamp: "2 days ago",
+  unread: true,
+  campaign: "B2B Services",
+  priority: "medium",
+  outcome: "interested",
+  avatar: "/api/placeholder/40/40"
+}, {
+  id: 9,
+  contact: "Ana Sofia Gutierrez",
+  role: "Brand Manager",
+  company: "Eco Essentials",
+  handle: "@ana_ecoessentials",
+  lastMessage: "Definitely interested! When can we chat?",
+  timestamp: "3 days ago",
+  unread: true,
+  campaign: "Sustainable Brands",
+  priority: "high",
+  outcome: "booked_call",
+  avatar: "/api/placeholder/40/40"
+}, {
+  id: 10,
+  contact: "Raj Singh",
+  role: "Co-founder",
+  company: "CloudSync Pro",
+  handle: "@raj_cloudsync",
+  lastMessage: "We handle our own marketing internally",
+  timestamp: "3 days ago",
+  unread: false,
+  campaign: "SaaS Founders Q4",
+  priority: "low",
+  outcome: "internal_team",
+  avatar: "/api/placeholder/40/40"
+}, {
+  id: 11,
+  contact: "Emma Nielsen",
+  role: "Creative Director",
+  company: "Nordic Design Studio",
+  handle: "@emma_nordic",
+  lastMessage: "Looks great but we're bootstrapped rn. Maybe later?",
+  timestamp: "4 days ago",
+  unread: false,
+  campaign: "Creative Agencies",
+  priority: "medium",
+  outcome: "budget_constraints",
+  avatar: "/api/placeholder/40/40"
+}, {
+  id: 12,
+  contact: "Tyler Brooks",
+  role: "Performance Marketing Manager",
+  company: "FitGear Pro",
+  handle: "@tyler_fitgear",
+  lastMessage: "Can you walk me through the ROI projections?",
+  timestamp: "5 days ago",
+  unread: true,
+  campaign: "Fitness Brands",
+  priority: "medium",
+  outcome: "needs_info",
+  avatar: "/api/placeholder/40/40"
+}];
 
 // Conversation message threads mapped by conversation ID
 const conversationMessages = {
   1: [
-  // Victoria - Booked Call
+  // Sarah Chen - SaaS CEO (Booked Call)
   {
     id: 1,
     type: "sent",
-    content: "Hi Victoria, there's something important you need to know immediately.",
-    timestamp: "Yesterday 2:15 PM",
-    sender: "Creators Inc"
+    content: "Hi Sarah! Noticed TechFlow is scaling fast on LinkedIn. We've been helping SaaS teams cut CAC by 30% with structured paid social campaigns. Would you be open to a 10-min chat this week?",
+    timestamp: "Yesterday 3:15 PM",
+    sender: "You"
   }, {
     id: 2,
     type: "received",
-    content: "hey",
-    timestamp: "Yesterday 3:22 PM",
-    sender: "Victoria"
+    content: "Thanks for reaching out! We do run some ads but honestly our ROAS has been pretty inconsistent. What kind of results have you seen with other SaaS companies?",
+    timestamp: "Yesterday 4:22 PM",
+    sender: "Sarah Chen"
   }, {
     id: 3,
-    type: "received",
-    content: "what is it",
-    timestamp: "Yesterday 3:24 PM",
-    sender: "Victoria"
+    type: "sent",
+    content: "Great question! Just last month we helped CloudStrike reduce their ad spend by $40k while increasing qualified leads by 60%. The key was restructuring their funnel and targeting. Want me to send over the case study?",
+    timestamp: "Yesterday 4:45 PM",
+    sender: "You"
   }, {
     id: 4,
-    type: "sent",
-    content: "Thanks for getting back to me 🫶 First off, you look stunning! You've been killing it on IG, but you're missing at least 35–40k a month by not using Reddit, Tumblr & Discord. Have you ever thought about management for your OnlyFans?",
-    timestamp: "Yesterday 4:10 PM",
-    sender: "Creators Inc"
+    type: "received",
+    content: "Yes please! And honestly a quick call would be great too. I'm always looking for ways to optimize our growth channels.",
+    timestamp: "Today 9:30 AM",
+    sender: "Sarah Chen"
   }, {
     id: 5,
-    type: "received",
-    content: "no not really",
-    timestamp: "Today 9:30 AM",
-    sender: "Victoria"
+    type: "sent",
+    content: "Awesome! I'll send the case study right after this. For the call, I have slots Friday afternoon or Monday morning. Which works better for you?",
+    timestamp: "Today 10:15 AM",
+    sender: "You"
   }, {
     id: 6,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "Today 9:35 AM",
-    sender: "Creators Inc"
+    type: "received",
+    content: "Perfect, here's my Calendly: calendly.com/sarah-chen/15min",
+    timestamp: "Today 2:34 PM",
+    sender: "Sarah Chen"
   }, {
     id: 7,
-    type: "received",
-    content: "wow ok but what do u guys actually do?",
-    timestamp: "Today 10:45 AM",
-    sender: "Victoria"
-  }, {
-    id: 8,
     type: "sent",
-    content: "Gotcha! We take care of everything: chatting, promo, DMCA/security, marketing, content guidance, and 24/7 account management. You only focus on content — we handle the rest.",
-    timestamp: "Today 11:00 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 9,
-    type: "received",
-    content: "what if I don't grow tho",
-    timestamp: "Today 1:20 PM",
-    sender: "Victoria"
-  }, {
-    id: 10,
-    type: "sent",
-    content: "Totally fair question. We spend 300k+ each month on ads across all creators, and even the smallest earner makes 40k/month. Growth is standard with our system.",
-    timestamp: "Today 1:25 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 11,
-    type: "received",
-    content: "alright yeah sounds good",
-    timestamp: "Today 2:30 PM",
-    sender: "Victoria"
-  }, {
-    id: 12,
-    type: "sent",
-    content: "Perfect, here's my calendar → https://calendly.com/creatorsinc/demo",
-    timestamp: "Today 2:32 PM",
-    sender: "Creators Inc"
+    content: "Awesome! Just booked a slot for Friday at 2pm. Looking forward to chatting!",
+    timestamp: "Today 2:36 PM",
+    sender: "You"
   }],
   2: [
-  // Sarah - Objection (Growth)
+  // Marcus Johnson - Marketing Director (Objection)
   {
     id: 1,
     type: "sent",
-    content: "Hi Sarah, there's something important you need to know immediately.",
+    content: "Hey Marcus! Love what Urban Lifestyle is doing with sustainable fashion. Saw your recent post about scaling challenges - we specialize in helping lifestyle brands optimize their paid social to reduce customer acquisition costs. Quick question: what's your biggest bottleneck in customer acquisition right now?",
     timestamp: "2 days ago 11:30 AM",
-    sender: "Creators Inc"
+    sender: "You"
   }, {
     id: 2,
     type: "received",
-    content: "what",
+    content: "Thanks for the message! Our main challenge is definitely cost efficiency. We're spending quite a bit on Meta ads but the CPAs keep climbing.",
     timestamp: "2 days ago 2:15 PM",
-    sender: "Sarah"
+    sender: "Marcus Johnson"
   }, {
     id: 3,
     type: "sent",
-    content: "Thanks for getting back to me 🫶 First off, I must express my admiration for your looks — stunning! Here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. The good news is… it can be utilised. I won't fluff around, so let me ask: have you ever considered having management for your OnlyFans?",
-    timestamp: "2 days ago 2:45 PM",
-    sender: "Creators Inc"
+    content: "Totally understand - that's exactly what we solve. We recently helped a similar fashion brand cut their CPA by 45% while scaling to 7-figures. Would love to show you the strategy - do you have 15 minutes this week?",
+    timestamp: "2 days ago 3:30 PM",
+    sender: "You"
   }, {
     id: 4,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "2 days ago 3:00 PM",
-    sender: "Creators Inc"
+    type: "received",
+    content: "I appreciate the offer, but we're actually working with an agency already. They've been with us for 8 months now.",
+    timestamp: "Yesterday 10:45 AM",
+    sender: "Marcus Johnson"
   }, {
     id: 5,
-    type: "received",
-    content: "idk, I already do good",
-    timestamp: "Yesterday 10:45 AM",
-    sender: "Sarah"
+    type: "sent",
+    content: "No worries at all! If you ever want a second opinion or audit of your current setup, happy to provide some insights. Sometimes a fresh perspective can unlock new growth opportunities.",
+    timestamp: "Yesterday 11:30 AM",
+    sender: "You"
   }, {
     id: 6,
-    type: "sent",
-    content: "Gotcha! I hope you don't mind me asking, how much are you currently making on OnlyFans?",
-    timestamp: "Yesterday 11:15 AM",
-    sender: "Creators Inc"
+    type: "received",
+    content: "Already working with an agency, but thanks for reaching out",
+    timestamp: "1 hour ago",
+    sender: "Marcus Johnson"
   }, {
     id: 7,
-    type: "received",
-    content: "like 15k a month but that's pretty good",
-    timestamp: "Yesterday 3:20 PM",
-    sender: "Sarah"
-  }, {
-    id: 8,
     type: "sent",
-    content: "That's actually amazing! Most creators would kill for those numbers. But imagine if we could get you to 40-50k without changing your content style. The biggest difference would be expanding to platforms you're not on yet.",
-    timestamp: "Yesterday 4:00 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 9,
-    type: "received",
-    content: "idk what if I don't grow tho",
-    timestamp: "15 min ago",
-    sender: "Sarah"
-  }, {
-    id: 10,
-    type: "sent",
-    content: "We've scaled creators from no social media presence to 40–70k/month. Growth is guaranteed because we combine heavy ad spend with organic loops like Reddit, Discord, TikTok, and reposts.",
-    timestamp: "15 min ago",
-    sender: "Creators Inc"
+    content: "Totally understand! Feel free to reach out if you ever need a second opinion. Best of luck with your current setup!",
+    timestamp: "1 hour ago",
+    sender: "You"
   }],
   3: [
-  // Kayla - Booked Call
+  // Priya Patel - Coach (Interested)
   {
     id: 1,
     type: "sent",
-    content: "Hi Kayla, there's something important you need to know immediately.",
-    timestamp: "3 days ago 9:15 AM",
-    sender: "Creators Inc"
+    content: "Hi Priya! Been following your mindfulness content - really powerful stuff 🙏 I help coaches like you automate client acquisition through targeted social campaigns. Many of our coaching clients see 3-5x more discovery calls within 60 days. Would love to share how we do it!",
+    timestamp: "4 days ago 9:15 AM",
+    sender: "You"
   }, {
     id: 2,
     type: "received",
-    content: "ok what",
-    timestamp: "3 days ago 1:20 PM",
-    sender: "Kayla"
+    content: "Thank you! That sounds exactly like what I need. I've been trying to scale beyond word-of-mouth but haven't had much luck with online advertising. What kind of coaching businesses do you usually work with?",
+    timestamp: "4 days ago 1:20 PM",
+    sender: "Priya Patel"
   }, {
     id: 3,
     type: "sent",
-    content: "Thanks for getting back to me 🫶 First off, I must express my admiration for your looks — stunning! Here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. The good news is… it can be utilised. I won't fluff around, so let me ask: have you ever considered having management for your OnlyFans?",
-    timestamp: "3 days ago 2:45 PM",
-    sender: "Creators Inc"
+    content: "We work with all types - life coaches, business coaches, health coaches. The approach is similar: we create content that positions you as the expert and drives warm leads to book calls. One mindfulness coach we worked with went from 2 calls/week to 15+ calls/week.",
+    timestamp: "4 days ago 2:45 PM",
+    sender: "You"
   }, {
     id: 4,
     type: "received",
-    content: "umm maybe? idk much about it",
+    content: "That's incredible! I'm definitely interested in learning more. Do you have any case studies or examples you could share?",
     timestamp: "3 days ago 4:30 PM",
-    sender: "Kayla"
+    sender: "Priya Patel"
   }, {
     id: 5,
     type: "sent",
-    content: "File sent ✅",
-    timestamp: "3 days ago 4:35 PM",
-    sender: "Creators Inc"
+    content: "Absolutely! I'll send over a detailed case study of another mindfulness coach who scaled from $8k to $25k/month in 90 days. Plus some examples of the content strategy we used. Should I email it to you?",
+    timestamp: "3 days ago 5:15 PM",
+    sender: "You"
   }, {
     id: 6,
     type: "received",
-    content: "what do you guys even do?",
-    timestamp: "2 hours ago",
-    sender: "Kayla"
+    content: "Sounds interesting! Can you send me some case studies first?",
+    timestamp: "3 hours ago",
+    sender: "Priya Patel"
   }, {
     id: 7,
     type: "sent",
-    content: "gotcha. we handle literally everything: chatting, marketing, promo, dmca/security, boosting socials, content guidance. we've got 24/7 teams running it.",
+    content: "Absolutely! Just sent you the case study and some additional examples. Let me know what you think and we can schedule a call when you're ready!",
     timestamp: "2 hours ago",
-    sender: "Creators Inc"
-  }, {
-    id: 8,
-    type: "received",
-    content: "ok sounds cool but what if I don't grow",
-    timestamp: "1 hour ago",
-    sender: "Kayla"
-  }, {
-    id: 9,
-    type: "sent",
-    content: "fair point. we've taken ppl from 0 to 70k/month. growth's not optional, it happens with our mix of heavy ad spend + organic repost loops.",
-    timestamp: "1 hour ago",
-    sender: "Creators Inc"
-  }, {
-    id: 10,
-    type: "received",
-    content: "ok sounds good",
-    timestamp: "1 hour ago",
-    sender: "Kayla"
-  }, {
-    id: 11,
-    type: "sent",
-    content: "Perfect, here's my calendar → https://calendly.com/creatorsinc/de…",
-    timestamp: "1 hour ago",
-    sender: "Creators Inc"
+    sender: "You"
   }],
   4: [
-  // Mercedes - Revenue Share Objection
+  // Ahmed Al-Rashid - Agency Owner (Delay)
   {
     id: 1,
     type: "sent",
-    content: "Hi Mercedes, there's something important you need to know immediately.",
+    content: "Hey Ahmed! Saw Digital Growth Co is absolutely crushing it with client results. We help agencies like yours add an extra revenue stream with white-label social media management. Are you currently at capacity or looking to expand services?",
     timestamp: "1 week ago 2:30 PM",
-    sender: "Creators Inc"
+    sender: "You"
   }, {
     id: 2,
     type: "received",
-    content: "what's up",
+    content: "Thanks for reaching out! We're definitely at capacity right now. Our team is swamped with current clients. What exactly does the white-label offering include?",
     timestamp: "6 days ago 4:45 PM",
-    sender: "Mercedes"
+    sender: "Ahmed Al-Rashid"
   }, {
     id: 3,
     type: "sent",
-    content: "Thanks for getting back to me 🫶 First off, I must express my admiration for your looks — stunning! Here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. The good news is… it can be utilised. I won't fluff around, so let me ask: have you ever considered having management for your OnlyFans?",
+    content: "Perfect timing actually! Our white-label program handles the entire social media execution while you maintain client relationships. We've helped agencies increase revenue by 40-60% without hiring additional staff. Many start small with 2-3 clients.",
     timestamp: "6 days ago 5:20 PM",
-    sender: "Creators Inc"
+    sender: "You"
   }, {
     id: 4,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "6 days ago 5:25 PM",
-    sender: "Creators Inc"
+    type: "received",
+    content: "Interesting concept. We might have bandwidth issues until Q2 though. How does the pricing work?",
+    timestamp: "5 days ago 11:15 AM",
+    sender: "Ahmed Al-Rashid"
   }, {
     id: 5,
-    type: "received",
-    content: "this looks too good to be true",
-    timestamp: "5 days ago 11:15 AM",
-    sender: "Mercedes"
+    type: "sent",
+    content: "Totally understand the timing! Our pricing is per-client, so it scales with your capacity. Would it make sense to revisit this conversation in March? I can send you some case studies to review when you have more bandwidth.",
+    timestamp: "5 days ago 12:30 PM",
+    sender: "You"
   }, {
     id: 6,
     type: "received",
-    content: "what's the catch?",
-    timestamp: "3 hours ago",
-    sender: "Mercedes"
+    content: "Currently at capacity, maybe revisit in Q2?",
+    timestamp: "5 hours ago",
+    sender: "Ahmed Al-Rashid"
   }, {
     id: 7,
     type: "sent",
-    content: "good q. no catch. we put in the ad spend + organic promo systems. you just focus on content.",
-    timestamp: "3 hours ago",
-    sender: "Creators Inc"
-  }, {
-    id: 8,
-    type: "received",
-    content: "how much do u take?",
-    timestamp: "2 hours ago",
-    sender: "Mercedes"
-  }, {
-    id: 9,
-    type: "sent",
-    content: "we'll cover that on the call, it's easier to explain live.",
-    timestamp: "2 hours ago",
-    sender: "Creators Inc"
-  }],
-  5: [
-  // Taylor - Already do good objection
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Taylor, there's something important you need to know immediately.",
-    timestamp: "4 days ago 10:00 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "received",
-    content: "??",
-    timestamp: "4 days ago 2:30 PM",
-    sender: "Taylor"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "Thanks for getting back to me 🫶 First off, I must express my admiration for your looks — stunning! Here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. The good news is… it can be utilised. I won't fluff around, so let me ask: have you ever considered having management for your OnlyFans?",
-    timestamp: "4 days ago 3:15 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "4 days ago 3:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 5,
-    type: "received",
-    content: "idk, I already do good",
-    timestamp: "3 hours ago",
-    sender: "Taylor"
-  }, {
-    id: 6,
-    type: "sent",
-    content: "Gotcha! I hope you don't mind me asking, how much are you currently making on OnlyFans?",
-    timestamp: "3 hours ago",
-    sender: "Creators Inc"
+    content: "Perfect! I'll reach out in March. In the meantime, I'll send you those case studies so you can review when you have time. Talk soon!",
+    timestamp: "4 hours ago",
+    sender: "You"
   }],
   6: [
-  // Ines - Booked Call
+  // Carlos Rodriguez - Startup Founder (Booked Call)
   {
     id: 1,
     type: "sent",
-    content: "Hi Ines, there's something important you need to know immediately.",
-    timestamp: "5 days ago 1:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "received",
-    content: "hey what's important?",
-    timestamp: "5 days ago 4:30 PM",
-    sender: "Ines"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "Thanks for getting back to me 🫶 First off, I must express my admiration for your looks — stunning! Here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. The good news is… it can be utilised. I won't fluff around, so let me ask: have you ever considered having management for your OnlyFans?",
-    timestamp: "4 days ago 9:45 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "received",
-    content: "yeah actually that sounds interesting",
-    timestamp: "4 days ago 2:15 PM",
-    sender: "Ines"
-  }, {
-    id: 5,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "4 days ago 2:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 6,
-    type: "received",
-    content: "damn ok this looks legit",
-    timestamp: "4 days ago 3:00 PM",
-    sender: "Ines"
-  }, {
-    id: 7,
-    type: "sent",
-    content: "So if there's interest, I can walk you through exactly how it works on a quick call.",
-    timestamp: "4 days ago 3:15 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 8,
-    type: "received",
-    content: "ok sure sounds good",
-    timestamp: "4 hours ago",
-    sender: "Ines"
-  }, {
-    id: 9,
-    type: "sent",
-    content: "Perfect, here's my calendar → https://calendly.com/creatorsinc/demo",
-    timestamp: "4 hours ago",
-    sender: "Creators Inc"
-  }],
-  7: [
-  // Kiana - Follow up (no reply)
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Kiana, there's something important you need to know immediately.",
-    timestamp: "2 weeks ago 2:30 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "sent",
-    content: "Just checking in 🫡",
-    timestamp: "1 week ago 2:30 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "A simple yay or nay will do the work!",
-    timestamp: "1 day ago",
-    sender: "Creators Inc"
-  }],
-  8: [
-  // Jessica - Interested  
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Jessica, there's something important you need to know immediately.",
+    content: "Hey Carlos! FoodieApp looks amazing - love the local restaurant discovery feature. Noticed you're growing fast, we help food tech startups scale user acquisition through targeted social campaigns. Mind if I ask what your biggest growth challenge is right now?",
     timestamp: "3 days ago 10:00 AM",
-    sender: "Creators Inc"
+    sender: "You"
   }, {
     id: 2,
     type: "received",
-    content: "what",
+    content: "Hey! Thanks for checking out the app 😊 Our biggest challenge is definitely user acquisition cost. We're getting users but the LTV:CAC ratio isn't where we need it to be for our next funding round.",
     timestamp: "3 days ago 2:30 PM",
-    sender: "Jessica"
+    sender: "Carlos Rodriguez"
   }, {
     id: 3,
     type: "sent",
-    content: "Thanks for getting back to me 🫶 First off, I must express my admiration for your looks — stunning! Here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. The good news is… it can be utilised. I won't fluff around, so let me ask: have you ever considered having management for your OnlyFans?",
+    content: "That's exactly what we specialize in! We recently helped another food delivery app improve their LTV:CAC from 2.1 to 4.8 in just 90 days. The secret was restructuring their targeting and creative strategy. Would you be interested in seeing how we did it?",
     timestamp: "3 days ago 3:15 PM",
-    sender: "Creators Inc"
+    sender: "You"
   }, {
     id: 4,
     type: "received",
-    content: "no not really",
+    content: "Wow, that's a huge improvement! Yes, I'd definitely be interested. We're always looking for ways to optimize our growth metrics before Series A.",
     timestamp: "2 days ago 9:45 AM",
-    sender: "Jessica"
+    sender: "Carlos Rodriguez"
   }, {
     id: 5,
     type: "sent",
-    content: "File sent ✅",
-    timestamp: "2 days ago 10:00 AM",
-    sender: "Creators Inc"
+    content: "Perfect! I'd love to walk you through the exact strategy and see if it would work for FoodieApp. Do you have 20 minutes this week for a quick screen share? I can show you the case study and we can discuss your specific challenges.",
+    timestamp: "2 days ago 11:00 AM",
+    sender: "You"
   }, {
     id: 6,
     type: "received",
-    content: "wow ok but what do u guys actually do?",
+    content: "Let's schedule for next Tuesday if you have time",
     timestamp: "1 day ago",
-    sender: "Jessica"
+    sender: "Carlos Rodriguez"
   }, {
     id: 7,
     type: "sent",
-    content: "Gotcha! In short, we handle everything: chatting, marketing, promo, DMCA/security, content guidance, and boosting your social presence. We have 24/7 expert teams, so all you need to focus on is content.",
+    content: "Perfect! Tuesday works great. I'll send you a calendar invite for 2pm with the Zoom link. Really excited to dive into your growth strategy!",
     timestamp: "1 day ago",
-    sender: "Creators Inc"
+    sender: "You"
   }],
   9: [
-  // Ashley - Booked Call
+  // Ana Sofia Gutierrez - Brand Manager (Booked Call)
   {
     id: 1,
     type: "sent",
-    content: "Hi Ashley, there's something important you need to know immediately.",
-    timestamp: "4 days ago 1:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "received",
-    content: "hey what's up?",
-    timestamp: "4 days ago 4:30 PM",
-    sender: "Ashley"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "Thanks for getting back to me 🫶 First off, I must express my admiration for your looks — stunning! Here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. The good news is… it can be utilised. I won't fluff around, so let me ask: have you ever considered having management for your OnlyFans?",
-    timestamp: "3 days ago 9:45 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "received",
-    content: "honestly yeah I've thought about it",
-    timestamp: "3 days ago 2:15 PM",
-    sender: "Ashley"
-  }, {
-    id: 5,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "3 days ago 2:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 6,
-    type: "received",
-    content: "these results look crazy good",
-    timestamp: "3 days ago 3:00 PM",
-    sender: "Ashley"
-  }, {
-    id: 7,
-    type: "sent",
-    content: "So if there's interest, I can walk you through exactly how it works on a quick call.",
-    timestamp: "3 days ago 3:15 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 8,
-    type: "received",
-    content: "yeah that's fine",
-    timestamp: "2 days ago",
-    sender: "Ashley"
-  }, {
-    id: 9,
-    type: "sent",
-    content: "Perfect, here's my calendar → https://calendly.com/creatorsinc/demo",
-    timestamp: "2 days ago",
-    sender: "Creators Inc"
-  }],
-  10: [
-  // Mia - Objection (Commission)
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Mia, there's something important you need to know immediately.",
-    timestamp: "5 days ago 10:00 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "received",
-    content: "what's important",
-    timestamp: "5 days ago 2:30 PM",
-    sender: "Mia"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "Thanks for getting back to me 🫶 First off, I must express my admiration for your looks — stunning! Here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. The good news is… it can be utilised. I won't fluff around, so let me ask: have you ever considered having management for your OnlyFans?",
-    timestamp: "4 days ago 3:15 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "4 days ago 3:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 5,
-    type: "received",
-    content: "looks good but",
-    timestamp: "3 days ago 9:45 AM",
-    sender: "Mia"
-  }, {
-    id: 6,
-    type: "received",
-    content: "how much do u take?",
-    timestamp: "2 days ago",
-    sender: "Mia"
-  }, {
-    id: 7,
-    type: "sent",
-    content: "Most of our success comes from paid marketing. We invest 5k–25k+ per creator every month into TikTok, Reddit, IG, and Twitter ads. That's why we take 50% — but our lowest earner is already at 40k/month.",
-    timestamp: "2 days ago",
-    sender: "Creators Inc"
-  }],
-  11: [
-  // Sophia - Follow up
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Sophia, there's something important you need to know immediately.",
-    timestamp: "2 weeks ago 1:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "sent",
-    content: "Just checking in 🫡",
-    timestamp: "3 days ago",
-    sender: "Creators Inc"
-  }],
-  27: [
-  // Naomi - Booked Call (following example script)
-  {
-    id: 1,
-    type: "received",
-    content: "hey",
-    timestamp: "Yesterday 2:15 PM",
-    sender: "Naomi"
-  }, {
-    id: 2,
-    type: "sent",
-    content: "Hi Naomi, there's something important you need to know immediately.",
-    timestamp: "Yesterday 2:16 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 3,
-    type: "received",
-    content: "oh?",
-    timestamp: "Yesterday 3:22 PM",
-    sender: "Naomi"
-  }, {
-    id: 4,
-    type: "sent",
-    content: "thanks for replying 🫶 first off, you look insane. here's the thing tho — you're leaving 35–40k a month untouched by not using reddit, tumblr & discord. have you ever thought about management for OF?",
-    timestamp: "Yesterday 3:25 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 5,
-    type: "received",
-    content: "nah not really",
-    timestamp: "Yesterday 4:30 PM",
-    sender: "Naomi"
-  }, {
-    id: 6,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "Yesterday 4:32 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 7,
-    type: "sent",
-    content: "just so you see it clear, we've scaled girls from basically no socials to 40–70k a month. it's all ads + organic loops",
-    timestamp: "Today 9:30 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 8,
-    type: "received",
-    content: "idk feels like bs lol",
-    timestamp: "Today 11:45 AM",
-    sender: "Naomi"
-  }, {
-    id: 9,
-    type: "sent",
-    content: "fair 😅 but we handle everything: chatting, promo, dmca/security, content guidance. you only focus on content.",
-    timestamp: "Today 11:50 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 10,
-    type: "received",
-    content: "yeah but i'm already doing good",
-    timestamp: "Today 1:20 PM",
-    sender: "Naomi"
-  }, {
-    id: 11,
-    type: "sent",
-    content: "cool, how much are you at rn if you don't mind me asking?",
-    timestamp: "Today 1:25 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 12,
-    type: "received",
-    content: "like decent, but not crazy",
-    timestamp: "Today 2:10 PM",
-    sender: "Naomi"
-  }, {
-    id: 13,
-    type: "sent",
-    content: "understood. still, even our smallest partners are doing way more. growth is built in because of how much we put into ads + repost systems.",
-    timestamp: "Today 2:15 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 14,
-    type: "received",
-    content: "hmm and what do u take then?",
-    timestamp: "Today 2:45 PM",
-    sender: "Naomi"
-  }, {
-    id: 15,
-    type: "sent",
-    content: "good q, we'll cover that on the call. way easier to explain live.",
-    timestamp: "Today 2:47 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 16,
-    type: "received",
-    content: "ok fine",
-    timestamp: "Today 3:15 PM",
-    sender: "Naomi"
-  }, {
-    id: 17,
-    type: "sent",
-    content: "perfect, let's do a quick call so i can break it down.",
-    timestamp: "Today 3:16 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 18,
-    type: "received",
-    content: "yeah sure",
-    timestamp: "Today 3:20 PM",
-    sender: "Naomi"
-  }, {
-    id: 19,
-    type: "sent",
-    content: "great, here's my calendar → https://calendly.com/creatorsinc/demo3…",
-    timestamp: "Today 3:21 PM",
-    sender: "Creators Inc"
-  }],
-  28: [
-  // Chloe - Booked Call (following example script)
-  {
-    id: 1,
-    type: "received",
-    content: "hiya",
-    timestamp: "2 days ago 11:30 AM",
-    sender: "Chloe"
-  }, {
-    id: 2,
-    type: "sent",
-    content: "Hi Chloe, there's something important you need to know immediately.",
-    timestamp: "2 days ago 11:35 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 3,
-    type: "received",
-    content: "tell me then lol",
-    timestamp: "2 days ago 2:15 PM",
-    sender: "Chloe"
-  }, {
-    id: 4,
-    type: "sent",
-    content: "thanks for replying 🫶 honestly you're stunning. but you're sleeping on 35–40k monthly by not using reddit, tumblr & discord. ever considered management?",
-    timestamp: "2 days ago 2:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 5,
-    type: "received",
-    content: "nah i'm fine tbh",
-    timestamp: "2 days ago 4:30 PM",
-    sender: "Chloe"
-  }, {
-    id: 6,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "2 days ago 4:35 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 7,
-    type: "sent",
-    content: "just checking in 🫡 cause i don't want u to miss this.",
-    timestamp: "Yesterday 10:00 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 8,
-    type: "received",
-    content: "what do u even do though?",
-    timestamp: "Yesterday 2:15 PM",
-    sender: "Chloe"
-  }, {
-    id: 9,
-    type: "sent",
-    content: "gotcha. we handle literally everything: chatting, marketing, promo, dmca/security, boosting socials, content guidance. we've got 24/7 teams running it.",
-    timestamp: "Yesterday 2:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 10,
-    type: "received",
-    content: "sounds like a lot lol",
-    timestamp: "Yesterday 3:45 PM",
-    sender: "Chloe"
-  }, {
-    id: 11,
-    type: "sent",
-    content: "yeah but for you it's easy. you only focus on content.",
-    timestamp: "Yesterday 3:50 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 12,
-    type: "received",
-    content: "what if i don't grow tho",
-    timestamp: "Today 9:30 AM",
-    sender: "Chloe"
-  }, {
-    id: 13,
-    type: "sent",
-    content: "fair point. we've taken ppl from 0 to 70k/month. growth's not optional, it happens with our mix of heavy ad spend + organic repost loops.",
-    timestamp: "Today 9:35 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 14,
-    type: "received",
-    content: "and how much do u take?",
-    timestamp: "Today 11:20 AM",
-    sender: "Chloe"
-  }, {
-    id: 15,
-    type: "sent",
-    content: "we'll cover that more on the call, easier to explain live.",
-    timestamp: "Today 11:25 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 16,
-    type: "received",
-    content: "ok ok",
-    timestamp: "Today 1:45 PM",
-    sender: "Chloe"
-  }, {
-    id: 17,
-    type: "sent",
-    content: "so wanna hop on a quick call?",
-    timestamp: "Today 1:50 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 18,
-    type: "received",
-    content: "yeah fine",
-    timestamp: "Today 2:30 PM",
-    sender: "Chloe"
-  }, {
-    id: 19,
-    type: "sent",
-    content: "perfect, here's my calendar → https://calendly.com/creatorsinc/de12…",
-    timestamp: "Today 2:31 PM",
-    sender: "Creators Inc"
-  }],
-  29: [
-  // Riley - Booked Call (following example script)
-  {
-    id: 1,
-    type: "received",
-    content: "yo",
-    timestamp: "3 days ago 10:00 AM",
-    sender: "Riley"
-  }, {
-    id: 2,
-    type: "sent",
-    content: "Hi Riley, there's something important you need to know immediately.",
-    timestamp: "3 days ago 10:05 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 3,
-    type: "received",
-    content: "what now 😂",
-    timestamp: "3 days ago 1:20 PM",
-    sender: "Riley"
-  }, {
-    id: 4,
-    type: "sent",
-    content: "you look incredible btw. but straight up — you're missing 35–40k a month without reddit, discord & tumblr. thought about management?",
-    timestamp: "3 days ago 1:25 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 5,
-    type: "received",
-    content: "nahhh",
-    timestamp: "3 days ago 3:30 PM",
-    sender: "Riley"
-  }, {
-    id: 6,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "3 days ago 3:35 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 7,
-    type: "sent",
-    content: "still there? a simple yay or nay will do 🤝",
-    timestamp: "2 days ago 11:00 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 8,
-    type: "received",
-    content: "lol fine. but whats the catch",
-    timestamp: "Yesterday 4:15 PM",
-    sender: "Riley"
-  }, {
-    id: 9,
-    type: "sent",
-    content: "good q. no catch. we put in the ad spend + organic promo systems. you just focus on content.",
-    timestamp: "Yesterday 4:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 10,
-    type: "received",
-    content: "idk man feels like a scam",
-    timestamp: "Today 10:30 AM",
-    sender: "Riley"
-  }, {
-    id: 11,
-    type: "sent",
-    content: "understood. but we've scaled ppl with no socials into 6 figures. our systems guarantee growth.",
-    timestamp: "Today 10:35 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 12,
-    type: "received",
-    content: "ok but how much u take?",
-    timestamp: "Today 12:45 PM",
-    sender: "Riley"
-  }, {
-    id: 13,
-    type: "sent",
-    content: "we'll cover that on the call, easier live.",
-    timestamp: "Today 12:50 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 14,
-    type: "received",
-    content: "mhm",
-    timestamp: "Today 2:15 PM",
-    sender: "Riley"
-  }, {
-    id: 15,
-    type: "sent",
-    content: "cool, then let's walk thru it on a quick call",
-    timestamp: "Today 2:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 16,
-    type: "received",
-    content: "yeah sure",
-    timestamp: "Today 3:00 PM",
-    sender: "Riley"
-  }, {
-    id: 17,
-    type: "sent",
-    content: "great, here's my calendar → https://calendly.com/creatorsinc/demo4…",
-    timestamp: "Today 3:01 PM",
-    sender: "Creators Inc"
-  }],
-  30: [
-  // Jenna - Pitch Stage
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Jenna, there's something important you need to know immediately.",
-    timestamp: "4 days ago 9:15 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "received",
-    content: "what's that",
-    timestamp: "4 days ago 2:30 PM",
-    sender: "Jenna"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "thanks for replying 🫶 first off, you look incredible. here's the thing — you're sleeping on 35–40k monthly by not using reddit, tumblr & discord. have you ever considered management for your OnlyFans?",
-    timestamp: "4 days ago 3:00 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "received",
-    content: "maybe idk",
-    timestamp: "3 days ago 11:45 AM",
-    sender: "Jenna"
-  }, {
-    id: 5,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "3 days ago 12:00 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 6,
-    type: "received",
-    content: "ok this looks good but what do u guys do exactly?",
-    timestamp: "2 days ago 3:20 PM",
-    sender: "Jenna"
-  }, {
-    id: 7,
-    type: "sent",
-    content: "gotcha! in short, we handle everything: chatting, marketing, promo, DMCA/security, content guidance, and boosting your social presence. we have 24/7 expert teams, so all you need to focus on is content.",
-    timestamp: "2 days ago 3:25 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 8,
-    type: "received",
-    content: "sounds cool. what if I don't grow though",
-    timestamp: "Yesterday 1:15 PM",
-    sender: "Jenna"
-  }, {
-    id: 9,
-    type: "sent",
-    content: "we've scaled creators from no social media presence to 40–70k/month. growth is guaranteed because we combine heavy ad spend with organic loops like Reddit, Discord, TikTok, and reposts.",
-    timestamp: "Yesterday 1:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 10,
-    type: "received",
-    content: "ok that sounds really good actually",
-    timestamp: "Today 11:30 AM",
-    sender: "Jenna"
-  }, {
-    id: 11,
-    type: "sent",
-    content: "so wanna hop on a quick call to walk through it?",
-    timestamp: "Today 11:35 AM",
-    sender: "Creators Inc"
-  }],
-  31: [
-  // Alina - Revenue Share Objection
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Alina, there's something important you need to know immediately.",
-    timestamp: "1 week ago 2:30 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "received",
-    content: "what",
-    timestamp: "5 days ago 4:45 PM",
-    sender: "Alina"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "thanks for getting back to me 🫶 first off, you look stunning! here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. have you ever considered having management for your OnlyFans?",
-    timestamp: "5 days ago 5:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "5 days ago 5:25 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 5,
-    type: "received",
-    content: "this looks interesting but like what's the deal",
-    timestamp: "3 days ago 11:15 AM",
-    sender: "Alina"
-  }, {
-    id: 6,
-    type: "sent",
-    content: "gotcha! we handle everything: chatting, marketing, promo, DMCA/security, content guidance, and boosting your social presence. we have 24/7 expert teams, so all you need to focus on is content.",
-    timestamp: "3 days ago 11:20 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 7,
-    type: "received",
-    content: "sounds good but how much do u take?",
-    timestamp: "Yesterday 2:30 PM",
-    sender: "Alina"
-  }, {
-    id: 8,
-    type: "sent",
-    content: "we'll cover that on the call, way easier to explain live.",
-    timestamp: "Yesterday 2:35 PM",
-    sender: "Creators Inc"
-  }],
-  32: [
-  // Bri - Growth Objection
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Bri, there's something important you need to know immediately.",
-    timestamp: "2 days ago 1:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "received",
-    content: "ok what's up",
-    timestamp: "2 days ago 4:30 PM",
-    sender: "Bri"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "thanks for replying 🫶 honestly you're gorgeous. but you're sleeping on 35–40k monthly by not using reddit, tumblr & discord. ever considered management for your OnlyFans?",
-    timestamp: "2 days ago 5:15 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "received",
-    content: "not really no",
-    timestamp: "Yesterday 10:45 AM",
-    sender: "Bri"
-  }, {
-    id: 5,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "Yesterday 11:00 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 6,
-    type: "received",
-    content: "ok this looks good but what if I don't grow?",
-    timestamp: "Today 9:15 AM",
-    sender: "Bri"
-  }, {
-    id: 7,
-    type: "sent",
-    content: "fair point. we've taken ppl from 0 to 70k/month. growth's not optional, it happens with our mix of heavy ad spend + organic repost loops.",
-    timestamp: "Today 9:20 AM",
-    sender: "Creators Inc"
-  }],
-  33: [
-  // Mia - Follow Up
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Mia, there's something important you need to know immediately.",
-    timestamp: "1 week ago 11:30 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "1 week ago 11:35 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "just checking in 🫡",
-    timestamp: "3 days ago 2:15 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "sent",
-    content: "still there? a simple yay or nay will do 🤝",
-    timestamp: "Today 12:00 PM",
-    sender: "Creators Inc"
-  }],
-  12: [
-  // Lexi - Interested
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Lexi, there's something important you need to know immediately.",
-    timestamp: "3 days ago 10:00 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "received",
-    content: "what",
-    timestamp: "3 days ago 2:30 PM",
-    sender: "Lexi"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "thanks for getting back to me 🫶 first off, you look amazing! here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. have you ever considered having management for your OnlyFans?",
-    timestamp: "3 days ago 3:15 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "received",
-    content: "umm maybe tell me more",
-    timestamp: "2 days ago 9:45 AM",
-    sender: "Lexi"
-  }, {
-    id: 5,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "2 days ago 10:00 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 6,
-    type: "received",
-    content: "what do you guys even do?",
-    timestamp: "Yesterday 2:20 PM",
-    sender: "Lexi"
-  }, {
-    id: 7,
-    type: "sent",
-    content: "gotcha. we handle literally everything: chatting, marketing, promo, dmca/security, boosting socials, content guidance. we've got 24/7 teams running it.",
-    timestamp: "Yesterday 2:25 PM",
-    sender: "Creators Inc"
-  }],
-  13: [
-  // Tasha - Booked Call
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Tasha, there's something important you need to know immediately.",
-    timestamp: "4 days ago 1:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "received",
-    content: "hey what's important?",
-    timestamp: "4 days ago 4:30 PM",
-    sender: "Tasha"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "thanks for getting back to me 🫶 honestly you're stunning! but you're sleeping on 35–40k monthly by not using reddit, tumblr & discord. ever considered management for your OnlyFans?",
-    timestamp: "3 days ago 9:45 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "received",
-    content: "yeah actually that sounds cool",
-    timestamp: "3 days ago 2:15 PM",
-    sender: "Tasha"
-  }, {
-    id: 5,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "3 days ago 2:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 6,
-    type: "received",
-    content: "ok this looks legit",
-    timestamp: "3 days ago 3:00 PM",
-    sender: "Tasha"
-  }, {
-    id: 7,
-    type: "sent",
-    content: "so if there's interest, I can walk you through exactly how it works on a quick call.",
-    timestamp: "3 days ago 3:15 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 8,
-    type: "received",
-    content: "ok sure sounds good",
-    timestamp: "Yesterday 1:30 PM",
-    sender: "Tasha"
-  }, {
-    id: 9,
-    type: "sent",
-    content: "perfect, here's my calendar → https://calendly.com/creatorsinc/de5…",
-    timestamp: "Yesterday 1:31 PM",
-    sender: "Creators Inc"
-  }],
-  14: [
-  // Zoe - Already Doing Good Objection
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Zoe, there's something important you need to know immediately.",
-    timestamp: "4 days ago 10:00 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "received",
-    content: "??",
-    timestamp: "4 days ago 2:30 PM",
-    sender: "Zoe"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "thanks for getting back to me 🫶 first off, you look incredible! here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. have you ever considered having management for your OnlyFans?",
-    timestamp: "4 days ago 3:15 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "4 days ago 3:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 5,
-    type: "received",
-    content: "idk, I already do good",
-    timestamp: "Yesterday 3:00 PM",
-    sender: "Zoe"
-  }, {
-    id: 6,
-    type: "sent",
-    content: "cool, how much are you at rn if you don't mind me asking?",
-    timestamp: "Yesterday 3:05 PM",
-    sender: "Creators Inc"
-  }],
-  15: [
-  // Paige - Booked Call
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Paige, there's something important you need to know immediately.",
-    timestamp: "1 week ago 2:30 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "received",
-    content: "what's up",
-    timestamp: "5 days ago 4:45 PM",
-    sender: "Paige"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "thanks for replying 🫶 honestly you're gorgeous. but you're sleeping on 35–40k monthly by not using reddit, tumblr & discord. ever considered management for your OnlyFans?",
-    timestamp: "5 days ago 5:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "received",
-    content: "maybe tell me more",
-    timestamp: "4 days ago 11:15 AM",
-    sender: "Paige"
-  }, {
-    id: 5,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "4 days ago 11:20 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 6,
-    type: "received",
-    content: "ok this looks really good",
-    timestamp: "3 days ago 2:30 PM",
-    sender: "Paige"
-  }, {
-    id: 7,
-    type: "sent",
-    content: "so if there's interest, I can walk you through exactly how it works on a quick call.",
-    timestamp: "3 days ago 2:35 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 8,
-    type: "received",
-    content: "yeah that sounds good",
-    timestamp: "2 days ago 10:45 AM",
-    sender: "Paige"
-  }, {
-    id: 9,
-    type: "sent",
-    content: "great, here's my calendar → https://calendly.com/creatorsinc/demo7…",
-    timestamp: "2 days ago 10:46 AM",
-    sender: "Creators Inc"
-  }],
-  16: [
-  // Carmen - Revenue Share Objection
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Carmen, there's something important you need to know immediately.",
-    timestamp: "1 week ago 11:30 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "received",
-    content: "what",
-    timestamp: "5 days ago 2:15 PM",
-    sender: "Carmen"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "thanks for getting back to me 🫶 first off, you look amazing! here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. have you ever considered having management for your OnlyFans?",
-    timestamp: "5 days ago 2:45 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "5 days ago 3:00 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 5,
-    type: "received",
-    content: "looks good but how much do u take?",
-    timestamp: "3 days ago 10:45 AM",
-    sender: "Carmen"
-  }, {
-    id: 6,
-    type: "sent",
-    content: "we'll cover that more on the call, easier to explain live.",
-    timestamp: "3 days ago 10:50 AM",
-    sender: "Creators Inc"
-  }],
-  17: [
-  // Lara - Follow Up
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Lara, there's something important you need to know immediately.",
-    timestamp: "1 week ago 2:30 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "1 week ago 2:35 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "just checking in 🫡 cause i don't want u to miss this.",
-    timestamp: "2 days ago 11:00 AM",
-    sender: "Creators Inc"
-  }],
-  18: [
-  // Dani - Growth Objection
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Dani, there's something important you need to know immediately.",
-    timestamp: "1 week ago 1:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "received",
-    content: "what's that",
-    timestamp: "5 days ago 4:30 PM",
-    sender: "Dani"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "thanks for replying 🫶 first off, you look incredible! here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. have you ever considered having management for your OnlyFans?",
-    timestamp: "5 days ago 5:15 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "received",
-    content: "idk feels sketchy",
-    timestamp: "4 days ago 10:45 AM",
-    sender: "Dani"
-  }, {
-    id: 5,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "4 days ago 11:00 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 6,
-    type: "received",
-    content: "idk man feels like a scam",
-    timestamp: "3 days ago 2:15 PM",
-    sender: "Dani"
-  }, {
-    id: 7,
-    type: "sent",
-    content: "understood. but we've scaled ppl with no socials into 6 figures. our systems guarantee growth.",
-    timestamp: "3 days ago 2:20 PM",
-    sender: "Creators Inc"
-  }],
-  19: [
-  // Mya - Booked Call
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Mya, there's something important you need to know immediately.",
-    timestamp: "1 week ago 10:00 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "received",
-    content: "what",
-    timestamp: "5 days ago 2:30 PM",
-    sender: "Mya"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "thanks for getting back to me 🫶 first off, you look stunning! here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. have you ever considered having management for your OnlyFans?",
-    timestamp: "5 days ago 3:15 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "received",
-    content: "maybe yeah",
-    timestamp: "4 days ago 9:45 AM",
-    sender: "Mya"
-  }, {
-    id: 5,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "4 days ago 10:00 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 6,
-    type: "received",
-    content: "wow ok this looks really good",
-    timestamp: "3 days ago 1:20 PM",
-    sender: "Mya"
-  }, {
-    id: 7,
-    type: "sent",
-    content: "so if there's interest, I can walk you through exactly how it works on a quick call.",
-    timestamp: "3 days ago 1:25 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 8,
-    type: "received",
-    content: "ok sure",
-    timestamp: "3 days ago 3:30 PM",
-    sender: "Mya"
-  }, {
-    id: 9,
-    type: "sent",
-    content: "perfect, here's my calendar → https://calendly.com/creatorsinc/demo8…",
-    timestamp: "3 days ago 3:31 PM",
-    sender: "Creators Inc"
-  }],
-  20: [
-  // Taylor - Revenue Share Follow Up 
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Taylor, there's something important you need to know immediately.",
-    timestamp: "1 week ago 10:00 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "received",
-    content: "??",
-    timestamp: "5 days ago 2:30 PM",
-    sender: "Taylor"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "thanks for getting back to me 🫶 first off, you look incredible! here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. have you ever considered having management for your OnlyFans?",
-    timestamp: "5 days ago 3:15 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 4,
-    type: "sent",
-    content: "File sent ✅",
-    timestamp: "5 days ago 3:20 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 5,
-    type: "received",
-    content: "idk, I already do good",
-    timestamp: "4 days ago 11:00 AM",
-    sender: "Taylor"
-  }, {
-    id: 6,
-    type: "sent",
-    content: "gotcha! I hope you don't mind me asking, how much are you currently making on OnlyFans?",
-    timestamp: "4 days ago 11:15 AM",
-    sender: "Creators Inc"
-  }, {
-    id: 7,
-    type: "received",
-    content: "like 8k a month",
-    timestamp: "3 days ago 2:20 PM",
-    sender: "Taylor"
-  }, {
-    id: 8,
-    type: "sent",
-    content: "that's solid! but imagine scaling that to 30-40k without changing your content style. the difference is platform expansion + our ad systems.",
-    timestamp: "3 days ago 2:25 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 9,
-    type: "received",
-    content: "how much do u take tho",
-    timestamp: "3 days ago 4:45 PM",
-    sender: "Taylor"
-  }, {
-    id: 10,
-    type: "sent",
-    content: "we'll cover that on the call, it's way easier to explain live.",
-    timestamp: "3 days ago 4:50 PM",
-    sender: "Creators Inc"
-  }],
-  21: [
-  // Ines - Booked Call
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Ines, there's something important you need to know immediately.",
+    content: "Hi Ana! Eco Essentials' sustainability mission is incredible - really resonates with what consumers want today. We help sustainable brands like yours scale through authentic social media campaigns that align with your values. Are you currently running any social advertising?",
     timestamp: "5 days ago 1:20 PM",
-    sender: "Creators Inc"
+    sender: "You"
   }, {
     id: 2,
     type: "received",
-    content: "hey what's important?",
+    content: "Thank you! We're passionate about our mission. We do some organic social but haven't had much success with paid ads. Most agencies don't really understand the sustainable products space. What's your experience with eco-conscious brands?",
     timestamp: "5 days ago 4:30 PM",
-    sender: "Ines"
+    sender: "Ana Sofia Gutierrez"
   }, {
     id: 3,
     type: "sent",
-    content: "thanks for getting back to me 🫶 first off, you look amazing! here's the thing, you've been killing it on IG, but you're sleeping on at least 35–40k monthly by not using Reddit, Tumblr & Discord. have you ever considered having management for your OnlyFans?",
+    content: "You're absolutely right - most agencies treat sustainable brands like any other product. We specialize in purpose-driven marketing and have helped 12+ eco brands this year. One client (similar to Eco Essentials) increased revenue 300% while maintaining authentic messaging.",
     timestamp: "4 days ago 9:45 AM",
-    sender: "Creators Inc"
+    sender: "You"
   }, {
     id: 4,
     type: "received",
-    content: "yeah actually that sounds interesting",
+    content: "That sounds exactly like what we need! We want to grow but not compromise our values or messaging. Can you tell me more about your approach?",
     timestamp: "4 days ago 2:15 PM",
-    sender: "Ines"
+    sender: "Ana Sofia Gutierrez"
   }, {
     id: 5,
     type: "sent",
-    content: "File sent ✅",
-    timestamp: "4 days ago 2:20 PM",
-    sender: "Creators Inc"
+    content: "Absolutely! Our approach focuses on storytelling that highlights environmental impact while driving conversions. We create content that educates and inspires action. Would you like to hop on a quick call so I can show you some campaign examples?",
+    timestamp: "4 days ago 3:00 PM",
+    sender: "You"
   }, {
     id: 6,
     type: "received",
-    content: "damn ok this looks legit",
-    timestamp: "4 days ago 3:00 PM",
-    sender: "Ines"
+    content: "Definitely interested! When can we chat?",
+    timestamp: "3 days ago",
+    sender: "Ana Sofia Gutierrez"
   }, {
     id: 7,
     type: "sent",
-    content: "so if there's interest, I can walk you through exactly how it works on a quick call.",
-    timestamp: "4 days ago 3:15 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 8,
-    type: "received",
-    content: "ok sure sounds good",
-    timestamp: "Today 4:30 PM",
-    sender: "Ines"
-  }, {
-    id: 9,
-    type: "sent",
-    content: "Perfect, here's my calendar → https://calendly.com/creatorsinc/de9…",
-    timestamp: "Today 4:31 PM",
-    sender: "Creators Inc"
-  }],
-  22: [
-  // Kiana - Follow up (no reply)
-  {
-    id: 1,
-    type: "sent",
-    content: "Hi Kiana, there's something important you need to know immediately.",
-    timestamp: "2 weeks ago 2:30 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 2,
-    type: "sent",
-    content: "just checking in 🫡",
-    timestamp: "1 week ago 2:30 PM",
-    sender: "Creators Inc"
-  }, {
-    id: 3,
-    type: "sent",
-    content: "A simple yay or nay will do the work!",
-    timestamp: "1 day ago",
-    sender: "Creators Inc"
+    content: "Fantastic! How about Thursday at 3pm? I'll send you a Zoom link and prepare some specific examples for sustainable brands like yours.",
+    timestamp: "3 days ago",
+    sender: "You"
   }]
 };
 
-// Default to Victoria's conversation
+// Default to Sarah Chen's conversation
 const messages = conversationMessages[1] || [];
-
 const folders = [{
   name: "All",
   count: 247,
@@ -1909,16 +470,13 @@ const folders = [{
   count: 189,
   active: false
 }];
-
 export default function Messages() {
   const [selectedConversation, setSelectedConversation] = useState(conversations[0]);
   const [messageText, setMessageText] = useState("");
 
   // Get messages for selected conversation
   const currentMessages = conversationMessages[selectedConversation?.id] || [];
-
-  return (
-    <div className="p-6">
+  return <div className="p-6">
       <div className="h-[calc(100vh-8rem)] flex gap-6">
         {/* Left Sidebar - Folders */}
         <Card className="w-64 bg-gradient-card border-border shadow-card">
@@ -1926,19 +484,12 @@ export default function Messages() {
             <CardTitle className="text-lg text-white">Messages</CardTitle>
           </CardHeader>
           <CardContent className="space-y-1">
-            {folders.map((folder) => (
-              <Button
-                key={folder.name}
-                variant={folder.active ? "default" : "ghost"}
-                className="w-full justify-between text-white"
-                size="sm"
-              >
+            {folders.map(folder => <Button key={folder.name} variant={folder.active ? "default" : "ghost"} className="w-full justify-between text-white" size="sm">
                 <span className="text-white">{folder.name}</span>
                 <Badge variant="outline" className="text-xs text-white">
                   {folder.count}
                 </Badge>
-              </Button>
-            ))}
+              </Button>)}
             
             <Separator className="my-4" />
             
@@ -1969,18 +520,11 @@ export default function Messages() {
               </Button>
             </div>
           </CardHeader>
-          <CardContent className="p-0 flex flex-col h-[calc(100vh-12rem)]">
-            <div className="flex-1 overflow-y-auto">
-              {conversations.map((conversation) => (
-                <div 
-                  key={conversation.id} 
-                  className={`p-4 border-b border-border cursor-pointer hover:bg-muted/50 transition-colors min-h-fit ${
-                    selectedConversation?.id === conversation.id ? "bg-primary/10 border-r-2 border-r-primary" : ""
-                  }`} 
-                  onClick={() => setSelectedConversation(conversation)}
-                >
-                  <div className="flex items-start gap-3 h-auto">
-                    <Avatar className="h-10 w-10 flex-shrink-0">
+          <CardContent className="p-0">
+            <div className="space-y-0">
+              {conversations.map(conversation => <div key={conversation.id} className={`p-4 border-b border-border cursor-pointer hover:bg-muted/50 transition-colors ${selectedConversation?.id === conversation.id ? "bg-primary/10 border-r-2 border-r-primary" : ""}`} onClick={() => setSelectedConversation(conversation)}>
+                  <div className="flex items-start gap-3">
+                    <Avatar className="h-10 w-10">
                       <AvatarImage src={conversation.avatar} />
                       <AvatarFallback>
                         {conversation.contact.split(' ').map(n => n[0]).join('')}
@@ -1991,17 +535,17 @@ export default function Messages() {
                         <div className="font-medium text-sm truncate text-white">
                           {conversation.contact}
                         </div>
-                        <div className="text-xs text-white flex-shrink-0 ml-2">
+                        <div className="text-xs text-white">
                           {conversation.timestamp}
                         </div>
                       </div>
                       <div className="text-xs text-white mb-1">
-                        {conversation.role}
+                        {conversation.handle}
                       </div>
-                      <div className="text-sm text-white truncate mb-3">
+                      <div className="text-sm text-white truncate mb-2">
                         {conversation.lastMessage}
                       </div>
-                      <div className="flex items-center gap-2 pb-1">
+                      <div className="flex items-center gap-2">
                         <Badge variant="outline" className="text-xs text-white">
                           {conversation.campaign}
                         </Badge>
@@ -2010,8 +554,7 @@ export default function Messages() {
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </CardContent>
         </Card>
@@ -2032,7 +575,7 @@ export default function Messages() {
                   <div>
                     <div className="font-medium text-white">{selectedConversation?.contact}</div>
                     <div className="text-sm text-white">
-                      {selectedConversation?.role} • Online 5 min ago
+                      {selectedConversation?.handle} • Online 5 min ago
                     </div>
                   </div>
                 </div>
@@ -2068,10 +611,10 @@ export default function Messages() {
           </Card>
 
           {/* Messages */}
-          <Card className="flex-1 bg-gradient-card border-border shadow-card mb-4 flex flex-col min-h-0">
-            <CardContent className="p-6 flex flex-col h-full min-h-0">
-              <div className="flex-1 overflow-y-auto pr-2 space-y-4 max-h-[calc(100vh-32rem)]">
-                {currentMessages.map((message) => (
+          <Card className="flex-1 bg-gradient-card border-border shadow-card mb-4">
+            <CardContent className="p-6 flex flex-col h-full">
+              <div className="flex-1 space-y-4 overflow-y-auto">
+                {currentMessages.map(message => 
                   <div key={message.id} className={`flex ${message.type === "sent" ? "justify-end" : "justify-start"}`}>
                     <div className={`max-w-[80%] rounded-lg p-3 ${
                       message.type === "sent" 
@@ -2090,7 +633,22 @@ export default function Messages() {
                       </div>
                     </div>
                   </div>
-                ))}
+                )}
+                
+                {/* Typing Indicator */}
+                <div className="flex justify-start">
+                  <div className="bg-white border border-border rounded-lg p-3 max-w-20">
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 bg-black/60 rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-black/60 rounded-full animate-bounce" style={{
+                      animationDelay: "0.1s"
+                    }}></div>
+                      <div className="w-2 h-2 bg-black/60 rounded-full animate-bounce" style={{
+                      animationDelay: "0.2s"
+                    }}></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -2133,12 +691,7 @@ export default function Messages() {
                 </div>
                 
                 <div className="relative">
-                  <Textarea 
-                    placeholder="Type your message..." 
-                    value={messageText}
-                    onChange={(e) => setMessageText(e.target.value)}
-                    className="min-h-20 pr-20 resize-none bg-muted text-foreground placeholder:text-muted-foreground border-border focus:border-primary"
-                  />
+                  <Textarea placeholder="Type your message..." value={messageText} onChange={e => setMessageText(e.target.value)} className="min-h-20 pr-20 resize-none bg-muted text-foreground placeholder:text-muted-foreground border-border focus:border-primary" />
                   <div className="absolute bottom-3 right-3 flex gap-1">
                     <Button variant="ghost" size="sm">
                       <Paperclip className="h-4 w-4" />
@@ -2146,21 +699,28 @@ export default function Messages() {
                     <Button variant="ghost" size="sm">
                       <Smile className="h-4 w-4" />
                     </Button>
-                    <Button size="sm" className="gap-2">
-                      <Send className="h-4 w-4" />
-                      Send
-                    </Button>
                   </div>
                 </div>
-
-                <div className="flex items-center gap-2 text-xs text-white/60">
-                  <span>Press Enter to send, Shift+Enter for new line</span>
+                
+                <div className="flex justify-between items-center">
+                  <div className="flex gap-2">
+                    <Button variant="outline" size="sm" className="gap-2">
+                      <Clock className="h-4 w-4" />
+                      Send Later
+                    </Button>
+                    <Button variant="outline" size="sm">
+                      Internal Note
+                    </Button>
+                  </div>
+                  <Button className="gap-2 bg-primary hover:bg-primary/90">
+                    <Send className="h-4 w-4" />
+                    Send Message
+                  </Button>
                 </div>
               </div>
             </CardContent>
           </Card>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }
