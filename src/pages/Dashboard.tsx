@@ -8,7 +8,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 // Sample data
 const topCards = [{
   title: "Messages Sent",
-  value: "12,847",
+  value: "4,037",
   change: "+12%",
   icon: Send,
   color: "text-blue-400"
@@ -19,17 +19,11 @@ const topCards = [{
   icon: TrendingUp,
   color: "text-green-400"
 }, {
-  title: "Booked Calls",
-  value: "156",
+  title: "Conversions",
+  value: "20",
   change: "+18%",
   icon: Phone,
   color: "text-purple-400"
-}, {
-  title: "Revenue",
-  value: "$48,290",
-  change: "+22%",
-  icon: DollarSign,
-  color: "text-yellow-400"
 }];
 const recentActivity = [{
   type: "lead",
@@ -37,20 +31,20 @@ const recentActivity = [{
   time: "2 min ago",
   icon: Users
 }, {
-  type: "message",
-  message: "Reply received from @sarah_johnson",
-  time: "5 min ago",
+  type: "reply",
+  message: "Reply received",
+  time: "15 min ago",
   icon: MessageSquare
 }, {
-  type: "call",
-  message: "Call booked for tomorrow 2:00 PM",
-  time: "12 min ago",
-  icon: Calendar
+  type: "conversion",
+  message: "Lead converted",
+  time: "32 min ago",
+  icon: Phone
 }, {
-  type: "block",
-  message: "Account @marketing_pro detected as limited",
-  time: "18 min ago",
-  icon: Shield
+  type: "closed",
+  message: "Conversation closed",
+  time: "1 hour ago",
+  icon: Calendar
 }];
 const quickActions = [{
   title: "Create Campaign",
@@ -71,39 +65,32 @@ const quickActions = [{
 }];
 const chartData = [{
   name: "Mon",
-  messages: 1200,
-  conversations: 45,
-  calls: 8
+  messages: 680,
+  conversations: 167
 }, {
   name: "Tue",
-  messages: 1800,
-  conversations: 67,
-  calls: 12
+  messages: 720,
+  conversations: 176
 }, {
   name: "Wed",
-  messages: 1400,
-  conversations: 52,
-  calls: 9
+  messages: 750,
+  conversations: 184
 }, {
   name: "Thu",
-  messages: 2200,
-  conversations: 89,
-  calls: 18
+  messages: 690,
+  conversations: 169
 }, {
   name: "Fri",
-  messages: 1900,
-  conversations: 71,
-  calls: 14
+  messages: 620,
+  conversations: 152
 }, {
   name: "Sat",
-  messages: 800,
-  conversations: 28,
-  calls: 5
+  messages: 320,
+  conversations: 78
 }, {
   name: "Sun",
-  messages: 600,
-  conversations: 19,
-  calls: 3
+  messages: 257,
+  conversations: 63
 }];
 export default function Dashboard() {
   return <div className="p-6 space-y-6">
@@ -122,7 +109,7 @@ export default function Dashboard() {
       </div>
 
       {/* Top Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {topCards.map(card => <Card key={card.title} className="bg-gradient-card border-border shadow-card hover:shadow-glow transition-all">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-white/80">
