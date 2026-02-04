@@ -60,7 +60,7 @@ export function AppLayout({
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" size="sm" className="gap-2 text-white">
                       <User className="h-4 w-4" />
-                      <span className="hidden md:inline">John Doe</span>
+                      <span className="hidden md:inline">kachingappz</span>
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-56 bg-popover border-border text-popover-foreground">
