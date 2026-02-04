@@ -65,32 +65,20 @@ const quickActions = [{
 }];
 const chartData = [{
   name: "Mon",
-  messages: 680,
-  conversations: 167
+  messages: 987,
+  conversations: 195
 }, {
   name: "Tue",
-  messages: 720,
-  conversations: 176
+  messages: 1042,
+  conversations: 218
 }, {
   name: "Wed",
-  messages: 750,
-  conversations: 184
+  messages: 1103,
+  conversations: 231
 }, {
   name: "Thu",
-  messages: 690,
-  conversations: 169
-}, {
-  name: "Fri",
-  messages: 620,
-  conversations: 152
-}, {
-  name: "Sat",
-  messages: 320,
-  conversations: 78
-}, {
-  name: "Sun",
-  messages: 257,
-  conversations: 63
+  messages: 905,
+  conversations: 186
 }];
 export default function Dashboard() {
   return <div className="p-6 space-y-6">
